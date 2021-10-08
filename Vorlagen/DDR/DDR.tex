@@ -1,0 +1,1163 @@
+\documentclass[a4paper,abstracton]{article}	                       %How the paper looks
+\usepackage[utf8]{inputenc}					%Accept different language input encodings
+\usepackage{tabularx}						%Tabular package
+\usepackage{textcomp}						%Compares texts
+\usepackage[version=4]{mhchem}				%Sets chemical formulas etc.
+\usepackage{graphicx}						%For pictures
+\usepackage{epstopdf}						%Turns eps files to pdf
+\usepackage{textgreek}						%Greek letters
+\usepackage{caption}						%To customize caption
+\usepackage{subcaption}						%and subcaptions
+%\usepackage{subfloat}						%and subfloat?
+\usepackage{fancyhdr}						%Customize headnotes
+\usepackage{amsmath}						%Mathformulas
+\usepackage{gensymb}						%\degree  \celsius, \perthousand, \micro and \ohm
+\usepackage{float}							%Improves the interface for defining floating objects 
+\usepackage{pdfpages}						%Makes 
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{groupplots}
+
+\usepackage{geometry}
+\usepackage{titlesec}
+ \geometry{
+ a4paper,
+ total={170mm,247mm},						%The "inside" of the page(without margins)
+ bottom=20mm,							%Bottom margin
+ right=20mm,								%Right margin
+ left=20mm,								%Left margin
+ top=30mm,								%Top margin
+ }										%Customize page layout, implementing auto-centering
+\usepackage{listings}						%Language
+\usepackage{textcomp}						%Symbols
+\usepackage{ghsystem}						%GHS 		
+\usepackage[singlespacing]{setspace}	
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{balance}
+\usepackage{array} 
+\usepackage{filecontents}
+\usepackage{wrapfig,}
+\usepackage{xcolor}
+\definecolor{darkgreen}{rgb}{0.0, 0.2, 0.13}
+\definecolor{mauve}{rgb}{0.88, 0.69, 1.0}
+\definecolor{applegreen}{rgb}{0.55, 0.71, 0.0}
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+\usepackage{makecell}
+\usepackage[utf8]{inputenc}
+%\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+
+%This part is dedicated to breaking URL's
+\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{breaklinks=true}
+\def\UrlBreaks{\do\/\do-}
+\urlstyle{same}
+\UseRawInputEncoding %Be careful here
+
+%This part is dedicated to citations using the achemso package
+\usepackage{fixltx2e}
+\usepackage{lmodern}
+\usepackage{booktabs}
+%\usepackage{hypdoc} 
+%\usepackage{mathpazo} 
+\usepackage{microtype}
+%\usepackage{achemso} 
+%\setkeys{acs}{usetitle = true}
+\usepackage{mhchem}
+
+%This part is dedicated to citations using biblatex to change to: chem-angew and chem-acs
+\usepackage{csquotes}
+\usepackage[backend=bibtex,
+style=chem-angew, 
+%nosorting=none, 
+%sorticities=true,
+url=true,
+giveninits=true,
+maxcitenames = 1, 
+]{biblatex}
+%\DeclareNameAlias{author}{last-first}			%Author surname-name
+%\DeclareNameAlias{editor}{last-first}			%Editor surname-name
+%\DeclareNameAlias{translator}{last-first}		%Translator surname - name
+\renewbibmacro{in:}{}					%Supressing "in"
+
+
+%This part is dedicated to make et al in italics
+\newcommand*{\mkandothers}{\mkbibemph}
+\renewbibmacro*{name:andothers}{%
+  \ifboolexpr{
+    test {\ifnumequal{\value{listcount}}{\value{liststop}}}
+    and
+    test \ifmorenames
+  }
+    {\ifnumgreater{\value{liststop}}{1}
+       {\finalandcomma}
+       {}%
+     \andothersdelim\bibstring[\mkandothers]{andothers}}
+    {}}
+
+\renewcommand{\cite}{\supercite}						%change cite to supercite
+
+
+
+%\let\mkbibsuperbracket\mkbibsuperscript				%Easier way to change to no brackets
+\DeclareCiteCommand{\supercite}[\mkbibsuperscript]		% Change here
+  {\usebibmacro{cite:init}
+   \let\multicitedelim=\supercitedelim
+   \iffieldundef{prenote}
+     {}
+     {\BibliographyWarning{Ignoring prenote argument}}%
+   \iffieldundef{postnote}
+     {}
+     {\BibliographyWarning{Ignoring postnote argument}}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite:comp}}
+  {}
+  {\usebibmacro{cite:dump}}							%No brackets in chem-angew
+
+
+%\renewcommand{\cellalign/theadalign}{vh}
+\newcommand*\wildcard[2][5cm]{\vspace*{0cm}\parbox{#1}{\hrulefill\par#2}} %For multiple signatures
+
+%This part is dedicated to  multicol
+%\setlength{\columnsep}{<width>}
+%\multicoltolerance = 9999 								%Default = 9999
+%\raggedcolumns										%So that the bottom doesn't align
+
+
+\titleformat{\section}										%Section formating
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+  
+\titleformat{\subsection}										
+  {\normalfont\large\bfseries}{\thesection}{1em}{}[{\titlerule[0.6pt]}]
+    
+\titleformat{\subsubsection}										
+  {\normalfont\normalsize\bfseries}{\thesection}{1em}{}[{\titlerule[0.4pt]}]
+  
+  
+%This part is dedicated to the bib file
+\begin{filecontents}{OSP.bib}
+
+%Papers/Journals
+@article{enthalpieT,
+  title={Enthalpy of vaporization, its temperature dependence and correlation with surface tension: a theoretical approach},
+  author={Alibakhshi, Amin},
+  journal={Fluid Phase Equilibria},
+  volume={432},
+  pages={62--69},
+  year={2017},
+  publisher={Elsevier}
+}
+@article{bp,
+  title={Quantitative structure-property relationships for prediction of boiling point, vapor pressure, and melting point},
+  author={Dearden, John C},
+  journal={Environmental Toxicology and Chemistry: An International Journal},
+  volume={22},
+  number={8},
+  pages={1696--1709},
+  year={2003},
+  publisher={Wiley Online Library}
+}
+
+
+
+
+%Books
+@book{Book_Name,
+ place={}, 
+ title={},
+  publisher={}, 
+  author={},
+  chapter = {},
+  pages = {},
+   year={}
+   }
+  
+
+@book{meister,
+  title={Grundpraktikum Physikalische Chemie: Theorie und Experimente},
+  author={Meister, Erich},
+  year={Version 17. Februar 2021},
+  publisher={prov. 3.Aufl.,vdf Hochschulverlag AG an der ETH Zuerich}
+}   
+
+@book{reference,
+  title={Properties of gases and liquids},
+  author={Poling, Bruce E and Prausnitz, John M and O’connell, John P},
+  year={2001},
+  publisher={McGraw-Hill Education}
+}  
+
+@book{FTIR,
+  title={Green synthesis, characterization and applications of nanoparticles},
+  author={Shukla, Ashutosh Kumar and Iravani, Siavash},
+  chapter = {12},
+  pages = {303-319},
+  year={2018},
+  publisher={Elsevier}
+}
+
+% websites
+@online{nhexane,
+  author = {},
+  title = {nhexane},
+  year = {},
+  url = {https://www.sigmaaldrich.com/catalog/product/mm/104391?lang=en&region=GB},
+  urldate = {2021-05-27}
+}
+@online{methanol,
+  author = {},
+  title = {methanol},
+  year = {},
+  url = {https://www.sigmaaldrich.com/catalog/product/mm/106009?lang=en&region=GB},
+  urldate = {2021-05-27}
+}
+@online{ethanol,
+  author = {},
+  title = {ethanol},
+  year = {},
+  url = {https://www.sigmaaldrich.com/catalog/product/mm/100983?lang=en&region=GB&gclid=CjwKCAjwqcKFBhAhEiwAfEr7zWpGSQrSt92RQ4nciBtxosH0CKxcwSZkxbZxyq86p3Zo6e3xtN2o4RoCLkAQAvD_BwE},
+  urldate = {2021-05-28}
+}
+@online{buyancy,
+  author = {},
+  title = {},
+  year = {},
+  url = {https://chem.libretexts.org/Ancillary_Materials/Reference/Reference_Tables/Analytic_References/Appendix_093A_Correcting_Mass_for_the_Buoyancy_of_Air},
+  urldate = {2021-05-28}
+}
+@online{def,
+  author = {Encyclopædia Britannica},
+  title = {Vapour pressure},
+  year = {2021},
+  url = {https://www.britannica.com/science/vapor-pressure},
+  urldate = {2021-06-01}
+}
+
+
+
+
+
+\end{filecontents}
+\addbibresource{OSP.bib}
+
+
+\setlength\parindent{0pt}
+
+\lstset{%
+  language=R,                     % the language of the code
+  basicstyle=\scriptsize,       % the size of the fonts that are used for the code
+  numbers=left,                   % where to put the line-numbers
+  numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line
+                                  % will be numbered
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=single,                   % adds a frame around the code
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  title=\lstname,                 % show the filename of files included with \lstinputlisting;
+                                  % also try caption instead of title
+  keywordstyle=\color{blue},      % keyword style
+  commentstyle=\color{ao(english)},   % comment style
+  stringstyle=\color{mauve},      % string literal style
+  escapeinside={\%*}{*)},         % if you want to add a comment within your code
+  morekeywords={*,...}            % if you want to add more keywords to the set
+}
+
+\graphicspath{ {"../Bilder/"} }
+
+\newcommand{\headerline}[4]{%
+\par\medskip\noindent
+\makebox[200pt][l]{#1}%
+\makebox[115pt][c]{#2}%
+\makebox[115pt][r]{#3}\par\medskip}
+
+\begin{document}
+
+%No pagebreak after titlepage
+%\let\endtitlepage\relax
+
+\begin{titlepage}
+\thispagestyle{fancy} 
+\renewcommand{\headrulewidth}{0.5pt}
+\lhead{PCP: Experiment DDR}  
+\chead{ETH Z\"urich}
+\rhead{Spring Semester 2021} 
+
+
+	\begin{center}
+ 	\huge \textbf{Vapour pressure and transient evaporation cooling curves used for the determination of enthalpy and entropy of vaporisation and the normal boiling temperature of verified substances ethanol and n-hexane}
+ 	\vskip 1cm
+	\end{center}
+	
+\begin{minipage}[t]{.49\linewidth}
+\begin{center}
+\large {Elin Sebesta} \\
+\large {esebesta@student.ethz.ch}\\
+\end{center}
+\end{minipage}
+\begin{minipage}[t]{.49\linewidth}
+\begin{center}
+\large Assistant: Matthias B\"utikofer\\
+\large matthias.buetikofer@phys.chem.ethz.ch
+\end{center}
+\end{minipage}
+
+\vskip 1 cm
+
+ % \rule{\linewidth}{1pt}
+ \subsection*{Abstract}
+In the following experiments the vapour pressure and the transient evaporation cooling curve from n-hexane and ethanol were analyzed. The identity of the used substances were verified by the determination of the refractive index and the density. The refractive index of n-hexane was determined as 1.37516 $\pm$ 0.00005 and for ethanol as 1.36125 $\pm$ 0.00004 using a refractometer. The density by weighing resulted in 0.6576 $\pm$ 0.0006 \si{\gram\per\cubic\centi\metre} for n-hexane and in 0.785 $\pm$ 0.002 \si{\gram\per\cubic\centi\metre} for ethanol. Using a density meter the density of n-hexane was determined as 0.6594 $\pm$ 0.0006 \si{\gram\per\cubic\centi\metre} and as 0.7892 $\pm$ 0.0002 \si{\gram\per\cubic\centi\metre} for ethanol. For n-hexane $\Delta_{\textit{v}}$H (enthalpy of vaporisation) = 30866.9 $\pm$ 236.4 \si{\joule\per\mol}, T$_{0}$ (normal boiling temperature) = 342.30 $\pm$ 0.12 K and $\Delta_{\textit{v}}$S (entropy of vaporisation) = 91.3 $\pm$ 1.4 \si{\joule\per\mol\per\kelvin} was calculated by using measurement data from a vapour pressure machinery. The values for ethanol resulted in  $\Delta_{\textit{v}}$H = 41216 $\pm$ 423 \si{\joule\per\mol}, T_{0} = 351.87 $\pm$ 0.13 K and $\Delta_{\textit{v}}$S = 118.1 $\pm$ 1.3.  \si{\joule\per\mol\per\kelvin}. Additionally the substance parameters of the Antoine-Equation were determined as A = 6.41 $\pm$ 0.18, B = 861.07 $\pm$ 88.19 C$^{\circ}$, C =  183.3 $\pm$ 10.4 C$^{\circ}$ for n-hexane and as  A = 7.69, B = 1268.84 C$^{\circ}$, C = 192 C$^{\circ}$. Measurement data 
+obtained from a TREVAC apparatus provided additionally values for the enthaply of vaporisation, which resulted in $\Delta_{\textit{v}}$H = 30.2 $\pm$ 3.8 \si{\kilo\joule\per\mol} for n-hexane and in $\Delta_{\textit{v}}$H = 35.2 $\pm$ 4.6 \si{\kilo\joule\per\mol} for ethanol.
+% \rule{\linewidth}{1pt}
+
+\vfill
+	
+	
+Z\"urich,  \today
+\hspace{\fill}
+\begingroup
+  \wildcard{Elin Sebesta}
+\endgroup
+
+
+\end{titlepage}
+
+
+
+\pagestyle{fancy} \renewcommand{\headrulewidth}{0.5pt}
+\lhead{PCP: Experiment DDR}  
+\chead{ETH Z\"urich}
+\rhead{Spring Semester 2021} 
+
+
+
+\section*{Introduction}
+Vapour pressure is generated by a vapour, which is in equilibrium with the liquid and solid form of the same substance. It is a measure of the tendency of a substance to transition into the gaseous state\cite{def}. With increasing temperature the vapour pressure increases differently, depending on the pyhsicochemical properties of a substance, which makes the vapour pressure an important substance property. Another important substance property is the normal boiling point, which is the temperature at which vapour pressure equals atmospheric pressure\cite{bp}. 
+\singlespacing
+For the experiments the used substances were verified by the determination of the refractive index and the density.
+For the density determination by weighing the substance and dividing it through the volume a buoyancy correction must be taken into account. The following formula represents the buoyancy correction equation\cite{buyancy}.
+
+\begin{equation}\label{eq:buoyancy}
+   {m_{\textit{corr}}} = m_{\textit{w}} \cdot (1 + (\frac{1}{\rho} - \frac{1}{8.40  \si{\gram\per\cubic\centi\metre}}) \cdot 0.0012  \si{\gram\per\cubic\centi\metre}
+\end{equation}
+
+8.40 \si{\gram\per\cubic\centi\metre} stands for the density of the calibration weight, 0.0012 \si{\gram\per\cubic\centi\metre} for the density of air under normal laboratory conditions and $\rho$ for the density of the substance to be analyzed. \textit{m$_{\textit{w}}$} is the mass of the substance, which was actually measured on the scale. 
+\singlespacing
+The vapour pressure experiment had the aim to determine the enthalpy and entropy of vaporisation by measuring boiling points at different pressures. In order to be able to better classify the value obtained for the enthalpy of vaporisation, the value was also determined by means of the evaporation coldness. 
+\singlespacing
+The vapour pressure curve, which illustrates the temperature dependence of the vapour pressure, can be described by the Clausius-Clapeyron-Equation:
+
+\begin{equation}\label{eq:claus1}
+   {p_{\textit{A}}(T)} = p_{\textit{A}}(T_{0}) \cdot \exp(\frac{\Delta_{\textit{v}}H_{A}}{R \cdot T_{0}}) \cdot \exp(\frac{-\Delta_{\textit{v}}H_{A}}{R \cdot T}),
+\end{equation}
+
+where p$_{\textit{A}}(T_{0})$ = 1013.25 mbar (atmospheric pressure), R = 8.1344698 \si{\joule\per\mol\per\kelvin}, T$_{0}$ = the normal boiling temperature and T and $\rho_{\textit{A}}$ are the respective values of temperature and vapour pressure. The Clausius-Clapeyron-Equation can be converted in a linear context to
+
+\begin{equation}\label{eq:claus2}
+   {ln\frac{p_{\textit{A}}(T)}{p_{\textit{A}}(T_{0})}} = \frac{\Delta_{\textit{v}}H_{A}}{R} \cdot (\frac{1}{T_{0}} - \frac{1}{T}).
+\end{equation}
+
+By knowing the $\Delta_{\textit{v}}$H$_{\textit{A}}$ and $T_{0}$ value the entropy of vaporisation ($\Delta_{\textit{v}}$S$_{\textit{A}}$) can be calculated using Eq.\ref{eq:entropy}.
+
+\begin{equation}\label{eq:entropy}
+   {\Delta_{\textit{v}}S_{\textit{A}}(T_{\textit{b}})} = \frac{\Delta_{\textit{v}}H_{\textit{A}}(T_{\textit{b}})}{T_{\textit{b}}}
+\end{equation}
+
+For the description of the vapour pressure curve in addition to Clausius' model, there is also one by Antoine, which derived from the Clausius-Clapeyron-Equation. Antoine's equation is
+
+\begin{equation}\label{eq:antoine}
+   {\log_{10}(\frac{p_{\textit{A}}}{p_{\textit{0}}})} = A - \frac{B}{\theta + C},
+\end{equation}
+
+where $\rho_{0}$ is 1 mbar and $\theta$ in C$^{\circ}$ the boiling temperature at pressure $\rho_{\textit{A}}$. A, B and C stand for substance specific parameters. 
+
+When a substance changes from the liquid to the gaseous state below the boiling temperature, it is called evaporation. The energy source for the evaporation originates primarily from the liquid itself, leading to a decrease of the liquid temperature, which is called evaporative cooling\cite{meister}. By measuring the evaporative cooling the enthalpy of vaporisation can be calculated using Eq.\ref{eq:TREVAC}.
+
+\begin{equation}\label{eq:TREVAC}
+   {\Delta_{\textit{v}}H_{\textit{L}}} = \Delta_{\textit{v}}H_{\textit{ref}} \cdot  \frac{\rho_{\textit{ref}} \cdot M_{\textit{L}} \cdot A_{\textit{L}}}{\rho_{\textit{L}}\cdot M_{\textit{ref}} \cdot A_{\textit{ref}}}
+\end{equation}
+
+M stands for the molar mass, $\rho$ for the density and A represents the measured peak area. The index \textit{L} refers to the substance to be analyzed and \textit{ref} to the reference substance.
+\clearpage
+
+\section*{Experimental}
+\subsection*{Chemicals}
+For the experiments n-hexane, $ M_{\ce{C6H14}}= 86.18$ \si{\g}\si{\mol}$^{-1}$\cite{nhexane}, for liquid chromatography and ethanol, $ M_{\ce{CH3CH2OH }}= 46.07$ \si{\g}\si{\mol}$^{-1}$\cite{ethanol}, PH EUR, absolute for analysis, both provided from Merck KGaA were used. Methanol, $ M_{\ce{CH3OH}}= 32.04 $ \si{\g}\si{\mol}$^{-1}$\cite{methanol}, PH EUR, for analysis from Merck KGaA was used as a reference substance for the transient evaporation cooling experiments. 
+
+\subsection*{Sample preparation}
+No special sample preparation was carried out. The samples were simply filled into their containers. 
+
+\subsection*{Measurements}
+For the verification of the samples ethanol and n-hexane their refractive index was measured using a refractometer (ATAGO RX-500) at a temperature of 19.8 C$^{\circ}$. The unladen weight of a 25 mL flask was weighted and noted. By using a pipette 25 mL of each substance was filled into the flask and then weighted. The used scale was from METTLER TOLEDO (XA204 Delta Range). The weighted masses were further used for the determination of the density. The density was also measured by using a density meter (PAAR, DMA 48) at a temperature of 20 C$^{\circ}$. 
+\\
+The measurement apparatus for the vapour pressure experiments can be seen in Fig.\ref{fig:Skizze1}. Before the measurements, it was checked whether the apparatus is tight. Therefore the pressure was set to 300 mbar and no leakage showed up. Ethanol respectively n-hexane was filled together with some boiling chips into a 25 mL two neck flask. The heating cover (WINKLER WHLG2 PILZ LG2) enveloped the flask and was connected to a heater (WINKLER WL10), which was put on stage 2. The flask was connected with a dimroth cooler and an electrical thermometer (GREISINGER GMH 3210) via a temperature sensor (GREISINGER GTF 300 Ni-NiCr-thermoelement). The measurement apparatus was put under vacuum by a vacuum pump from B\"UCHI and connected to a safety tank, as well as a manometer. The measurements started at approximately 100 mbar and from there the pressure was increased in 50 mbar steps until 950 mbar. From 950 mbar the pressure was decreased in 50 mbar steps until 350 mbar. In total, the pressure and the associated boiling temperature were written down 30 times for n-hexane and 31 times for ethanol. The procedure for ethanol and n-hexane was the same.   
+
+\begin{figure}[H]
+\centering
+ \includegraphics[scale = 0.8]{skizze1DDR.eps}
+\caption{\label{fig:Skizze1}A schematic scheme of the used vapour pressure machinery. Details are described in the text.} 
+\end{figure}
+
+For the determination of the enthalpy of vaporisation out of transient evaporation cooling curves a TREVAC apparatus was used. The apparatus consists of four separate measuring cells, the schematic scheme of one measuring cell is depicted in Fig.\ref{fig:Skizze2}. Each measuring cell contains a highly sensitive temperature sensor (Semiconductor resistor NATIONAL LM 35). The inert \ce{N2} gas flows continuously over the temperature sensor and forces the evaporation rate of the analyzing liquid. The temperature in the block is kept at a constant 34.59 C$^{\circ}$ by circulating water (from a LAUDA Ecoline 103 thermostat). The \ce{N2} gas has also the temperature  34.59 C$^{\circ}$. The cells are connected to the software temperature logger (V21.7), which graphically displays the measured temperatures at a certain time interval. 
+
+\\
+
+5 $\mu$l of ethanol respectively n-hexane was injected into the measuring cell with a precision syringe (HAMILTON 801 RN). The measuring was stopped as soon as three meaningful peaks have been generated for each substance. The same procedure was done for the reference substance methanol. 
+
+\begin{figure}[H]
+\begin{minipage}[c]{0.55\textwidth}
+\centering
+ \includegraphics[scale=0.9] {skizze2DDR.eps}
+ \end{minipage}\hfill
+\begin{minipage}[c]{0.4\textwidth}
+\caption{\label{fig:Skizze2} The schematic scheme of a measuring cell from a TREVAC apparatus. The cell contains a highly sensitive temperature sensor, which measures the transient cooling of the injected liquid. Through the flow of the inert gas the evaporation rate is accelerated. The to be analyzed liquid was injected by a precision syringe from HAMILTON.} 
+\end{minipage}
+\end{figure}
+
+
+All measurements were plotted and the results calculated with Python (Version 3.8) as can be seen in the appendix. 
+
+\newpage
+\section*{Results and Discussion}
+\subsection*{Density and refractive index determination}
+The refractive index of ethanol and n-hexane was measured using a digital refractometer. The density was once determined by a density meter and once by weighing the substances. The buyoancy correction (Eq.\ref{eq:buoyancy}) was applied on the weighted mass and then the corrected mass was divided by the volume of the substance. All the results and the corresponding literature values are listed in Tab.\ref{tab:Teil1}. 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|c|c|c|c|c}
+    substance &\thead{weighted\\ density $\rho$ [\si{\gram\per\cubic\centi\metre}]} &\thead{measured\\ density $\rho$ [\si{\gram\per\cubic\centi\metre}]} &\thead{reference \\ density $\rho$ [\si{\gram\per\cubic\centi\metre}]} & \thead{measured\\ refractive index $\eta$}& \thead{reference\\ refractive index $\eta$}\\
+    \hline
+    \thead{measuring\\ temperature [C$^{\circ}$]} & 25 & 20 & 25 & 19.8 & 20 \\
+     \hline
+    n-hexane & 0.6576 $\pm$ 0.0006 & 0.6594 $\pm$ 0.0006 & 0.659\cite{nhexane} & 1.37516 $\pm$ 0.00005 & 1.375\cite{nhexane}\\
+    ethanol & 0.785 $\pm$ 0.002 & 0.7892 $\pm$ 0.0002 & 0.789\cite{ethanol} & 1.36125 $\pm$ 0.00004 & 1.3600\cite{ethanol}\\
+\end{tabular}
+\caption{\label{tab:Teil1} From the substances used for the vapour pressure and transient cooling experiments the density was determined by weighing and by using a density meter. The refractive index was measured by a digital refractometer. All the measured values correspond with the literature value, which verifies the identity of the used substances.}
+\end{table}
+
+The calculated density and refractive index values agree with the literature values. Therefore the identity and accurate purity of n-hexane and ethanol for the further experiments can be assumed. The density determination by using a density meter was more accurate than the weighing procedure. With the weighing method, the source of error is greater than with the density meter due to the manual pipetting and the measuring inaccuracy of the scale. 
+
+\subsection*{Vapour pressure experiment}
+The obtained experimental data of the boiling temperatures and the corresponding pressures were used to determine the enthalpy of vaporisation ($\Delta_{\textit{v}}$H), the entropy of vaporisation ($\Delta_{\textit{v}}$S), the normal boiling temperature (T$_{0}$) and the parameters A, B and C of the Antoine-Equation for the substances ethanol and n-hexane. The results are listed in Tab.\ref{tab:Teil2} with their corresponding literature values. $\Delta_{\textit{v}}$H and T$_{0}$ were extracted from fits of the Clausius-Clapeyron-Equation (Eq.\ref{eq:claus1}) using the experimental determined values. For both substances the experimental determined T$_{0}$ value match with the reference value. The reference values of the enthalpy of vaporisation do not lie within the 95\% confidence interval of the calculated enthalpies. The measured $\Delta_{\textit{v}}$H is for both substance higher than the reference value. For the Clausius-Clapeyron fit it was assumed that the normal pressure was 1013.25 mbar, which probably does not correspond to the exact laboratory conditions that existed. In addition the laboratory temperature was probably under 25 C$^{\circ}$, which was assumed as standard condition for the literature values\cite{reference}. The enthalpy of vaporisation is temperature dependent\cite{enthalpieT}. The lower the temperature, the higher the enthaply of vaporisation is, which would explain the higher measured enthaply of vaporisation. The parameters A, B and C obtained from a fit of the Antoine-Equation (Eq.\ref{eq:antoine}) deviate from the literature values. Different measuring conditions compared to the reference values could be the cause, similar to the deviation of the enthalpy of vaporisation. The entropy of vaporisation was calculated from the obtained data from the Clausius-Clapeyron fit, which can be seen in Fig.\ref{fig:DDR1} and the linearized Clausius-Clapeyron fit, depicted in Fig.\ref{fig:DDR2}. The $\Delta_{\textit{v}}$S values were determined using Eq.\ref{eq:entropy} resulting in too high values for both substances. The reason for the deviations are the too high $\Delta_{\textit{v}}$H values. 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|c|c|c|c|c|c}
+    & $\Delta_{\textit{v}}$H [\si{\joule\per\mol}] & T_{0} [K] & A & B [C$^{\circ}$] & C [C$^{\circ}$] & $\Delta_{\textit{v}}$S [\si{\joule\per\mol\per\kelvin}]\\
+    \hline
+    n-hexane \\
+    \hline
+    measured & 30866.9 $\pm$ 236.4 & 342.30 $\pm$ 0.12 & 6.41 $\pm$ 0.18 & 861.07 $\pm$ 88.19 & 183.3 $\pm$ 10.4 & 91.3 $\pm$ 1.4\\
+    literature & 28850\cite{meister} & 342.15\cite{nhexane}& 7.01045\cite{meister} & 1175.817\cite{meister} & 224.867\cite{meister} & 84\cite{meister}\\
+    \hline
+    ethanol \\
+    \hline
+    measured & 41216 $\pm$ 423 & 351.87 $\pm$ 0.13 & 7.69 & 1268.84 & 192 & 118.1 $\pm$ 1.3\\
+    literature & 38560\cite{meister} & 351.39\cite{meister} & 8.23710\cite{meister} & 1592.865\cite{meister} & 226.184\cite{meister}& 110\cite{meister}\\
+    
+\end{tabular}
+\caption{\label{tab:Teil2}The normal boiling temperature and the evaporation enthalpy from ethanol and n-hexane were determined using the Clausius-Clapeyron-Equation. The parameters A, B and C were calculated with the Antoine-Equation.}
+\end{table}
+
+In Fig.\ref{fig:DDR2} the correlation between the Clausius-Clapeyron-Equation, the Antoine-Equation and the experimental data of both solvents show a nearly perfect match. The agreement affirms the correctness of the models from Antoine and Clausius-Clapeyron. The normal pressure was assumed to be 1023.25 mbar, which yields directly to the normal boiling temperature T$_{0}$. In Fig.\ref{fig:DDR2} can be shown, that with increasing pressure the temperature rises exponentially. 
+
+\begin{figure}[H]
+    \centering
+    \input{DDR2}
+    \caption{\label{fig:DDR2} The pressure in mbar was plotted against the temperature in C$^{\circ}$. The experimental data of ethanol is presented in blue circles and for n-hexane in blue squares. With the red colour the normal boiling point is depicted. The Clausius-Clapeyron fit is shown as a solid black line and the dotted pink line corresponds to the Antoine fit.The two fits show a good match of the two equations.} 
+\end{figure}
+
+
+Fig.\ref{fig:DDR1} shows a linearized representation of the measurement data according to Clausius Clapeyron's model with regression line and confidence limits. It affirms the exponential temperature dependence of the vapour pressure. Under the assumption that the enthalpy of vaporisation is temperature independent, the enthalpy of vaporisation can be calculated from the slope. The slope was multiplied by the gas constant (R = 8.1344698 \si{\joule\per\mol\per\kelvin}) resulting in a $\Delta_{\textit{v}}$H value of 31634 $\pm$ 31 \si{\joule\per\mol} for n-hexane and  41895.4 $\pm$ 42.8 \si{\joule\per\mol} for ethanol. In comparison with the literature values are both values to high, which can result from the same reasons as mentioned before for the $\Delta_{\textit{v}}$H values in Tab.\ref{tab:Teil2}. 
+
+\begin{figure}[H]
+    \centering
+    \input{DDR1}
+    \caption{\label{fig:DDR1}The linearized vapour pressures curves according to the Clausius-Clapeyron-Equation of ethanol and n-hexane are depicted. By linear regression the slope was determined, which was further used to calculate the enthalpy of vaporisation.}
+\end{figure}
+
+\subsection*{Transient evaporation cooling experiment}
+
+ In Fig.\ref{fig:DDR3} the cooling curves of n-hexane are shown and in Fig.\ref{fig:DDR4} the cooling curves from ethanol. The enthalpy of vaporisation of the reference substance methanol was given as $\Delta_{\textit{v}}$H = 37.43 \si{\joule\per\mol}\cite{meister}. The $\Delta_{\textit{v}}$H of ethanol and n-hexane were calculated using Eq.\ref{eq:TREVAC}, resulting in $\Delta_{\textit{v}}$H$_{\textit{ethanol}}$ = 35.2 $\pm$ 4.6 \si{\kilo\joule\per\mol} and $\Delta_{\textit{v}}$H$_{\textit{n-hexane}}$ = 30.2 $\pm$ 3.8 \si{\kilo\joule\per\mol}. The $\Delta_{\textit{v}}$H value of n-hexane is similar to the determined values from the Clausius-Clapeyron fit. The result for ethanol is very close to the literature value, but presumably stems from the fact that the peak surface was too small due to the irregularities in the peak curve at the bottom of the ethanol cooling curves. 
+ 
+\begin{figure}[H]
+    \centering
+    \input{DDR3}
+    \caption{\label{fig:DDR3}The transient evaporation cooling curves from n-hexane are shown. The blue marked areas were further used for the calculations of the enthalpy of vaporisation.}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \input{DDR5}
+    \caption{\label{fig:DDR4}The transient evaporation cooling curves from ethanol are shown. The blue marked areas were further used for the calculations of the enthalpy of vaporisation.}
+\end{figure}
+
+
+\pagebreak
+
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+\Urlmuskip=0mu plus 10mu
+\printbibliography
+
+%\balance
+ 
+
+ \newpage 
+  
+\section*{Appendix}
+A1 - Python Scripts\\
+A2 - Lab journal, dated May 18 2021.\\
+A3 - Task sheet \\
+A4 - Additional Plots\\
+
+
+\subsection*{A1 - Python Scripts}
+
+\subsubsection*{Python Code for the density and refractive index determination}
+\begin{lstlisting}[language=Python]
+import numpy as np
+from scipy import stats as stats
+import matplotlib.pyplot as plt
+from scipy.optimize import leastsq
+from scipy.stats import t
+import pandas as pd
+import tikzplotlib
+
+"""
+literature density values 
+"""
+densityH = 0.659 # g/cm^3 at 25 C
+densityE =  	0.789 # g/cm^3 at 25 C
+
+"""
+mean and deviation calculation for the refractive index and the density 
+"""
+#refractive index
+nH = np.array([1.37514,1.37516,1.37519])
+nE = np.array([1.36125,1.36125,1.36125,])
+nHmean = np.mean(nH)
+# Standardfehler Mittelwert
+mH1 = np.std(nH)/np.sqrt(3)
+nHst = np.std(nH)
+nEmean = np.mean(nE)
+# Standardfehler Mittelwert
+mE1 = np.std(nE)/np.sqrt(3)
+nEst = np.std(nE)
+#density
+pH = np.array([0.6594,0.6597,0.6591])
+pE = np.array([0.7893,0.7892,0.7891])
+pHmean = np.mean(pH)
+# Standardfehler Mittelwert
+mH2 = np.std(pH)/np.sqrt(3)
+pHst = np.std(pH)
+pEmean = np.mean(pE)
+# Standardfehler Mittelwert
+mE2 = np.std(pE)/np.sqrt(3)
+pEst = np.std(pE)
+
+
+"""
+density determination by the libra
+"""
+V = 25 # volume in mL 
+m = 16.251 # weight of the flask in g
+massH = np.array([(32.655-m),(32.668-m),(32.668-m)])
+massE = np.array([(35.8543-m),(35.8363-m),(35.885-m)])
+
+"""
+buyancy correction
+https://chem.libretexts.org/Ancillary_Materials/Reference/Reference_Tables/Analytic_References/Appendix_09%3A_Correcting_Mass_for_the_Buoyancy_of_Air
+(28.05.21)
+"""
+wgE = massE*(1+(1/densityE-1/8.40)*0.0012)
+wgH = massH*(1+(1/densityH-1/8.40)*0.0012)
+
+rhoH = wgH/25
+rhoE = wgE/25
+
+rhoHmean = np.mean(rhoH)
+# Standardfehler Mittelwert
+mH3 = np.std(rhoH)/np.sqrt(3)
+mHst = np.std(rhoH)
+rhoEmean = np.mean(rhoE)
+# Standardfehler Mittelwert
+mE3 = np.std(rhoE)/np.sqrt(3)
+mEst = np.std(rhoE)
+
+
+"""
+confident interval calculations
+"""
+ts = stats.t(df=2).ppf(0.975)
+#for the refractive index
+VerintervallnH = mH1*ts
+VerintervallnE = mE1*ts
+#for the density 
+Verintervalld1H = mH2*ts
+Verintervalld1E = mE2*ts
+#for the density (libra)
+Verintervalld2H = mH3*ts
+Verintervalld2E = mE3*ts
+print('n n-hexane:',VerintervallnH,'n ethanol:',VerintervallnE,'density n-hexane',Verintervalld1H,'density ethanol',Verintervalld1E,'density (libra) n-hexane',Verintervalld2H,'density (libra) ethanol',Verintervalld2E)
+
+
+
+
+\end{lstlisting}
+
+\subsubsection*{Python Code for the vapour pressure experiments}
+\begin{lstlisting}[language=Python]
+
+import numpy as np
+from scipy import stats as stats
+import matplotlib.pyplot as plt
+from scipy.optimize import leastsq, fsolve
+import scipy.optimize as optimization
+from scipy.stats import t
+import scipy
+import pandas as pd
+import tikzplotlib
+
+"""
+Definitions
+"""
+#Antoine vapour pressure curve equation 
+def ant(t,coeffs):
+    
+    """
+    coeffs[0] = A
+    coeffs[1] = B
+    coeffs[2] = C
+    
+    """
+    return 10**(coeffs[0] - coeffs[1]/ (t + coeffs[2]))
+
+def diff_ant(coeffs, ant_mes, t):
+    """Modell zur Berechnung von LeastSquares von A,B und C
+
+    Input:
+              coeffs[0] = A
+              coeffs[1] = B
+              coeffs[2] = C
+              ant_mes   : eigene Messwerte 
+                      t : temperature
+
+    Output:
+                      n : Differenzz Messung und Modell Antoine
+    """
+    return ant_mes - ant(t, coeffs)
+
+#Clausius vapour pressure curve equation
+def claus(t,params):
+    R = 8.1344698 # gas constant
+    
+    """
+    params[0] = evaporation enthalpy 
+    params[1] = normal boiling temperature in K
+    """
+    return 1013.25*np.exp(params[0]/(R*params[1]))*np.exp(-params[0]/(R*(t+273.15)))
+
+def diff_claus(params, claus_mes, t):
+    """Modell zur Berechnung von LeastSquares von A,B und C
+
+    Input:
+              params[0] = evaporation enthalpy
+              params[1] = normal boiling temperature
+              claus_mes   : eigene Messwerte 
+                      t : temperature
+
+    Output:
+                      n : Differenzz Messung und Modell Clausisus
+    """
+    return claus_mes - claus(t, params)
+
+def fit_leastsq(p0, datax, datay, function):
+
+    errfunc = lambda p, x, y: function(x,p) - y
+
+    pfit, pcov, infodict, errmsg, success = \
+        leastsq(errfunc, p0, args=(datax, datay), \
+                          full_output=1, epsfcn=0.0001)
+
+    if (len(datay) > len(p0)) and pcov is not None:
+        s_sq = (errfunc(pfit, datax, datay)**2).sum()/(len(datay)-len(p0))
+        pcov = pcov * s_sq
+    else:
+        pcov = np.inf
+
+    error = [] 
+    for i in range(len(pfit)):
+        try:
+          error.append(np.absolute(pcov[i][i])**0.5)
+        except:
+          error.append( 0.00 )
+    pfit_leastsq = pfit
+    perr_leastsq = np.array(error) 
+    return pfit_leastsq, perr_leastsq 
+
+"""   
+constants
+"""
+R = 8.1344698 # gas constant
+p0 = 1013.25 # normal pressure in mbar
+        
+"""
+measured data from the vapour pressure experiments (pressure and temperatures)
+"""
+# pressure in mbar from ethanol
+pE = np.array([101,150,200,241,291,351,399,451,500,550,599,648,699,749,799,851,898,948,899,849,799,749,699,649,599,549,499,449,400,349,301])
+# temperature in celsius from ethanol
+tE = np.array([30.7,38.4,43.4,47.7,51.2,54.6,57.3,59.9,62.2,64.4,66.5,68.3,70.1,71.3,73.2,74.4,75.9,77.3,75.9,74.4,72.9,71.3,69.7,68.1,66.0,64.2,62.0,59.7,57.2,54.4,51.2])
+# pressure in mbar from n-hexane
+pH = np.array([100,151,200,249,299,350,399,451,500,550,600,650,700,750,800,848,898,946,900,849,800,750,701,650,601,549,499,450,400,350])
+# temperature in celsius from n-hexane
+tH = np.array([11.6,20.1,26.1,31.0,35.4,39.2,42.6,45.7,48.6,51.2,53.6,56.0,58.1,60.1,62.1,63.8,65.6,67.2,65.7,63.7,61.9,60.0,57.9,55.8,53.5,51.0,48.5,45.7,42.7,39.2])
+"""
+linearized experimental boiling data
+"""
+fig, ax = plt.subplots(figsize=(8, 6))
+
+yaxisE = np.log(pE/p0)
+yaxisH = np.log(pH/p0)
+xaxisE = np.reciprocal(tE + 273.15) # reciprocal of temperature in K for ethanol [1/K]
+xaxisH = np.reciprocal(tH + 273.15) # reciprocal of temperature in K for n-hexane [1/K]
+
+#linear regression ln(p/p0) vs. 1/T
+model,cov = np.polyfit(xaxisH,yaxisH,1,cov = True)
+model1,covv = np.polyfit(xaxisE,yaxisE,1,cov = True)
+predict = np.poly1d(model)
+predict1 = np.poly1d(model1)
+x_lin_reg = np.linspace(0.0028, 0.0036,1000)
+y_lin_reg = predict(x_lin_reg)
+y_lin_reg1 = predict1(x_lin_reg)
+
+"""
+plot 
+"""
+ax.plot(x_lin_reg, y_lin_reg, c = 'k')
+ax.plot(x_lin_reg, y_lin_reg1, c = 'k')
+ax.plot(xaxisE, yaxisE,'o', c = 'b', label = 'ethanol data points')
+ax.plot(xaxisH, yaxisH,'o', c = 'g', label = 'n-hexane data points')
+plt.ylabel(r'ln($\rho$ / $\rho_{0}$)')
+plt.xlabel('(1/T) / K$^{-1}$')
+plt.legend()
+plt.show()
+tikzplotlib.save("DDR1.tex")
+plt.figure()
+
+"""
+function definitions used for the determination of the normal boiling point 
+"""
+# function for n-hexane, parameters from the linear regression
+def func(x):
+    return x*model[0] + model[1]
+# function for ethanole, parameters from the linear regression
+def func1(x):
+    return x*model1[0] + model1[1]
+
+"""
+determination of the  normal boiling point
+"""
+zpointH = fsolve(func,[0]) #zeropoint of the regression line for n-hexane
+zpointE = fsolve(func1,[0]) #zeropoint of the regression line for ethanole
+nTH = 1/zpointH # normal boiling T in Kelvin for n-hexane
+nTE = 1/zpointE # normal boiling T in Kelvin for ethanole
+
+"""
+Standarderror of the slope and the intercept of the linear regression 
+"""
+error1 = np.sqrt(np.diag(cov))
+error2 = np.sqrt(np.diag(covv))
+
+print('Stderror for function with n-hexane:\nKoeffizient:',error1[1],'\n','Steigung:',error1[0])
+print('Stderror for function with ethanole :\nKoeffizient:',error2[1],'\n','Steigung:',error2[0])
+
+#95 confident interval for the slope / evaporation enthalpy
+
+ts = stats.t(df=29).ppf(0.975)
+VerintervallH = error1[0]*ts 
+VerintervallE = error2[0]*ts
+
+"""
+determination evaporation enthalpy using the slope of the linear regression 
+"""
+enthalpyH = model[0]*R
+enthalpyE = model1[0]*R
+
+"""
+Clausius-Clapeyron and Antione vapour pressure curve plot/fit
+"""
+temp = 1/x_lin_reg -273.15 #Temperature scale in Celsius
+
+""" 
+not used for the plot, but would lead to the same result for the 
+clausius equation fit
+
+pcH = np.exp(y_lin_reg) * p0  #pressure curves for n-hexane
+pcE = np.exp(y_lin_reg1) * p0  #pressure curves for ethanole
+"""
+
+#Clausis leastsquares for parameters T0 and evaporation enthalpy
+paramH = np.array([28850,341.87])
+paramE = np.array([38600,351.15])
+pfit, perr = fit_leastsq(paramH, tH, pH, claus)
+pfit1, perr1 = fit_leastsq(paramE, tE, pE, claus)
+"""
+doch nicht gebraucht, da Fehlerberechnung nicht so gut möglich war damit
+clausH = leastsq(diff_claus,paramH,args=(pH,tH))
+clausE = leastsq(diff_claus,paramE,args=(pE,tE))
+"""
+CylsqH = claus(temp,pfit)
+CylsqE = claus(temp,pfit1)
+
+#antoine leastsquares for parameters A,B,C
+coeffs = np.array([8,1300,220])
+"""
+doch nicht gebraucht, da Fehlerberechnung nicht so gut möglich war damit
+antH = leastsq(diff_ant, coeffs, args=(pH,tH))
+antE = leastsq(diff_ant, coeffs, args=(pE,tE))
+"""
+pfit2, perr2 = fit_leastsq(coeffs, tH, pH, ant)
+pfit3, perr3 = fit_leastsq(coeffs, tE, pE, ant)
+AylsqH = ant(temp,pfit2)
+AylsqE = ant(temp,pfit3)
+
+plt.ylim(top=1100)
+plt.plot(tE, pE,'o', c = 'b', label = 'ethanol data points')
+plt.plot(tH, pH,'D', c = 'b', label = 'n-hexane data points')
+plt.plot(temp,CylsqH,c ='k')
+plt.plot(temp,AylsqE,'--', c ='m')
+plt.plot(pfit[1]-273.15,p0,'D', c = 'r', label = 'n-hexane normal boiling point')
+plt.plot(pfit1[1]-273.15,p0,'o', c = 'r', label = 'ethanol normal boiling point')
+plt.plot(temp,CylsqE,c ='k',label = 'clausius equation fit')
+plt.plot(temp,AylsqH,'--',c ='m', label = 'antoine equation fit')
+plt.ylabel(r'$\rho$ / \millibar')
+plt.xlabel(r'$\theta$ / C$^{circle}$')
+plt.legend()
+plt.show()
+tikzplotlib.save("DDR2.tex")
+
+"""
+error calculations for the coeffs and params
+"""
+print("\n# Fit parameters and parameter errors from lestsq method :")
+print("pfit n-hexane clausius = ", pfit)
+print("perr n-hexane clausius = ", perr)
+print("pfit1 ethanol clausius = ", pfit1)
+print("perr1 ethanol clausius = ", perr1)
+print("pfit2 n-hexane antoine = ", pfit2)
+print("perr2 n-hexane antoine = ", perr2)
+print("pfit3 ethanol antoine = ", pfit3)
+print("perr3 ethanol antoine = ", perr3)
+
+tsH = stats.t(df=29).ppf(0.975)
+tsE = stats.t(df=30).ppf(0.975)
+
+VerintervallAHA = perr2[0]*tsH
+VerintervallAHB = perr2[1]*tsH
+VerintervallAHC = perr2[2]*tsH
+print('VerintAHA:',VerintervallAHA,'VerintAHB:',VerintervallAHB,'VerintAHC:',VerintervallAHC)
+
+VerintervallAEA = perr3[0]*tsE
+VerintervallAEB = perr3[1]*tsE
+VerintervallAEC = perr3[2]*tsE  
+print('VerintAEA:',VerintervallAEA,'VerintAEB:',VerintervallAEB,'VerintAEC:',VerintervallAEC)
+
+VerintervallCH1 = perr[0]*tsH
+VerintervallCH2 = perr[1]*tsH 
+print('VerintCH1:',VerintervallCH1,'VerintCH2:',VerintervallCH2)
+
+VerintervallCE1 = perr1[0]*tsE 
+VerintervallCE2 = perr1[1]*tsE 
+print('VerintCE1:',VerintervallCE1,'VerintCE2:',VerintervallCE2)
+
+"""
+determination of the evaporation entropy using the enthalpy value 
+gained from the slope of the linear regression (labelled as 1) and with the ethalpy value from the
+clausius equation fit (labelled as 2)
+"""
+entropyH1 = enthalpyH/nTH
+entropyE1 = enthalpyE/nTE
+
+entropyH2 = pfit[0]/pfit[1]
+entropyE2 = pfit1[0]/pfit1[1]
+
+#mean values for the enthalpy 
+enthalpyHH = np.array([-enthalpyH,pfit[0]])
+enthalpyEE = np.array([-enthalpyE,pfit1[0]])
+enthalpyEmean = np.mean(enthalpyEE)
+enthalpyHmean = np.mean(enthalpyHH)
+
+
+#mean values for the normal boiling temperature
+normalTH = np.array([nTH,pfit[1]])
+normalTE = np.array([nTE,pfit1[1]])
+normalTHmean = np.mean(normalTH)
+normalTEmean = np.mean(normalTE)
+
+entropyH = enthalpyHmean/normalTHmean
+entropyE = enthalpyEmean/normalTEmean
+
+"""
+error calulcations for the entropy
+"""
+varentE = np.std(enthalpyEE)/np.sqrt(2)
+varentH = np.std(enthalpyHH)/np.sqrt(2)
+vartE = np.std(normalTE)/np.sqrt(2)
+vartH = np.std(normalTH)/np.sqrt(2)
+
+varentropyH = (1/nTH)**2*varentH + (-nTH**(-2)*enthalpyHmean)**2*vartH
+varentropyE = (1/nTE)**2*varentE + (-nTE**(-2)*enthalpyEmean)**2*vartE
+
+ts = stats.t(df=1).ppf(0.975)
+
+fehlerE = ts*np.sqrt(varentropyE)
+fehlerH = ts*np.sqrt(varentropyH)
+
+\end{lstlisting}
+\clearpage
+\subsubsection*{Python Code for the transient cooling experiment}
+\begin{lstlisting}[language=Python]
+
+import numpy as np
+from scipy import stats as stats
+import matplotlib.pyplot as plt
+from scipy.optimize import leastsq, fsolve
+import scipy.optimize as optimization
+from scipy.stats import t
+import scipy
+import pandas as pd
+import tikzplotlib
+
+"""
+reference values
+--> reference sources in report 
+"""
+#molar masses
+molarH = 86.18
+molarM = 32.04 
+molarE = 46.07
+
+#density 
+densityH = 0.659 # g/cm^3 at 25 C
+densityM = 0.791 # g/cm^3 at 25 C
+densityE =  	0.789 # g/cm^3 at 25 C
+
+#vapour enthalpy
+enthalpyM = 37.43 # kj/mol at 25 C from meister script page 25
+
+"""
+plotting of the cooling curves
+"""
+
+dataH = pd.read_csv('n_hexane.txt',sep="  ",names=['time','temperature'])
+dataM = pd.read_table('methanole.dat',sep="  ",names=['time','temperature'])
+dataE = pd.read_table('ethanol.txt',sep="  ",names=['time','temperature'])
+
+xH = dataH.loc[2220:3075,'time'].values - 444
+yH = dataH.loc[2220:3075,'temperature'].values 
+
+#Integrationsbereiche
+timeH1 = dataH.loc[2365:2521,'time'].values - 444
+thetaH1 = dataH.loc[2365:2521,'temperature'].values 
+timeH2 = xH[413:564]
+thetaH2 = yH[413:564]
+timeH3 = xH[616:778]
+thetaH3 = yH[616:778]
+
+#peakflächen n-hexane
+peakH1 = np.trapz(timeH1,thetaH1)
+peakH2 = np.trapz(timeH2,thetaH2)
+peakH3 = np.trapz(timeH3,thetaH3)
+peakH = np.array([peakH1,peakH2,peakH3])
+peakHmean = np.mean(peakH)
+peakHstd = np.std(peakH)
+
+xE = dataE.loc[900:1555,'time'].values - 180
+yE = dataE.loc[900:1555,'temperature'].values
+
+#Integrationsbereiche
+timeE1 = xE[25:227]
+thetaE1 = yE[25:227]
+timeE2 = xE[230:443]
+thetaE2 = yE[230:443]
+timeE3 = xE[455:645]
+thetaE3 = yE[455:645]
+
+#peakflächen ethanol
+peakE1 = np.trapz(timeE1,thetaE1)
+peakE2 = np.trapz(timeE2,thetaE2)
+peakE3 = np.trapz(timeE3,thetaE3)
+peakE = np.array([peakE1,peakE2,peakE3])
+peakEmean = np.mean(peakE)
+peakEstd = np.std(peakE)
+
+xM = dataM.loc[200:1159,'time'].values - 40
+yM = dataM.loc[200:1159,'temperature'].values
+
+#Integrationsbereiche
+timeM1 = xM[126:332]
+thetaM1 = yM[126:332]
+timeM2 = xM[403:620]
+thetaM2 = yM[403:620]
+timeM3 = xM[678:898]
+thetaM3 = yM[678:898]
+
+#peakflächen methanol
+peakM1 = np.trapz(timeM1,thetaM1)
+peakM2 = np.trapz(timeM2,thetaM2)
+peakM3 = np.trapz(timeM3,thetaM3)
+peakM = np.array([peakM1,peakM2,peakM3])
+peakMmean = np.mean(peakM)
+peakMstd = np.std(peakM)
+
+"""
+Definition for the vapour enthalpy with methanol as reference
+"""
+
+def ent(peak,molar,rho):
+    
+    """
+    molar = molar mass from the liquid
+    rho = rho from the liquid
+    peak = area under peak 
+
+    """
+    return (enthalpyM*densityM*molar*peak)/(molarM*rho*peakMmean)
+
+"""
+vapour enthalpy calculations and error calculations
+"""
+enthalpyH = ent(peakHmean,molarH,densityH)
+enthalpyE = ent(peakEmean,molarE,densityE)
+
+ts = stats.t(df=2).ppf(0.975)
+
+enthalpystdE = np.sqrt((peakEstd/peakEmean)**2 + (peakMstd/peakMmean)**2)*enthalpyE
+verintE = ts*enthalpystdE
+
+enthalpystdH = np.sqrt((peakHstd/peakHmean)**2 + (peakMstd/peakMmean)**2)*enthalpyH
+verintH = ts*enthalpystdH
+
+plt.plot(xH,yH)
+plt.plot(timeH1,thetaH1,c = 'k')
+plt.axvline(x = timeH1[0],linewidth=1, color='k',linestyle='--')
+plt.axvline(x = timeH1[156],linewidth=1, color='k',linestyle='--')
+plt.fill_between(timeH1, thetaH1[0], thetaH1,color='blue')
+plt.plot(timeH2,thetaH2 ,c ='k')
+plt.axvline(x = timeH2[0],linewidth=1, color='k',linestyle='--')
+plt.axvline(x = timeH2[150],linewidth=1, color='k',linestyle='--')
+plt.fill_between(timeH2, thetaH2[0], thetaH2,color='blue')
+plt.plot(timeH3,thetaH3 ,c ='k')
+plt.axvline(x = timeH3[0],linewidth=1, color='k',linestyle='--')
+plt.axvline(x = timeH3[161],linewidth=1, color='k',linestyle='--')
+plt.fill_between(timeH3, thetaH3[0], thetaH3,color='blue')
+plt.ylabel(r'time / s')
+plt.xlabel(r'temperature $\theta$ / C$^{circle}$')
+plt.show()
+tikzplotlib.save("DDR3.tex")
+plt.figure()
+plt.plot(xM,yM)
+plt.plot(timeM1,thetaM1,c = 'k')
+plt.axvline(x = timeM1[0],linewidth=1, color='k',linestyle='--')
+plt.axvline(x = timeM1[205],linewidth=1, color='k',linestyle='--')
+plt.fill_between(timeM1, thetaM1[0], thetaM1,color='blue')
+plt.plot(timeM2,thetaM2,c = 'k')
+plt.axvline(x = timeM2[0],linewidth=1, color='k',linestyle='--')
+plt.axvline(x = timeM2[216],linewidth=1, color='k',linestyle='--')
+plt.fill_between(timeM2, thetaM2[0], thetaM2,color='blue')
+plt.plot(timeM3,thetaM3,c = 'k')
+plt.axvline(x = timeM3[0],linewidth=1, color='k',linestyle='--')
+plt.axvline(x = timeM3[219],linewidth=1, color='k',linestyle='--')
+plt.fill_between(timeM3, thetaM3[0], thetaM3,color='blue')
+plt.ylabel(r'time / s')
+plt.xlabel(r'temperature $\theta$ / C$^{circle}$')
+plt.show()
+tikzplotlib.save("DDR4.tex")
+plt.figure()
+plt.plot(xE,yE)
+plt.plot(timeE1,thetaE1,c = 'k')
+plt.axvline(x = timeE1[0],linewidth=1, color='k',linestyle='--')
+plt.axvline(x = timeE1[201],linewidth=1, color='k',linestyle='--')
+plt.fill_between(timeE1, thetaE1[0], thetaE1,color='blue')
+plt.plot(timeE2,thetaE2,c = 'k')
+plt.axvline(x = timeE2[0],linewidth=1, color='k',linestyle='--')
+plt.axvline(x = timeE2[212],linewidth=1, color='k',linestyle='--')
+plt.fill_between(timeE2, thetaE2[0], thetaE2,color='blue')
+plt.plot(timeE3,thetaE3,c = 'k')
+plt.axvline(x = timeE3[0],linewidth=1, color='k',linestyle='--')
+plt.axvline(x = timeE3[189],linewidth=1, color='k',linestyle='--')
+plt.fill_between(timeE3, thetaE3[0], thetaE3,color='blue')
+plt.ylabel(r'time / s')
+plt.xlabel(r'temperature $\theta$ / C$^{circle}$')
+plt.show()
+tikzplotlib.save("DDR5.tex")
+\end{lstlisting}
+
+\subsection*{A2 - Lab journal}
+\includegraphics[page=1,width=\textwidth]{Lab.pdf}
+
+\includegraphics[page=2,width=\textwidth]{Lab.pdf}
+
+\includegraphics[page=3,width=\textwidth]{Lab.pdf}
+
+\includegraphics[page=4,width=\textwidth]{Lab.pdf}
+
+\includegraphics[page=5,width=\textwidth]{Lab.pdf}
+
+\includegraphics[page=6,width=\textwidth]{Lab.pdf}
+
+\includegraphics[page=7,width=\textwidth]{Lab.pdf}
+
+\subsection*{A3 - Task sheet}
+\includegraphics[page = 1,width=\textwidth]{DDRtask.pdf}
+
+\includegraphics[page = 2,width=\textwidth]{DDRtask.pdf}
+
+\subsection*{A4 - Additional Plots}
+
+\begin{figure}[H]
+    \centering
+    \input{DDR4}
+    \caption{\label{fig:DDR4}The cooling curves from the reference substance methanol.}
+\end{figure}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
