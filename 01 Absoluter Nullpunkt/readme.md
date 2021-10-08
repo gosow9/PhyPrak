@@ -3,12 +3,12 @@
 Experiment absoluter Nullpunkt
 
 Aufteilung des Berrichts
-- [] Abstract (Fritz)
-- [] Introduction (Cedric)
-- [] Experiment (Fritz)
-- [] Results  (Fritz)
-- [] Data analysis (Cedric)
-- [] Disscussion (Fritz)
+- [ ] Abstract (Fritz)
+- [ ] Introduction (Cedric)
+- [ ] Experiment (Fritz)
+- [ ] Results  (Fritz)
+- [ ] Data analysis (Cedric)
+- [ ] Disscussion (Fritz)
 
 ## Bericht zu Labor
 ### Abstract
