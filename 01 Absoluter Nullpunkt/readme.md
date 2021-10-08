@@ -8,7 +8,7 @@ Aufteilung des Berrichts
 - [ ] Experiment (Fritz)
 - [ ] Results  (Fritz)
 - [ ] Data analysis (Cedric)
-- [ ] Disscussion (Fritz)
+- [ ] Disscussion (Fritz & Cedric)
 
 ## Bericht zu Labor
 ### Abstract
