@@ -2,4 +2,6 @@
 *.log
 *.gz
 *.toc
+*.out
+*main.pdf
 main.pdf
