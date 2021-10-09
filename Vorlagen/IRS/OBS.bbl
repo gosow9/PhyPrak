@@ -1,0 +1,483 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global}
+  \entry{bruker}{online}{}
+    \name{author}{1}{}{%
+      {{hash=B}{%
+         family={BRUKER},
+         familyi={B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{B1}
+    \strng{fullhash}{B1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Grundlagen der FT-IR-Spektroskopie}
+    \verb{url}
+    \verb https://www.bruker.com/content/bruker/int/de/products-and-solutions/i
+    \verb nfrared-and-raman/ft-ir-routine-spectrometer/what-is-ft-ir-spectrosco
+    \verb py.html
+    \endverb
+    \field{urlday}{19}
+    \field{urlmonth}{04}
+    \field{urlyear}{2021}
+  \endentry
+
+  \entry{meister}{book}{}
+    \name{author}{1}{}{%
+      {{hash=ME}{%
+         family={Meister},
+         familyi={M\bibinitperiod},
+         given={Erich},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {prov. 3.Aufl.,vdf Hochschulverlag AG an der ETH Zuerich}%
+    }
+    \strng{namehash}{ME1}
+    \strng{fullhash}{ME1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Grundpraktikum Physikalische Chemie: Theorie und Experimente}
+    \field{year}{Version 22. Januar 2021}
+  \endentry
+
+  \entry{FTIR}{book}{}
+    \name{author}{2}{}{%
+      {{hash=SAK}{%
+         family={Shukla},
+         familyi={S\bibinitperiod},
+         given={Ashutosh\bibnamedelima Kumar},
+         giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+      {{hash=IS}{%
+         family={Iravani},
+         familyi={I\bibinitperiod},
+         given={Siavash},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{SAK+1}
+    \strng{fullhash}{SAKIS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{chapter}{12}
+    \field{pages}{303\bibrangedash 319}
+    \field{title}{Green synthesis, characterization and applications of
+  nanoparticles}
+    \field{year}{2018}
+  \endentry
+
+  \entry{ATR}{online}{}
+    \name{author}{1}{}{%
+      {{hash=UTFS}{%
+         family={US},
+         familyi={U\bibinitperiod},
+         given={Thermo Fisher\bibnamedelima Scientific},
+         giveni={T\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim
+  S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{UTFS1}
+    \strng{fullhash}{UTFS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{FTIR Sample Techniques: Attenuated Total Reflection (ATR)}
+    \verb{url}
+    \verb https://www.thermofisher.com/ch/en/home/industrial/spectroscopy-eleme
+    \verb ntal-isotope-analysis/spectroscopy-elemental-isotope-analysis-learnin
+    \verb g-center/molecular-spectroscopy-information/ftir-information/ftir-sam
+    \verb ple-handling-techniques/ftir-sample-handling-techniques-attenuated-to
+    \verb tal-reflection-atr.html
+    \endverb
+    \field{urlday}{19}
+    \field{urlmonth}{04}
+    \field{urlyear}{2021}
+  \endentry
+
+  \entry{ethanol}{online}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Ethanol 100983}
+    \verb{url}
+    \verb https://www.sigmaaldrich.com/catalog/product/mm/100983?lang=en
+    \endverb
+    \field{urlday}{13}
+    \field{urlmonth}{04}
+    \field{urlyear}{2021}
+  \endentry
+
+  \entry{water}{online}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Di water 848333}
+    \verb{url}
+    \verb https://www.sigmaaldrich.com/catalog/product/mm/848333?lang=en&region
+    \verb =GB
+    \endverb
+    \field{urlday}{13}
+    \field{urlmonth}{04}
+    \field{urlyear}{2021}
+  \endentry
+
+  \entry{Benzoa}{online}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Benzoic acid}
+    \verb{url}
+    \verb https://www.sigmaaldrich.com/catalog/substance/benzoicacid12212658501
+    \verb 1?lang=en&region=GB&gclid=Cj0KCQjw1PSDBhDbARIsAPeTqrdwRK5KWt69ckxLdhg
+    \verb 2H2Tx7BlLJO36JvCCGX0tJXnqLvI58f2PFysaAop1EALw_wcB
+    \endverb
+    \field{urlday}{19}
+    \field{urlmonth}{04}
+    \field{urlyear}{2021}
+  \endentry
+
+  \entry{DMSO1}{online}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Dimethyl sulphoxide, dehydrated}
+    \verb{url}
+    \verb https://sg.vwr.com/store/product/2381554/dimethyl-sulphoxide-dehydrat
+    \verb ed-max-0-03-h2o-99-5-analar-normapur-analytical-reagent
+    \endverb
+    \field{urlday}{19}
+    \field{urlmonth}{04}
+    \field{urlyear}{2021}
+  \endentry
+
+  \entry{D2O}{online}{}
+    \verb{url}
+    \verb https://shop.isotope.com/supplyimages/MSDS025/DEUTERIUM_OXIDE__D__99.
+    \verb 9___DLM_4_GHS_V.8.2.pdf
+    \endverb
+    \field{urlday}{19}
+    \field{urlmonth}{04}
+    \field{urlyear}{2021}
+  \endentry
+
+  \entry{assignment}{book}{}
+    \name{author}{3}{}{%
+      {{hash=PE}{%
+         family={Pretsch},
+         familyi={P\bibinitperiod},
+         given={E.},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=BP}{%
+         family={Buehlmann},
+         familyi={B\bibinitperiod},
+         given={P.},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Badertscher},
+         familyi={B\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{PE+1}
+    \strng{fullhash}{PEBPBM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Structure Determination of Organic Compounds:Table of
+  Spectral Data}
+    \field{year}{2009}
+  \endentry
+
+  \entry{IRethanol}{online}{}
+    \name{author}{1}{}{%
+      {{hash=S}{%
+         family={SDBS},
+         familyi={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{S1}
+    \strng{fullhash}{S1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{SDBS No.: 1300}
+    \verb{url}
+    \verb https://sdbs.db.aist.go.jp/sdbs/cgi-bin/landingpage?sdbsno=1300
+    \endverb
+    \field{urlday}{16}
+    \field{urlmonth}{04}
+    \field{urlyear}{2021}
+  \endentry
+
+  \entry{DMSO}{article}{}
+    \name{author}{9}{}{%
+      {{hash=ER}{%
+         family={Ellson},
+         familyi={E\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Stearns},
+         familyi={S\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=MM}{%
+         family={Mutz},
+         familyi={M\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=BC}{%
+         family={Brown},
+         familyi={B\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=BB}{%
+         family={Browning},
+         familyi={B\bibinitperiod},
+         given={B.},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=HD}{%
+         family={Harris},
+         familyi={H\bibinitperiod},
+         given={D.},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=QS}{%
+         family={Qureshi},
+         familyi={Q\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Shieh},
+         familyi={S\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=WD}{%
+         family={Wold},
+         familyi={W\bibinitperiod},
+         given={D.},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {ACS Publications}%
+    }
+    \strng{namehash}{ER+1}
+    \strng{fullhash}{ERSRMMBCBBHDQSSJWD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{6}
+    \field{pages}{489 \bibrangedash  498}
+    \field{title}{In situ DMSO hydration measurements of HTS compound
+  libraries}
+    \field{volume}{8}
+    \field{journaltitle}{Comb. Chem. High Throughput Screening}
+    \field{year}{2005}
+  \endentry
+
+  \entry{nitrile}{article}{}
+    \name{author}{13}{}{%
+      {{hash=JM}{%
+         family={Jung},
+         familyi={J\bibinitperiod},
+         given={Melissa},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=HD}{%
+         family={Horgen},
+         familyi={H\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=OS}{%
+         family={Orski},
+         familyi={O\bibinitperiod},
+         given={Sara},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=CV}{%
+         family={C.},
+         familyi={C\bibinitperiod},
+         given={Viviana},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=BK}{%
+         family={Beers},
+         familyi={B\bibinitperiod},
+         given={Kathryn},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=BG}{%
+         family={Balazs},
+         familyi={B\bibinitperiod},
+         given={George},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=JT}{%
+         family={Jones},
+         familyi={J\bibinitperiod},
+         given={T.},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=WT}{%
+         family={Work},
+         familyi={W\bibinitperiod},
+         given={Thierry},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=BK}{%
+         family={Brignac},
+         familyi={B\bibinitperiod},
+         given={Kayla},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=RSJ}{%
+         family={Royer},
+         familyi={R\bibinitperiod},
+         given={Sarah-Jeanne},
+         giveni={S\bibinithyphendelim J\bibinitperiod},
+      }}%
+      {{hash=HD}{%
+         family={Hyrenbach},
+         familyi={H\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=JB}{%
+         family={Jensen},
+         familyi={J\bibinitperiod},
+         given={Brenda},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=LJ}{%
+         family={Lynch},
+         familyi={L\bibinitperiod},
+         given={Jennifer},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JM+1}
+    \strng{fullhash}{JMHDOSCVBKBGJTWTBKRSJHDJBLJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1016/j.marpolbul.2017.12.061
+    \endverb
+    \field{pages}{704\bibrangedash 716}
+    \field{title}{Validation of ATR FT-IR to identify polymers of plastic
+  marine debris, including those ingested by marine organisms}
+    \field{volume}{127}
+    \field{journaltitle}{Marine Pollution Bulletin}
+    \field{month}{12}
+    \field{year}{2017}
+  \endentry
+
+  \entry{pet}{article}{}
+    \name{author}{5}{}{%
+      {{hash=PAPdS}{%
+         family={Pereira},
+         familyi={P\bibinitperiod},
+         given={Ana Paula dos\bibnamedelima Santos},
+         giveni={A\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim
+  d\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=SMHPd}{%
+         family={Silva},
+         familyi={S\bibinitperiod},
+         given={Marcelo Henrique Prado\bibnamedelima da},
+         giveni={M\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim
+  P\bibinitperiod\bibinitdelim d\bibinitperiod},
+      }}%
+      {{hash=LJEP}{%
+         family={Lima\bibnamedelima J{\'u}nior},
+         familyi={L\bibinitperiod\bibinitdelim J\bibinitperiod},
+         given={{\'E}dio\bibnamedelima Pereira},
+         giveni={{\'E}\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+      {{hash=PAdS}{%
+         family={Paula},
+         familyi={P\bibinitperiod},
+         given={Andersan dos\bibnamedelima Santos},
+         giveni={A\bibinitperiod\bibinitdelim d\bibinitperiod\bibinitdelim
+  S\bibinitperiod},
+      }}%
+      {{hash=TFJ}{%
+         family={Tommasini},
+         familyi={T\bibinitperiod},
+         given={Fl{\'a}vio\bibnamedelima James},
+         giveni={F\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {SciELO Brasil}%
+    }
+    \strng{namehash}{PAPdS+1}
+    \strng{fullhash}{PAPdSSMHPdLJEPPAdSTFJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{pages}{411\bibrangedash 420}
+    \field{title}{Processing and characterization of PET composites reinforced
+  with geopolymer concrete waste}
+    \field{volume}{20}
+    \field{journaltitle}{Materials Research}
+    \field{year}{2017}
+  \endentry
+
+  \entry{poly}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=AA}{%
+         family={Ashraf},
+         familyi={A\bibinitperiod},
+         given={Abdullah},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AA1}
+    \strng{fullhash}{AA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.13140/2.1.3819.0880
+    \endverb
+    \field{title}{FTIR & UV-Vis analysis of Polymer(Polystyrene, LDPE) samples}
+    \field{month}{12}
+    \field{year}{2014}
+  \endentry
+
+  \entry{HBr}{online}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Properties of Ionic Diatomic Molecules}
+    \verb{url}
+    \verb http://hydrogen.physik.uni-wuppertal.de/hyperphysics/hyperphysics/hba
+    \verb se/tables/diatomic.html
+    \endverb
+    \field{urlday}{19}
+    \field{urlmonth}{04}
+    \field{urlyear}{2021}
+  \endentry
+\enddatalist
+\endinput
