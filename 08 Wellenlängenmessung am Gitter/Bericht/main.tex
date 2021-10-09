@@ -1,0 +1,46 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{a4wide}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{parskip}
+\usepackage[ansinew]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage[free-standing-units=true]{siunitx} % for consistent handling of SI units
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref} % enable links
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\m}[1]
+{\mathrm{#1}}
+
+\title{Experiment}
+\author{Cedric Renda, Fritz Kurz}
+\date{\today }
+
+\begin{document}
+
+\maketitle
+\input{sections/abstract.tex}
+
+
+
+\tableofcontents
+
+\input{sections/introduction.tex}
+\input{sections/experiment.tex}
+\input{sections/results.tex}
+\input{sections/analysis.tex}
+\input{sections/disscussion.tex}
+\input{sections/conclusion.tex}
+\newpage
+\input{sections/dos.tex}
+\input{sections/references.tex}
+
+
+
+
+\end{document}
