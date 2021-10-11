@@ -4,7 +4,7 @@ Experiment absoluter Nullpunkt
 
 Aufteilung des Berrichts
 - [ ] Abstract (Fritz)
-- [ ] Introduction (Cedric)
+- [x] Introduction (Cedric)
 - [ ] Experiment (Fritz)
 - [ ] Results  (Fritz)
 - [ ] Data analysis (Cedric)
