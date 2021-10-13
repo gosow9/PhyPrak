@@ -1,0 +1,20 @@
+\section{Error Calculation}
+First we have to take account of the possible error of the pressure sensor. From the experiment manual we get that there is an absolute error of $\pm\SI{0.075}{\milli\volt}$ Due to different temperatures when the sensor was originally calibrated and the time we do the experiment, there is also an error of $\pm\SI{0.08}{\milli\volt}$, also according to the manual. In addition to that, the slope of the curve can vary by $\pm\SI{0.1}{\percent}$. We can now calculate our error for voltage measurments $\Delta U = 0.075 + 0.08 + 0.001 \times U$. With our measurments we get $U_L = 132.21 \pm \SI{0.29}{\milli\volt}$ and $U_t = -3.72 \pm \SI{0.16}{\milli\volt}$
+
+We then need to know the errors of $p_L$ and $p_t$. From the manual we know that $p_t = 10 \pm \SI{10}{\pascal}$.
+The measurment of the barometer is very exact, so we assume that there is no relevant error in that. 
+
+We want to know the error of the pressure measurments we make during the experiment. According to formula (1), we need to know the errors $\Delta p_0$, $\Delta C$, and $\Delta U$. The last one we know already.
+First we determine $\Delta C$, the error of the slope of the characteristic curve of the sensor. The formula for that is $C = \frac{p_T - p_l}{U_T - u_l}$. With Gaussian error propagation we can evaluate $\Delta C = 1.7$, so $C = 704.1 \pm 1.7$
+Second we want to know $\Delta p_0$. The formula for $p_0$ is $p_0 = p_t - C U_t$ We use Gaussian error propagation again and find that $\Delta p_0 = \SI{109.8}{\pascal}$
+
+Now we have everything to determine the error of a pressure measurment. The formula for that is given as $p = p_0 + C U$. So again with the same method we find the function 
+\begin{align}
+	\Delta p(U) = \sqrt{\Delta p_0^2 + (U \Delta C)^2 + (C \Delta U)^2}
+\end{align}
+which we must use for every pressure measurment we make. Our measurments give us $p_e = 70345 \pm \SI{264}{\pascal}$ and $p_k = 95240 \pm \SI{320}{\pascal}$
+
+Now we are finally able to calculate $\Delta t_0$, again by the Gaussian method. Unlike befor, we don't want to take derivatives by hand, so for approximating $\frac{\partial t_0}{\partial x_i}(x_1, ..., x_n)$, we use the differential quotient $\frac{t_0(x_1,..., x_i+h,...,x_n) - t_0(x_1,..., x_i,...,x_n)}{h}$ and use a small $h = 10^{-5}$. By doing that for all parameters $x_i, i = 1,...,n$
+
+(in formula xxx)
+and then using the Gaussian method, we get to $t_0 = -267.67 \pm \SI{5.02}{\degreeCelsius}$.
