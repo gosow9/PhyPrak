@@ -14,7 +14,9 @@ import scipy
 import pandas as pd
 import tikzplotlib
 
+
 # Temperaturen
+ts = np.linspace(-280, 110, 1000)
 t_luft = 23.1
 t_eiswasser = 0
 t_Wkochend = 98.412
@@ -24,6 +26,7 @@ p_luft = 95711.7612
 p_vakuum = 10
 
 # Gemessener druck in milivolt
+us = np.linspace(-10, 140, 1000)
 u_luft = 132.21
 u_vakuum = -3.15
 u_Wkoch = 131.28
@@ -103,3 +106,8 @@ def p_from_u(U, c, p0):
 
     """
     return p0 + c*U
+
+
+plt.plot(us, p_from_u(us, c1, p1))
+plt.plot(u_luft, p_luft, 'o')
+plt.plot(u_vakuum, p_vakuum, 'o')
