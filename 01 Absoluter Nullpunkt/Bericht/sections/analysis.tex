@@ -1,13 +1,19 @@
 \section{Data analysis}
 
-\begin{figure}
-\centering
-%\includegraphics[width=\textwidth]{test.pdf}
-\caption{In the figure caption you describe what is plotted in the
-figure. In this case: The measured data is depicted by the blue dots
-with error bars indicating the statistical error. The red line is a
-linear fit to the data.} \label{fig1}
+For the calibration of the pressure sensor we need to calculate the slope and offset between the pressure given by the pressure sensor in mV and the reference values. 
+For this we used the ambient pressure and vacuum as the two reference points.
+To measure the ambient pressure, the mercury barometer in the lab was used.
+From the barometer we could read the uncorrected $p_L = 720,9$ $\si{\m} \cdot 10^{-3} \text{  Hg (tL)}$ with the corresponding roomtemperature of $23,1$ $\si{\degreeCelsius}$. 
+
+
+
+\begin{figure}[h!]
+	\begin{center}
+		\input{python/cali.pgf}
+	\end{center}
+	\caption{Calibration of pressure sensor.}\label{fig::cali}
 \end{figure}
+
 
 In the data analysis section you describe the post processing of the
 data. How did you obtain the data that you plot in the figures? The raw data does not necessarily need
