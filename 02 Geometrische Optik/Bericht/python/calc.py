@@ -64,6 +64,7 @@ f_bess_2 = get_f_bessel(e2, d2)
 #---------------------------------------------
 #experiment 2
 """
+Die Messig wemmer ned, blödi Linse
 a1 = 84
 b1 = 216
 
@@ -73,9 +74,11 @@ f_1 = lens_eq(a1, b1)
 
 f_div_1 = get_div(f_l1, f_1)
 """
-
+#messung 1
 #a2 = 291
 #b2 = 739
+
+#messung 2
 a2 = 332
 b2 = 568
 f_2 = lens_eq(a2, b2)
