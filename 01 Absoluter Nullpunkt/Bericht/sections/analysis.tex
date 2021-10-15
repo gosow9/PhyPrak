@@ -1,7 +1,7 @@
 \section{Data analysis}
 
 In this chapter the origin of the data is explained and the formulas used to calculate the results are discussed.
-The table \ref{tab:mes} shows the measured voltages from the pressure sensor. 
+Table \ref{tab:mes} shows the measured voltages from the pressure sensor. 
 Since some measurements were done a second time the measurement results are split into first and second attempt.
 Therefore a mean of the two attempts is also provided in the last column of the table \ref{tab:mes}.
 
@@ -40,11 +40,11 @@ For this we used the ambient pressure and vacuum as the two reference points.
 To measure the ambient pressure, the mercury barometer in the lab was used.
 From the barometer we could read the uncorrected $p_L = 720,9$$\si{\m} \cdot 10^{-3} \text{  Hg (tL)}$ with the corresponding room temperature of $23,1$ $\si{\degreeCelsius}$. 
 With this temperature we got a corrective value of 2,99 which we had to subtract from the measured pressure to get 717,91 Torr.
-One Torr corresponds to 133,32 Pa which resulted in an ambient pressure of 95711,6712 Pa.
+One Torr corresponds to 133,32 Pa which resulted in an ambient pressure of 95711 Pa.
 With the pressure sensor we got for the ambient room pressure with the same temperature $U_L = 132,21$ \si{\milli\volt}.
 
 
-For the second reference point the vacuum we assumed that it should be possible to achieve a vacuum of $p_t = 0.1\pm 0.1$ mbar. 
+For the second reference point the vacuum we assumed that it should be possible to achieve a vacuum of $p_t = 0.1\pm 0.1$ mbar \cite{manual}. 
 The corresponding pressure value in the glass bulb measured is $ U_t = -3.15$ \si{\milli\volt}.
 
 
@@ -60,10 +60,10 @@ p_0= p_L-C\cdot U_L = p_t-C\cdot U_t.
 With these two values, the pressure measured in \si{\milli\volt} and the equation \ref{eq::convert} we get the converted value in Pascal.
 
 
-\paragraph{Absolute Zero} To calculate the absolute zero temperature, we take two reference points, were we can measure the temperature and the corresponding pressure very exactly. 
+\paragraph{Absolute Zero} To calculate the absolute zero temperature, we take two reference points, where we can measure the temperature and the corresponding pressure very exactly. 
 From this and the knowledge of the ideal gas equation \ref{eq::gas}, we can extrapolate to the absolute zero point $t_0$.
-The first point we get with the temperature source of boiling water as described in the paragraph \ref{para:2} and the second point from iced water from the same paragraph.
-From the manual\cite{manual} provided with the lab we use the equations \ref{eq::zero} to calculate our absolute zero temperature $t_0$.
+The first point we get with the temperature source of boiling water as described in the paragraph \ref{para:2} and the second point from ice water from the same paragraph.
+From the manual\cite{manual} we use the equations \ref{eq::zero} to calculate our absolute zero temperature $t_0$.
 
 \begin{equation}
 \begin{aligned}
@@ -74,9 +74,22 @@ t_{0} &=\frac{-b \pm \sqrt{b^{2}-4 a c}}{2 a}
 \end{aligned}
 \label{eq::zero}
 \end{equation}
-where $\gamma = 1,0 \cdot 10^{-5} \si{\degreeCelsius}^{-1}$ is the cubic expansion coefficient of the glass bulb, $\varepsilon = 0,001$ is the volume of the harmful space divided by the volume of the glass bulb itself.
+where $\gamma = 1,0 \cdot 10^{-5} \si{\degreeCelsius}^{-1}$ is the cubic expansion coefficient of the glass bulb and $\varepsilon = 0,001$ is the volume of the harmful space divided by the volume of the glass bulb itself.
 
 
+\paragraph{Liquid nitrogen}
+In the last part of the experiment we used the glass bulb as an thermometer to measure the temperature of liquid nitrogen.
+The measured voltage $U_N = 24,63 $ \si{\milli\volt} leads us to $p_N=20118$ Pa. 
+With the given equation \ref{eq::nitro} from the manual \cite{manual} we got an temperature $t_n = -194.6$.
+
+
+\begin{equation}
+\begin{aligned}
+A & \equiv \frac{p_{E}}{t_{E}-t_{0}}+\frac{\varepsilon\left(p_{E}-p_{N}\right)}{t_{L}-t_{0}} \\
+t_{N} &=\frac{A t_{0}+p_{N}}{A-\gamma p_{N}}
+\end{aligned}
+\label{eq::nitro}
+\end{equation}
 
 
 
