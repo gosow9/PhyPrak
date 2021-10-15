@@ -19,6 +19,7 @@
 \usepackage{tabularx}
 \usepackage{booktabs}
 \usepackage{array}
+\usepackage{pdfpages}
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
 \usepackage[free-standing-units=true]{siunitx} % for consistent handling of SI units
 \usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref} % enable links
@@ -38,19 +39,20 @@
 \maketitle
 \input{sections/abstract.tex}
 \tableofcontents
-
+\newpage
 \input{sections/introduction.tex}
 \input{sections/experiment.tex}
-\input{sections/results.tex}
 \input{sections/analysis.tex}
 \input{sections/error.tex}
+\input{sections/results.tex}
 \input{sections/disscussion.tex}
 %\input{sections/conclusion.tex}
 \newpage
 %\input{sections/dos.tex}
 \input{sections/references.tex}
 \section{Appendix}
-\include{labor.pdf}
+
+\includepdf{labor.pdf}
 
 
 
