@@ -1,11 +1,34 @@
 \section{Data analysis}
 
-For the calibration of the pressure sensor we need to calculate the slope and offset between the pressure given by the pressure sensor in mV and the reference values. 
+In this chapter the origin of the data is explained and the formulas used to calculate the results are discussed.
+The table \ref{tab:mes} shows the measured voltages from the pressure sensor. 
+Since some measurements were done a second time the measurement results are split into first and second attempt.
+Therefore a mean of the two attempts is also provided in the last column of the table \ref{tab:mes}.
+
+\begin{table}[h!]
+	\caption{Measured pressure values in mV at certain temperatures or in a vacuum.}
+	\begin{tabularx}{\textwidth}{XM{2.2cm}M{2.2cm}M{2.2cm}M{2.2cm}M{2.2cm}}%{XXXXXX}{M{1.7cm}M{1.5cm}M{1.5cm}M{2.5cm}M{2cm}}
+		\toprule 
+		&&&&&\\[-10pt]
+		vacuum / &$U_L$ & $U_t$ & $U_k$ & $U_e$ & $U_N$\\[5pt]
+		temperatures& 23.1 \si{\degreeCelsius}  & vacuum  &  98.412\si{\degreeCelsius}  & 0\si{\degreeCelsius}  & $<-196\si{\degreeCelsius}$  \\[5pt]
+		\hline
+		&&&&&\\[-5pt]
+		first attempt & 132,21 & -3,15 & 131,28 & 96,18 & - \\ 
+		sec. attempt & - & -3,72 & 131,54 & 96,86 & 24,63 \\ [5pt]
+		\hline 
+		&&&&&\\[-5pt]
+		Mean & 132,21 & -3,435 & 131,41 & 96.52 & 24,63 \\ [5pt]
+		\bottomrule 
+	\end{tabularx}
+	
+	\label{tab:mes}
+\end{table}
+
+
+\paragraph{Calibration}
+For the calibration of the pressure sensor we need to calculate the slope $C$ and offset $p_0$ between the pressure given by the pressure sensor in \si{\milli\volt} and the reference values as visualized in figure \ref{fig::cali}. 
 For this we used the ambient pressure and vacuum as the two reference points.
-To measure the ambient pressure, the mercury barometer in the lab was used.
-From the barometer we could read the uncorrected $p_L = 720,9$ $\si{\m} \cdot 10^{-3} \text{  Hg (tL)}$ with the corresponding roomtemperature of $23,1$ $\si{\degreeCelsius}$. 
-
-
 
 \begin{figure}[h!]
 	\begin{center}
@@ -14,29 +37,47 @@ From the barometer we could read the uncorrected $p_L = 720,9$ $\si{\m} \cdot 10
 	\caption{Calibration of pressure sensor.}\label{fig::cali}
 \end{figure}
 
+To measure the ambient pressure, the mercury barometer in the lab was used.
+From the barometer we could read the uncorrected $p_L = 720,9$$\si{\m} \cdot 10^{-3} \text{  Hg (tL)}$ with the corresponding room temperature of $23,1$ $\si{\degreeCelsius}$. 
+With this temperature we got a corrective value of 2,99 which we had to subtract from the measured pressure to get 717,91 Torr.
+One Torr corresponds to 133,32 Pa which resulted in an ambient pressure of 95711,6712 Pa.
+With the pressure sensor we got for the ambient room pressure with the same temperature $U_L = 132,21$ \si{\milli\volt}.
 
-In the data analysis section you describe the post processing of the
-data. How did you obtain the data that you plot in the figures? The raw data does not necessarily need
-to be presented in the report. An important part of this paragraph
-are the measurement uncertainties. You should provide the
-uncertainties of all experimental results, i.e. in the form of error
-bars. Further, you should explain the origin of these uncertainties.
 
-There are many way how you can include equations and mathematical terms in your report. The easiest is to write them inside the text like this: $\Gamma =\SI{1.5}{\micro\meter\per\square\second}$. If you need to write a long equation, it is recommended to use e.g. the align environment.
-\begin{align}
-    \Gamma = \frac{a}{4\kappa}\times ...
-\end{align}
+For the second reference point the vacuum we assumed that it should be possible to achieve a vacuum of $p_t = 0.1\pm 0.1$ mbar. 
+The corresponding pressure value in the glass bulb measured is $ U_t = -3.15$ \si{\milli\volt}.
 
-All figures or tables that are part of your report have to be
-referenced somewhere in the text, ideally in order of their
-appearance (``as shown in Fig. \ref{fig1}''). Figures have to
-have axis labels with units and a sensible scale. If more than on
-data set is plotted you need to provide a legend. This may be a sentence in the caption (``red dots denote data measured with \SI{1}{\milli\volt}, blue crosses were measured with \SI{10}{\milli\volt}'').
 
-After you have presented the data you need to interpret it. To this
-end you want to discuss the theoretical model that describes your
-data and you will derive model parameters from your measurement data
-(i.e. by fitting it to the data). Here, you will again elaborate on
-the confidence interval of the derived values (error propagation).
-This is an important part of the report and it will be the basis for
-the next paragraph.
+To get the slope we calculate
+\[
+C= \frac{p_L -p_t}{U_L -U_t}
+\]
+and for the offset we calculate
+\[
+p_0= p_L-C\cdot U_L = p_t-C\cdot U_t.
+\]
+
+With these two values, the pressure measured in \si{\milli\volt} and the equation \ref{eq::convert} we get the converted value in Pascal.
+
+
+\paragraph{Absolute Zero} To calculate the absolute zero temperature, we take two reference points, were we can measure the temperature and the corresponding pressure very exactly. 
+From this and the knowledge of the ideal gas equation \ref{eq::gas}, we can extrapolate to the absolute zero point $t_0$.
+The first point we get with the temperature source of boiling water as described in the paragraph \ref{para:2} and the second point from iced water from the same paragraph.
+From the manual\cite{manual} provided with the lab we use the equations \ref{eq::zero} to calculate our absolute zero temperature $t_0$.
+
+\begin{equation}
+\begin{aligned}
+a &=(1+\varepsilon) p_{E}-\left(1+\varepsilon+\gamma t_{K}\right) p_{K} \\
+b &=\varepsilon\left(p_{K}-p_{E}\right) t_{K}+\left(1+\gamma t_{K}\right) p_{K} t_{L}-p_{E}\left(t_{L}+t_{K}\right) \\
+c &=p_{E} t_{L} t_{K} \\
+t_{0} &=\frac{-b \pm \sqrt{b^{2}-4 a c}}{2 a}
+\end{aligned}
+\label{eq::zero}
+\end{equation}
+where $\gamma = 1,0 \cdot 10^{-5} \si{\degreeCelsius}^{-1}$ is the cubic expansion coefficient of the glass bulb, $\varepsilon = 0,001$ is the volume of the harmful space divided by the volume of the glass bulb itself.
+
+
+
+
+
+
