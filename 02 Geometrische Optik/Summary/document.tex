@@ -1,0 +1,59 @@
+\documentclass[12pt,a4paper]{article}
+
+
+
+\usepackage{a4wide}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{parskip}
+\usepackage[ansinew]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage[free-standing-units=true]{siunitx} % for consistent handling of SI units
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref} % enable links
+
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\m}[1]
+{\mathrm{#1}}
+
+\title{16 Geometrical Optics, Summary}
+\author{Cedric Renda, Fritz Kurz}
+\date{\today }
+
+\begin{document}
+In this experiment the first goal is to measure the focal length of two converging lenses with two different methods:
+One time, using the fine wire mesh, using the object and distances method.
+The second time, using the coarse wire mesh, by applying Bessel's method.
+\begin{align}
+	f = \frac{a b}{a+b} = \frac{d^2 - e^2}{4 d}
+\end{align}
+$f_{conv} > 0$
+
+
+Next we want to measure the focal length of a diverging lens, once again by using the object and distances method, by inserting the long-focus converging lens.
+\begin{align}
+	f_{div} = \frac{f_{conv} f}{f_{conv}-f}
+\end{align}
+where f is the measured focal length of the system. $f_{div} < 0$
+
+Then we want to determine the grating constant $g$ of two wire nets.
+Using the magnification scale $v = b/a = g'/g$ and measuring the image size $g'$, we can determine $g$.
+
+Last we want to verify Abbe's imaging theory, which states:
+\begin{align}
+	d \approx f \frac{\lambda}{g}
+\end{align}
+We image the two wire nets we measured previously using the long-focus converging lense.
+We put in a slit, which we close until the vertical bars just disappear. 
+Then, using the method from before, we measure the slit with using the short-focus lense.
+We are now able to compare the two values, thus we know the accuracy of Abbe's theory
+\end{document}

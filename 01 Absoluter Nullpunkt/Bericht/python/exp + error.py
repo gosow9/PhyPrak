@@ -11,7 +11,7 @@ import numpy as np
 
 
 
-ul = 132.21
+ul = 131.21
 ut = -3.72
 pl = 95711.7612 
 pt = 10 #gegeben, +-10
@@ -91,7 +91,7 @@ def calc_p(U):
     return p0 + c*U
 
 ue = 96.18
-uk = 131.54
+uk = 131.28
 un = 24.63
 
 pe = calc_p(ue)
@@ -119,10 +119,10 @@ def find_delta_u(u): #absoluter Messfehler + Fehler in Steigung
 
 
 delta_pt = 10
-delta_pl = 0
+delta_pl = 0.
 delta_ut = 0.155
 delta_ul = find_delta_u(ul)
-delta_tk = 0
+delta_tk = 0.
 delta_tl = 0.05
 delta_te = 0.
 
@@ -212,8 +212,8 @@ def plot():
     plt.plot(T, P_exp, '-')
     plt.errorbar(te, pe, delta_pe, delta_te, 'o', label = 'Ice')
     plt.errorbar(tk, pk, delta_pk, delta_tk, 'o', label = 'Vapor')
-    plt.errorbar(t0, 0, 0, delta_t0, 'o', label = 'Absolute Zero')
-    plt.errorbar(t0_ex, 0, 0, 0.005, 'o', label = 'Exact value of absolute zero')
+    plt.errorbar(t0, 0, 0, delta_t0, 'x', label = 'Absolute Zero')
+    plt.errorbar(t0_ex, 0, 0, 0.005, 'x', label = 'Exact value of absolute zero')
     plt.legend()
     plt.savefig(fname = "Calculation Absolute Zero")
     plt.show()
