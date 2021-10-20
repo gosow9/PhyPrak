@@ -1,11 +1,54 @@
 \section{Experiment}
 
-This section is where you describe what you actually did in the lab.
-You explain what data you measured and how. Here, you might want to
-provide a sketch of the experimental setup, if this is applicable.
-This sketch could be taken from the experiment manual. In particular,
-you want to define all parameters that you use or measure in this
-experiment.
+\subsection{Measuring converging lenses}
+\subsubsection{Lens equation}
+To calculate the focal length $f$ using the lens equation, we need to place an object, in our case a wired net, in front of a monochromatic LED light. 
+The light then passes through the lens we want to measure and the image is projected on to a white screen.
+Now the goal is to adjust the position of the lens, so that the image is as sharp as possible.
+That gives us two distances:
+first $a$ between object and lens, and then $b$ between lens and image.
+We are then able to calculate the focal length using
+\begin{equation}
+	\displaystyle f = \frac{ab}{a+b}
+	\label{eq::lens}
+\end{equation}
 
-In general the information you provide in this section should be
-sufficient for the reader to reproduce your results.
+
+
+
+
+\subsubsection{Bessel's Method}
+Now we want to use Bessel's method.
+Here we have to measure slightly different things.
+With the same setup, we take a fixed distance $d$ between the object and the image. 
+By varying the location of the lense in between, we are able to find two spots, where there is a sharp image, once magnified, once demagnified.
+We measure the distance $e$ between those two positions. Then we calculate $f$ using
+\begin{equation}
+	f = \frac{d^2 - e^2}{4d}
+	\label{eq::bessel}
+\end{equation}
+
+
+\subsection{Measuring diverging lenses}
+To measure the focal length of a diverging lens $f_{div}$, we have to set a converging one with focal length $f_{conv}$ behind it (or in front). 
+Then we measured the focal length $f$ of the resulting lens system like before using the lens equation (\ref{eq::lens}).
+We can now use the following equation to determine $f_{div}$:
+\begin{equation}
+	\frac{1}{f} = \frac{1}{f_{div}} + \frac{1}{f_{conv}} \implies f_{div} = \frac{f_{conv} f}{f_{conv} - f}
+	\label{eq::div}
+\end{equation}
+
+
+\subsection{Measuring wired nets}
+Here we want to measure the grating constant $g$ of a wired net.
+To do that, we image the wired net to the screen using a lens with a known focal length.
+As in the beginning, we try to get the sharpest image possible by adjusting the position of the lens and get $a$ and $b$ like before.
+From that, we get the magnification scale $v = b/a$
+We can then measure the grid width $g'$ of the image, and calculate $g$ by using this equation:
+\begin{equation}
+	g = \frac{g'}{v}
+	\label{eq::grid}
+\end{equation}
+
+\subsection{Critical slit width}
+
