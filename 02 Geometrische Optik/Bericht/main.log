@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.19)  19 OCT 2021 15:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.19)  20 OCT 2021 11:04
 entering extended mode
 **./main.tex
 (main.tex
@@ -1049,9 +1049,9 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  (sections/introduction.tex)
 (sections/experiment.tex [1
 
-{C:/Users/fritz/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]) (sections/resu
-lts.tex [2]) (sections/analysis.tex)
-(sections/disscussion.tex [3]) (sections/conclusion.tex) [4] (sections/dos.tex
+{C:/Users/fritz/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [2]) (sections/
+results.tex) (sections/analysis.tex [3])
+(sections/disscussion.tex) (sections/conclusion.tex) [4] (sections/dos.tex
 [5]) (sections/references.tex) [6] (main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 5A549C470A967371D57C35FDC6EC3526;1686.
@@ -1077,7 +1077,7 @@ itz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/U
 sers/fritz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.
 pfb><C:/Users/fritz/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
 m/cmsy8.pfb>
-Output written on main.pdf (6 pages, 144095 bytes).
+Output written on main.pdf (6 pages, 144553 bytes).
 PDF statistics:
  162 PDF objects out of 1000 (max. 8388607)
  30 named destinations out of 1000 (max. 500000)
