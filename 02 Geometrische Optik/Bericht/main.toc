@@ -1,7 +1,13 @@
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
 \contentsline {section}{\numberline {2}Experiment}{2}{section.2}%
-\contentsline {section}{\numberline {3}Results}{2}{section.3}%
-\contentsline {section}{\numberline {4}Data analysis}{2}{section.4}%
-\contentsline {section}{\numberline {5}Discussion}{3}{section.5}%
-\contentsline {section}{\numberline {6}Conclusion}{3}{section.6}%
-\contentsline {section}{\numberline {7}Dos and Don'ts}{4}{section.7}%
+\contentsline {subsection}{\numberline {2.1}Measuring converging lenses}{2}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Lens equation}{2}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Bessel's Method}{2}{subsubsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.2}Measuring diverging lenses}{2}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Measuring wired nets}{2}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Critical slit width}{3}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Results}{3}{section.3}%
+\contentsline {section}{\numberline {4}Data analysis}{3}{section.4}%
+\contentsline {section}{\numberline {5}Discussion}{4}{section.5}%
+\contentsline {section}{\numberline {6}Conclusion}{4}{section.6}%
+\contentsline {section}{\numberline {7}Dos and Don'ts}{5}{section.7}%
