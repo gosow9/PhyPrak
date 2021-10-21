@@ -1,36 +1,79 @@
 \section{Data analysis}
 
-\begin{figure}
-\centering
-%\includegraphics[width=\textwidth]{test.pdf}
-\caption{In the figure caption you describe what is plotted in the
-figure. In this case: The measured data is depicted by the blue dots
-with error bars indicating the statistical error. The red line is a
-linear fit to the data.} \label{fig1}
+All but one measurements were done on the same measuring rail as seen in figure \ref{fig::rail}, with a included \si{\milli \m}-scale. 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{img/railcut.jpeg}
+	\caption{Photo of the measurement rail, light source (left) and the setup from the critical slit width experiment from chapter \ref{chap::slit}.}
+	\label{fig::rail}
 \end{figure}
 
-In the data analysis section you describe the post processing of the
-data. How did you obtain the data that you plot in the figures? The raw data does not necessarily need
-to be presented in the report. An important part of this paragraph
-are the measurement uncertainties. You should provide the
-uncertainties of all experimental results, i.e. in the form of error
-bars. Further, you should explain the origin of these uncertainties.
+Since the later described error of focusing $err_f$ is way bigger, the following smaller sources are included in the focusing error.
+In a setup with a \si{\milli \m} measuring rail like in figure\ref{fig::rail}, the best reading accuracy is $0.5 \pm 0.25$\si{\milli \m}. 
+If well done the parallax error can be included in this error margin, otherwise the parallax error can be added on top.
+Depending on rail length and material a certain temperature error has to be included. 
+Since the coefficient of length expansion for most metals used in length measuring devices is in the magnitude of $10^{-5} \dots 10^{-6}$ per Kelvin.
+The errors in a measurement like this errors are negligible. 
 
-There are many way how you can include equations and mathematical terms in your report. The easiest is to write them inside the text like this: $\Gamma =\SI{1.5}{\micro\meter\per\square\second}$. If you need to write a long equation, it is recommended to use e.g. the align environment.
-\begin{align}
-    \Gamma = \frac{a}{4\kappa}\times ...
-\end{align}
+\paragraph{Lens equation}
+Measuring the focal length of the different lenses were done according to the description in chapter \ref{chap::lens}. 
+First we had to find a position for our lens to project a sharp image on the screen.
+This task itself is very error prone since to determine sharpness from bare eye is not very exact.
+This method generated an error of $\pm 5$\si{\milli\m}, were it was hard to decide if the image was still sharp or not.
+This error is so big that it already includes all to errors mentioned above.
 
-All figures or tables that are part of your report have to be
-referenced somewhere in the text, ideally in order of their
-appearance (``as shown in Fig. \ref{fig1}''). Figures have to
-have axis labels with units and a sensible scale. If more than on
-data set is plotted you need to provide a legend. This may be a sentence in the caption (``red dots denote data measured with \SI{1}{\milli\volt}, blue crosses were measured with \SI{10}{\milli\volt}'').
+Since the error is dependent on the distances $a$ and $b$ we are adding the error to the value which leads to an bigger confidence interval.
+Which was always $a$.
+The error propagation from the measured results to each focal length $f_i$ is calculated like
+\[
+  \displaystyle	\Delta f_i = \sqrt{\left(\frac{\partial f}{\partial a} \cdot \Delta a \right)^2 +\left(\frac{\partial f}{\partial b} \cdot \Delta b\right)^2 } = \sqrt{\left(\frac{b^2}{(a+b)^2}\cdot \Delta a\right)^2}
+\]
+with an assumed $\Delta b = 0$. 
+Since we made multiple measurements for one focal length the standard error of the mean is
+\[
+\displaystyle	\Delta \overline{f} =\frac{1}{n} \sqrt{\sum_{i=1}^{n}\Delta f_i^2} = \frac{1}{2}\sqrt{\Delta f_1^2 + \Delta f_2^2 }.
+\]
 
-After you have presented the data you need to interpret it. To this
-end you want to discuss the theoretical model that describes your
-data and you will derive model parameters from your measurement data
-(i.e. by fitting it to the data). Here, you will again elaborate on
-the confidence interval of the derived values (error propagation).
-This is an important part of the report and it will be the basis for
-the next paragraph.
+With this we get the following average focal length and standard error for the lens one and two with two measurements.
+
+	\begin{tabularx}{\textwidth}{XM{5cm}M{5cm}}%{XXXXXX}{M{1.7cm}M{1.5cm}M{1.5cm}M{2.5cm}M{2cm}}
+		\toprule 
+		Lens nr.& mean focal length $\overline{f}$ & error $\Delta \overline{f}$\\
+		\hline
+		&&\\[-5pt]
+		Lens 1	& 58 \si{\milli \m} & $\pm 2,7$ \si{\milli \m}	\\
+		Lens 2	& 149 \si{\milli \m} & $\pm 3,2$ \si{\milli \m}	\\
+		
+
+		\bottomrule 
+	\end{tabularx}
+
+\paragraph{Bessel}
+The measurements results used to calculate the focal length via the Bessel method \ref{eq::bessel} $e$ and $d$ were obtained as described in chapter \ref{chap::bessel}.
+Calculating an error $\Delta f$ with the Gaussian method
+\[
+\displaystyle	\Delta f = \sqrt{\left(\frac{\partial f}{\partial e} \cdot \Delta e \right)^2 } = \frac{e}{2d}\cdot \Delta e
+\]
+
+we get the following focal lengths and errors for our lenses
+
+\begin{tabularx}{\textwidth}{XM{5cm}M{5cm}}%{XXXXXX}{M{1.7cm}M{1.5cm}M{1.5cm}M{2.5cm}M{2cm}}
+	\toprule 
+	Lens nr.&focal length $f$ & error $\Delta f$\\
+	\hline
+	&&\\[-5pt]
+	Lens 1	& 55 \si{\milli \m} & $\pm 2,8$ \si{\milli \m}	\\
+	Lens 2	& 149 \si{\milli \m} & $\pm 1,4$ \si{\milli \m}	\\	
+	\bottomrule 
+\end{tabularx}
+
+\paragraph{Diverging lens}
+To measure the diverging lens we used lens number two with the bigger focal length and the method described in chapter \ref{chap::div}.
+
+
+
+
+
+
+
+

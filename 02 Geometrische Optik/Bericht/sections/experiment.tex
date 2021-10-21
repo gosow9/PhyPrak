@@ -2,8 +2,18 @@
 
 \subsection{Measuring converging lenses}
 \subsubsection{Lens equation}
+\label{chap::lens}
+
 To calculate the focal length $f$ using the lens equation, we need to place an object, in our case a wired net, in front of a monochromatic LED light. 
-The light then passes through the lens we want to measure and the image is projected on to a white screen.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{img/lenseq.PNG}
+	\caption{Descriptive image\cite{manual} of the setup to measure the lens with the lens equation.}
+	\label{fig::lens}
+\end{figure}
+
+The light then passes through the lens we want to measure and the image is projected on to a white screen, as seen in Figure \ref{fig::lens}.
 Now the goal is to adjust the position of the lens, so that the image is as sharp as possible.
 That gives us two distances:
 first $a$ between object and lens, and then $b$ between lens and image.
@@ -11,14 +21,24 @@ We are then able to calculate the focal length using equation (\ref{eq::lens}).
 
 
 \subsubsection{Bessel's Method}
+\label{chap::bessel}
 Now we want to use Bessel's method.
 Here we have to measure slightly different things.
 With the same setup, we take a fixed distance $d$ between the object and the image. 
-By varying the location of the lense in between, we are able to find two spots, where there is a sharp image, once magnified, once demagnified.
-We measure the distance $e$ between those two positions. Then we calculate $f$ using equation (\ref{eq::bessel}).
+
+By varying the location of the lens in between, we are able to find two spots, where there is a sharp image, once magnified, once demagnified.
+We measure the distance $e$ between those two positions.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/bessel.PNG}
+	\caption{Descriptive image\cite{manual} of the Bessel method to determine the focal length.}
+	\label{fig::bessel}
+\end{figure}
+ Then we calculate $f$ using equation (\ref{eq::bessel}).
 
 
 \subsection{Measuring diverging lenses}
+\label{chap::div}
 To measure the focal length of a diverging lens $f_{div}$, we have to set a converging one with focal length $f_{conv}$ behind it (or in front). 
 Then we measured the focal length $f$ of the resulting lens system like before using the lens equation (\ref{eq::lens}).
 We can now use the following equation to determine $f_{div}$:
@@ -40,6 +60,7 @@ We can then measure the grid width $g'$ of the image, and calculate $g$ by using
 \end{equation}
 
 \subsection{Critical slit width}
+\label{chap::slit}
 Abbe's image theory gives us a formula for the critical slit with $\tilde{d}$.
 We want to check the accuracy of said theory by measuring $d$ ourself.
 To do this, we use the same setup as before, but now we put a vertical slit with variable width in the focal plane of the lens. 
