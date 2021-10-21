@@ -22,11 +22,15 @@ def del_f_obj(a, b, del_a, del_b):
 
 #Experiment 1
 
+def del_mean(del_f1, del_f2):
+    return 0.5*np.sqrt(del_f1**2+del_f2**2)
+
+
 
 #Objekt- und Bilddistanz
 #Linse 1
 a11 = 69 #+- 10mm
-del_a11 = 10
+del_a11 = 5
 b11 = 361
 del_b11 = 0
 
@@ -37,11 +41,16 @@ del_f11 = del_f_obj(a11, b11, del_a11, del_b11)
 
 a12 = 64 #+- 10mm
 b12 = 666
-del_a12 = 10
+del_a12 = 5
 del_b12 = 0
 
 f12 = f_obj(a12, b12)
 del_f12 = del_f_obj(a12, b12, del_a12, del_b12)
+
+#mean
+f1_l = 0.5*(f11+f12)
+del_f1_l = del_mean(del_f11, del_f12)
+
 
 #Linse 2
 a21=239.5 #+- 10mm
@@ -60,6 +69,11 @@ del_b22 = 0
 
 f22 = f_obj(a22, b22)
 del_f22 = del_f_obj(a22, b22, del_a22, del_b22)
+
+
+#mean
+f2_l = 0.5*(f21+f22)
+del_f2_l = del_mean(del_f21, del_f22)
 
 #Bessel
 
