@@ -5,10 +5,15 @@ Created on Tue Oct 19 14:11:46 2021
 @author: fritz
 """
 import numpy as np
-import matplotlib.pyplot as plt
 
 
 #Fehlers
+
+
+#Messungen:
+
+
+#Experiment 1
 def f_obj(a, b):
     return a*b/(a+b)
 
@@ -17,16 +22,10 @@ def del_f_obj(a, b, del_a, del_b):
     dfb = a**2/(a+b)**2
     return np.sqrt((dfa*del_a)**2 + (dfb*del_b)**2)
 
-#Messungen:
-
-
-#Experiment 1
-
-
 #Objekt- und Bilddistanz
 #Linse 1
-a11 = 69 #+- 10mm
-del_a11 = 10
+a11 = 69 #+- 5mm
+del_a11 = 5
 b11 = 361
 del_b11 = 0
 
@@ -35,13 +34,16 @@ f11 = f_obj(a11, b11)
 del_f11 = del_f_obj(a11, b11, del_a11, del_b11)
 
 
-a12 = 64 #+- 10mm
+a12 = 64 #+- 5mm
 b12 = 666
-del_a12 = 10
+del_a12 = 5
 del_b12 = 0
 
 f12 = f_obj(a12, b12)
 del_f12 = del_f_obj(a12, b12, del_a12, del_b12)
+
+f1_l = 0.5*(f11+f12)
+del_f1_l = 0.5*np.sqrt((del_f11**2+del_f12**2))
 
 #Linse 2
 a21=239.5 #+- 10mm
@@ -60,6 +62,9 @@ del_b22 = 0
 
 f22 = f_obj(a22, b22)
 del_f22 = del_f_obj(a22, b22, del_a22, del_b22)
+
+f2_l = 0.5*(f21+f22)
+del_f2_l = 0.5*np.sqrt((del_f21**2+del_f22**2))
 
 #Bessel
 
@@ -164,3 +169,14 @@ del_v6 = del_v(a6, b6)
 d6_t = 2.7
 d6 = d6_t/v6
 del_d6 = del_g(d6_t, v6, del_v6)
+
+#abbe
+def del_abbe(f, lam, g, del_f, del_lam, del_g):
+    ddf = lam/g
+    ddl = f/g
+    ddg = -f*lam/g**2
+    return np.sqrt((ddf*del_f)**2 + (ddl*del_lam)**2 + (ddg*del_g)**2)
+
+d_calc = f2_b*lam/g3
+del_d_calc = del_abbe(f2_b, lam, g3, del_f2_b, del_lam, del_g3)
+
