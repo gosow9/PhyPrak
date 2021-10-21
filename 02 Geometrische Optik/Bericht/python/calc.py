@@ -111,6 +111,7 @@ g = g_grob
 lam = 525e-6 #nm
 f = f_l2
 
+print(f, lam, g)
 d_calc = f*lam/g
 
 a_5 = 58

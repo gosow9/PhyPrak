@@ -3,9 +3,9 @@
 Experiment Geometrische Optik
 
 Aufteilung des Berrichts
-- [ ] Abstract 
+- [x] Abstract (Fritz) 
 - [ ] Introduction 
-- [ ] Experiment
+- [x] Experiment (Fritz)
 - [ ] Results
 - [ ] Data analysis
 - [ ] Disscussion
