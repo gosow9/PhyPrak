@@ -5,7 +5,7 @@ Created on Tue Oct 19 14:11:46 2021
 @author: fritz
 """
 import numpy as np
-import matplotlib.pyplot as plt
+
 
 
 #Fehlers
