@@ -17,7 +17,13 @@ The light then passes through the lens we want to measure and the image is proje
 Now the goal is to adjust the position of the lens, so that the image is as sharp as possible.
 That gives us two distances:
 first $a$ between object and lens, and then $b$ between lens and image.
-We are then able to calculate the focal length using equation (\ref{eq::lens}).
+We are then able to calculate the focal length using
+\begin{equation}
+	\displaystyle f = \frac{ab}{a+b}
+\end{equation}
+
+
+
 
 
 \subsubsection{Bessel's Method}
@@ -25,7 +31,6 @@ We are then able to calculate the focal length using equation (\ref{eq::lens}).
 Now we want to use Bessel's method.
 Here we have to measure slightly different things.
 With the same setup, we take a fixed distance $d$ between the object and the image. 
-
 By varying the location of the lens in between, we are able to find two spots, where there is a sharp image, once magnified, once demagnified.
 We measure the distance $e$ between those two positions.
 \begin{figure}[h!]
@@ -34,7 +39,10 @@ We measure the distance $e$ between those two positions.
 	\caption{Descriptive image\cite{manual} of the Bessel method to determine the focal length.}
 	\label{fig::bessel}
 \end{figure}
- Then we calculate $f$ using equation (\ref{eq::bessel}).
+ Then we calculate $f$ using
+\begin{equation}
+	f = \frac{d^2 - e^2}{4d}
+\end{equation}
 
 
 \subsection{Measuring diverging lenses}
