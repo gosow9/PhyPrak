@@ -1,4 +1,12 @@
 # Absoluter Nullpunkt
+Korrektur:
+
+Aufteilung des Korrektur
+- [ ] Abstract & Introduction (Fritz)
+- [ ] Experiment (Cedric
+- [ ] Data analysis (Cedric)
+
+
 
 Experiment absoluter Nullpunkt
 
