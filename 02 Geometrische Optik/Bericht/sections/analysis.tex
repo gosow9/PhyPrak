@@ -19,8 +19,8 @@ The errors in a measurement like this errors are negligible.
 Measuring the focal length of the different lenses were done according to the description in chapter \ref{chap::lens}. 
 First we had to find a position for our lens to project a sharp image on the screen.
 This task itself is very error prone since to determine sharpness from bare eye is not very exact.
-This method generated an error of $\pm 5$\si{\milli\m}, were it was hard to decide if the image was still sharp or not.
-This error is so big that it already includes all to errors mentioned above.
+Using this method we estimated an error of $\pm 5$\si{\milli\m} for the Lens 1 and $\pm 10$\si{\milli\m} for the Lens 2, were it was hard to decide if the image was still sharp or not.
+Having an error this big justifies neglecting the other errors which are way smaller.
 
 Since the error is dependent on the distances $a$ and $b$ we are adding the error to the value which leads to an bigger confidence interval.
 Which was always $a$.
@@ -50,6 +50,8 @@ With this we get the following average focal length and standard error for the l
 
 \paragraph{Bessel}
 The measurements results used to calculate the focal length via the Bessel method \ref{eq::bessel} $e$ and $d$ were obtained as described in chapter \ref{chap::bessel}.
+Evaluating the exact two points of sharpness in this setup was even more error prone.
+Thus we have an estimated error of $\Delta e= \pm 20$\si{\milli\m} added on both lenses.
 Calculating an error $\Delta f$ with the Gaussian method
 \[
 \displaystyle	\Delta f = \sqrt{\left(\frac{\partial f}{\partial e} \cdot \Delta e \right)^2 } = \frac{e}{2d}\cdot \Delta e
@@ -69,6 +71,66 @@ we get the following focal lengths and errors for our lenses
 
 \paragraph{Diverging lens}
 To measure the diverging lens we used lens number two with the bigger focal length and the method described in chapter \ref{chap::div}.
+Calculating the focal length of the diverging lens $f_{div}$ is done with the equation \ref{eq::div} and the Gaussian method.
+\[
+\Delta f_{div}= \sqrt{\left(\frac{-f^2}{(f_{conv}-f)^2} \Delta f_{conv}\right)^2+  \left(\frac{f_{conv}^2}{(f_{conv}-f)^2} \Delta f \right)^2}
+\] 
+
+
+\begin{tabularx}{\textwidth}{XM{5cm}M{5cm}}%{XXXXXX}{M{1.7cm}M{1.5cm}M{1.5cm}M{2.5cm}M{2cm}}
+	\toprule 
+	Measurement nr.&focal length $f_{div}$ & error $\Delta f_{div}$\\
+	\hline
+	&&\\[-5pt]
+	Nr. 1	& -526 \si{\milli \m} & $\pm 37$ \si{\milli \m}	\\
+	Nr. 2	& -521 \si{\milli \m} & $\pm 30$ \si{\milli \m}	\\
+	Nr. 2	& -521 \si{\milli \m} & $\pm 30$ \si{\milli \m}	\\	
+	\bottomrule 
+\end{tabularx}
+
+\paragraph{Measuring wired nets}
+To calculate the grating constant as described in chapter \ref{chap::net}, we calculate the magnification scale $v= b/a$.
+The corresponding error 
+\[
+\Delta v= \sqrt{\left(\frac{-b}{a^2} \cdot \Delta a^2\right)^2} = \frac{b}{a^2} \Delta a
+\] 
+with a expected uncertainty of $\Delta a =\pm 10$\si{\milli \m} and no error for the dependent $\Delta b$.
+
+Calculating the grating constant $g$ according to the equation \ref{eq::grid}.
+For the corresponding error, the Gaussian method gives us 
+\[
+\Delta g= \sqrt{\left(\frac{1}{v} \cdot \Delta g'\right)^2 + \left(\frac{-g'}{v^2} \cdot \Delta v\right)^2}  
+\]
+with a assumed measuring error $\Delta g' = \pm 0.1$\si{\milli \m}.
+This resembles the scale of the sliding calliper and the accuracy using it to measure.
+
+Calculating the magnification scale and grating constant from the measured values for the rough and fine net mesh, we get the following results.
+
+\begin{tabularx}{\textwidth}{XM{5cm}M{5cm}}%{XXXXXX}{M{1.7cm}M{1.5cm}M{1.5cm}M{2.5cm}M{2cm}}
+	\toprule 
+	Net structure&magnification scale $v$ & grating constant $g$\\
+	\hline
+	&&\\[-5pt]
+	rough	& $4,7\pm 0,3$ \si{\milli \m} & $1,45 \pm 0,03$ \si{\milli \m}	\\
+	fine	& $5,5\pm 0,3$ \si{\milli \m} & $0,71 \pm 0,02$ \si{\milli \m}	\\	
+	\bottomrule 
+\end{tabularx}
+
+
+\paragraph{Abbe's image theory}
+To receive the results of the last experiment \ref{chap::slit}, the calculation were done the same as when we calculated the nets above. 
+
+\begin{tabularx}{\textwidth}{XM{5cm}M{5cm}}%{XXXXXX}{M{1.7cm}M{1.5cm}M{1.5cm}M{2.5cm}M{2cm}}
+	\toprule 
+	Net structure&magnification scale $v$ & slit width $d$\\
+	\hline
+	&&\\[-5pt]
+	rough	& $49\pm 8,4$ \si{\milli \m} & $0,06 \pm 0,01$ \si{\milli \m}	\\
+	fine	& $51\pm 8,8$ \si{\milli \m} & $0,05 \pm 0,01$ \si{\milli \m}	\\	
+	\bottomrule 
+\end{tabularx}
+
+
 
 
 
