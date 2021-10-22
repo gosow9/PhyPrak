@@ -125,6 +125,12 @@ del_f2 = del_f_obj(a2, b2, 10, 0)
 f_div2 = f_div(f2_b, f2)
 del_f_div2 = del_f_div(f2_b, f2, del_f2_b, del_f2)
 
+
+#mean
+f_div = 0.5*(f_div1+f_div2)
+del_f_div = del_mean(del_f_div1, del_f_div2)
+
+
 #---------------------------------------------
 #Experiment 3
 def del_v(a, b, del_a=10):
@@ -157,7 +163,7 @@ del_g4 = del_g(g4, v4, del_v4)
 #Experiment 4
 
 lam = 525e-6 #+- 0.5e-6
-del_lam = 0.5e-6
+
 
 
 #grob
