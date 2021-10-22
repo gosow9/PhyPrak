@@ -33,21 +33,22 @@ Here we have to measure slightly different things.
 With the same setup, we take a fixed distance $d$ between the object and the image. 
 By varying the location of the lens in between, we are able to find two spots, where there is a sharp image, once magnified, once demagnified.
 We measure the distance $e$ between those two positions.
+Then we calculate $f$ using
+\begin{equation}
+	f = \frac{d^2 - e^2}{4d}
+\end{equation}
+
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{img/bessel.PNG}
 	\caption{Descriptive image\cite{manual} of the Bessel method to determine the focal length.}
 	\label{fig::bessel}
 \end{figure}
- Then we calculate $f$ using
-\begin{equation}
-	f = \frac{d^2 - e^2}{4d}
-\end{equation}
 
 
 \subparagraph{Measuring diverging lenses}
 \label{chap::div}
-To measure the focal length of a diverging lens $f_{div}$, we have to set a converging one with focal length $f_{conv}$ behind it (or in front). 
+To measure the focal length of a diverging lens $f_{div}$, we have to set a converging one with known focal length $f_{conv}$ behind it (or in front). 
 Then we measured the focal length $f$ of the resulting lens system like before using the lens equation (\ref{eq::lens}).
 We can now use the following equation to determine $f_{div}$:
 \begin{equation}
@@ -61,7 +62,7 @@ We can now use the following equation to determine $f_{div}$:
 Here we want to measure the grating constant $g$ of a wired net.
 To do that, we image the wired net to the screen using a lens with a known focal length.
 As in the beginning, we try to get the sharpest image possible by adjusting the position of the lens and get $a$ and $b$ like before.
-From that, we get the magnification scale $v = b/a$
+From that, we get the magnification scale $v = b/a$.
 We can then measure the grid width $g'$ of the image, and calculate $g$ by using this equation:
 \begin{equation}
 	g = \frac{g'}{v}
