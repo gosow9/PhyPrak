@@ -3,7 +3,7 @@ Korrektur:
 
 Aufteilung des Korrektur
 - [ ] Abstract & Introduction (Fritz)
-- [ ] Experiment (Cedric
+- [x] Experiment (Cedric
 - [ ] Data analysis (Cedric)
 
 
@@ -11,12 +11,12 @@ Aufteilung des Korrektur
 Experiment absoluter Nullpunkt
 
 Aufteilung des Berrichts
-- [ ] Abstract (Fritz)
+- [x] Abstract (Fritz)
 - [x] Introduction (Cedric)
-- [ ] Experiment (Fritz)
-- [ ] Results  (Fritz)
-- [ ] Data analysis (Cedric)
-- [ ] Disscussion (Fritz & Cedric)
+- [x] Experiment (Fritz)
+- [x] Results  (Fritz)
+- [x] Data analysis (Cedric)
+- [x] Disscussion (Fritz & Cedric)
 
 ## Bericht zu Labor
 ### Abstract

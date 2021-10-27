@@ -130,8 +130,8 @@ print(p1)
 #plt.hlines(y=p1, xmin=-20, xmax=0, linewidth=1, color='k', linestyle='--')
 plt.xlim(left=-10, right = 150)
 plt.ylim(bottom = -1000, top = 100000)
-plt.ylabel(r'Pressure in pa')
-plt.xlabel(r'Pressure in mV')
+plt.ylabel(r'Pressure in Pa')
+plt.xlabel(r'Pressure sensor reading')
 plt.legend()
 
 
