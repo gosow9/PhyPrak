@@ -2,7 +2,7 @@
 Korrektur:
 
 Aufteilung des Korrektur
-- [ ] Abstract & Introduction (Fritz)
+- [x] Abstract & Introduction (Fritz)
 - [x] Experiment (Cedric
 - [ ] Data analysis (Cedric)
 
