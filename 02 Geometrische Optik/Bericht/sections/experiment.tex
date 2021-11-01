@@ -1,4 +1,4 @@
-\section{Experiment}
+\section{Experimental methods}
 
 \paragraph{Measuring converging lenses}
 \subparagraph{Lens equation}
@@ -12,7 +12,6 @@ To calculate the focal length $f$ using the lens equation, we need to place an o
 	\caption{Descriptive image\cite{manual} of the setup to measure the lens with the lens equation.}
 	\label{fig::lens}
 \end{figure}
-
 The light then passes through the lens we want to measure and the image is projected on to a white screen, as seen in Figure \ref{fig::lens}.
 Now the goal is to adjust the position of the lens, so that the image is as sharp as possible.
 That gives us two distances:
@@ -20,6 +19,7 @@ first $a$ between object and lens, and then $b$ between lens and image.
 We are then able to calculate the focal length using
 \begin{equation}
 	\displaystyle f = \frac{ab}{a+b}
+	\label{eq::lens}
 \end{equation}
 
 
@@ -36,6 +36,7 @@ We measure the distance $e$ between those two positions.
 Then we calculate $f$ using
 \begin{equation}
 	f = \frac{d^2 - e^2}{4d}
+	\label{eq::bessel}
 \end{equation}
 
 \begin{figure}[h!]
@@ -49,7 +50,7 @@ Then we calculate $f$ using
 \subparagraph{Measuring diverging lenses}
 \label{chap::div}
 To measure the focal length of a diverging lens $f_{div}$, we have to set a converging one with known focal length $f_{conv}$ behind it (or in front). 
-Then we measured the focal length $f$ of the resulting lens system like before using the lens equation (\ref{eq::lens}).
+Then we measure the focal length $f$ of the resulting lens system like before using the lens equation (\ref{eq::lens}).
 We can now use the following equation to determine $f_{div}$:
 \begin{equation}
 	\frac{1}{f} = \frac{1}{f_{div}} + \frac{1}{f_{conv}} \implies f_{div} = \frac{f_{conv} f}{f_{conv} - f}
@@ -69,7 +70,7 @@ We can then measure the grid width $g'$ of the image, and calculate $g$ by using
 	\label{eq::grid}
 \end{equation}
 
-\paragraph{Critical slit width}
+\paragraph{Verifying Abbe's theory}
 \label{chap::slit}
 Abbe's image theory gives us a formula for the critical slit width $\tilde{d}$.
 We want to check the accuracy of said theory by measuring $d$ ourself.

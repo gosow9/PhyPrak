@@ -4,7 +4,7 @@ All but one measurements were done on the same measuring rail as seen in figure 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{img/railcut.jpeg}
-	\caption{Photo of the measurement rail, light source (left) and the setup from the critical slit width experiment from chapter \ref{chap::slit}.}
+	\caption{Photo of the measurement rail, light source (left) and the setup from the critical slit width experiment from section \ref{chap::slit}.}
 	\label{fig::rail}
 \end{figure}
 
@@ -16,14 +16,13 @@ Since the coefficient of length expansion for most metals used in length measuri
 The errors in a measurement like this are negligible. 
 
 \paragraph{Lens equation}
-Measuring the focal length of the different lenses was done according to the description in chapter \ref{chap::lens}. 
+Measuring the focal length of the different lenses was done according to the description in section \ref{chap::lens}. 
 First we had to find a position for our lens to project a sharp image on the screen.
 This task itself is very error prone since to determine sharpness from bare eye is not very exact.
 Using this method we estimated an error of $\pm 5$\si{\milli\m} for the Lens 1 and $\pm 10$\si{\milli\m} for the Lens 2, were it was hard to decide if the image was still sharp or not.
 Having an error this big justifies neglecting the other errors which are way smaller.
 
-Since the error is dependent on the distances $a$ and $b$, we are adding the error to the value which leads to an bigger confidence interval.
-This was always $a$.
+Since $a$ and $b$ depend on each other, we put it on the value, on which the resulting error is bigger, which was always $a$.
 The error propagation from the measured results to each focal length $f_i$ is calculated like
 \[
   \displaystyle	\Delta f_i = \sqrt{\left(\frac{\partial f}{\partial a} \cdot \Delta a \right)^2 +\left(\frac{\partial f}{\partial b} \cdot \Delta b\right)^2 } = \sqrt{\left(\frac{b^2}{(a+b)^2}\cdot \Delta a\right)^2}
@@ -35,7 +34,7 @@ Since we made multiple measurements for one focal length the standard error of t
 \label{eq::mean}
 \]
 
-With this we get the following average focal length and standard error for the lens one and two with two measurements.
+With this we get the following average focal length and standard error for the lens 1 and 2 with two measurements.
 
 	\begin{tabularx}{\textwidth}{XM{5cm}M{5cm}}%{XXXXXX}{M{1.7cm}M{1.5cm}M{1.5cm}M{2.5cm}M{2cm}}
 		\toprule 
@@ -58,7 +57,7 @@ Calculating the error $\Delta f$ with the Gaussian method
 \displaystyle	\Delta f = \sqrt{\left(\frac{\partial f}{\partial e} \cdot \Delta e \right)^2 } = \frac{e}{2d}\cdot \Delta e
 \]
 
-we get the following focal lengths and errors for our lenses
+we get the focal lengths and errors for our lenses as shown in the table below.
 
 \begin{tabularx}{\textwidth}{XM{5cm}M{5cm}}%{XXXXXX}{M{1.7cm}M{1.5cm}M{1.5cm}M{2.5cm}M{2cm}}
 	\toprule 

@@ -1,0 +1,68 @@
+\documentclass[12pt,a4paper]{article}
+
+
+
+\usepackage{a4wide}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{parskip}
+\usepackage[ansinew]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{pdfpages}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\usepackage[free-standing-units=true]{siunitx} % for consistent handling of SI units
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref} % enable links
+
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\m}[1]
+{\mathrm{#1}}
+
+\title{02 Traegheitsmoment}
+\author{Cedric Renda, Fritz Kurz}
+\date{\today }
+
+\begin{document}
+	
+\maketitle
+\paragraph{Summary}
+In this experiment we want to determine the moments of inertia for a dumbbell for different axes of rotation lying on a plane.
+
+\subparagraph{Arranging Momentum}
+To do this, we first have to determine the arranging moment of the torsion axis.
+We can do that by measuring the oscillation period $T$ of two setups:
+\begin{itemize}
+	\item $T_1$: Two quadratic beams placed on the torsion axle so that the axle is perpendicular to the principle axis of the two bars.
+	\item $T_2$: The same setup as before, but we add a circular disk with mass $M_S$ and radius $R_S$.
+\end{itemize}
+With $\theta_S = 1/2 M_S R_S^2$ the torsion coefficient $D$ is given by:
+\begin{align*}
+	D = \frac{4 \pi^2 \theta_S}{T_2^2 - T_1^2}
+\end{align*}
+
+\subparagraph{Steiner's Theorem}
+Next we want to verify Steiner's theorem.
+We use the same setup as in the beginning but shift the two bars step by step. We then compare with the values given by Steiner's theorem.
+
+\subparagraph{Ellipse of inertia}
+To show that our body of interest has a combined moment of inertia which resembles a ellipse, we have to measure the inertia in 10 different angles of the body.
+If the measured Periods $T$ and $\cos^2 (\phi)$, with the tilt angle $\phi$, is now plotted against each other we expect a straight line.
+With this we can show the linear relationship between $T_i ^2$ and $\cos^2(\phi)$ as in 
+\begin{align*}
+T_i^2 = A(1-B \cos^2 \phi_i)
+\end{align*}
+
+	
+\end{document}
