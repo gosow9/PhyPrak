@@ -2,10 +2,30 @@
 \begin{enumerate}
 	\item \textbf{How is the moment of inertia defined?}
 	
-	The moment of inertia of a rigid body is specified by the torque needed to accelerate it to a certain angular acceleration.
+	The moment of inertia $I$ of a rigid body is specified by the torque needed to accelerate it to a certain angular acceleration. This is expressed by the formula
+	\begin{align}
+		I = \int_{V} (\vec{r}_\perp)^2 \rho (\vec{r}) dV.
+		\label{eq::inertia}
+	\end{align}
+	Here, $\vec{r}_\perp$ is the part of $\vec{r}$ perpendicular to the axis of rotation and $\rho$ is the mass distribution.
+	
 	\begin{enumerate}
 		\item 
+		\textbf{Specify its value for a cylinder when the axis of rotation coincides with the cylinder axis itself.}
 		
-		Specify its value for a cylinder when the axis of rotation coincides with the cylinder axis itself.
+	 	With $R_2 > R_1$ being the radii, $L$ the length and $m$ the mass of the cylinder and assuming a constant mass distribution, formula (\ref{eq::inertia}) results in
+		\begin{align*}
+			I_{cyl}{}
+			&=\int_{0}^{2 \pi} \int_{R_1}^{R_2} \int_{0}^{L} r^3 \frac{m}{\pi L ({R_2}^2 - {R_1}^2)} dl dr d\theta \\
+			&= \frac{m}{\pi L ({R_2}^2 - {R_1}^2)} 2 \pi L \left[ \frac{r^4}{4}\right]_{R_1}^{R_2} \\
+			&= \frac{m (R_2^4-R_1^4)}{2 ({R_2}^2 - {R_1}^2)} \\
+			&= \frac{1}{2}m({R_2}^2 + {R_1}^2).
+		\end{align*}
+
+	 	
+ 		\item
+ 		\textbf{What happens to the value of the torque when the cylinder is not infinitely thin, but has a finite radius?}
+ 		
+ 		
 	\end{enumerate}
 \end{enumerate}
