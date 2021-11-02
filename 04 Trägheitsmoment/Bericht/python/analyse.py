@@ -95,14 +95,17 @@ Ts_60 = np.array([22.57, 22.46, 22.50])/5
 Ts_70 = np.array([23.31, 23.31, 23.35])/5
 Ts_80 = np.array([23.97, 23.85, 23.84])/5
 Ts_90 = np.array([23.97, 24.03, 24.06])/5
-phi = np.radians(np.array([0, 10, 20, 30, 40, 50, 60, 70, 80, 90]))
+phi = np.radians(np.array([0, 10, 20, 30, 40, 50, 60, 70, 80, 90]))  # 0.2 Grad error
 print(np.cos(phi)**2)
 
+Ts_std = np.array([Ts_0.std(), Ts_10.std(), Ts_20.std(), Ts_30.std(),
+               Ts_40.std(), Ts_50.std(), Ts_60.std(), Ts_70.std(),
+               Ts_80.std(), Ts_90.std()])
 Ts = np.array([Ts_0.mean(), Ts_10.mean(), Ts_20.mean(), Ts_30.mean(),
                Ts_40.mean(), Ts_50.mean(), Ts_60.mean(), Ts_70.mean(),
                Ts_80.mean(), Ts_90.mean()])
 
-print(Ts**2)
+print("Standartabweichung Messung 3 {}".format(Ts_std))
 
 print("**********************************************************\n\n")
 """
