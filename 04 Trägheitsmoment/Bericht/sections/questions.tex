@@ -14,18 +14,77 @@
 		\textbf{Specify its value for a cylinder when the axis of rotation coincides with the cylinder axis itself.}
 		
 	 	With $R_2 > R_1$ being the radii, $L$ the length and $m$ the mass of the cylinder and assuming a constant mass distribution, formula (\ref{eq::inertia}) results in
-		\begin{align*}
+		\begin{align}
 			I_{cyl}{}
 			&=\int_{0}^{2 \pi} \int_{R_1}^{R_2} \int_{0}^{L} r^3 \frac{m}{\pi L ({R_2}^2 - {R_1}^2)} dl dr d\theta \\
 			&= \frac{m}{\pi L ({R_2}^2 - {R_1}^2)} 2 \pi L \left[ \frac{r^4}{4}\right]_{R_1}^{R_2} \\
 			&= \frac{m (R_2^4-R_1^4)}{2 ({R_2}^2 - {R_1}^2)} \\
 			&= \frac{1}{2}m({R_2}^2 + {R_1}^2).
-		\end{align*}
+			\label{proof::inertia}
+		\end{align}
 
 	 	
  		\item
  		\textbf{What happens to the value of the torque when the cylinder is not infinitely thin, but has a finite radius?}
  		
+ 		We know that torque $M$ is given as $M = \dot{L} = I \frac{d^2 \phi}{d t^2}$ with $L$ being the angular momentum.
+ 		
+ 		Inserting our result from (\ref{proof::inertia}), this results in
+ 		\begin{align*}
+ 			M = \frac{1}{2} m (R_2^2 + R_1^2) \frac{d^2 \phi}{d t^2}.
+ 		\end{align*}
+ 		If we let $R_1 \rightarrow R_2$, we get
+ 		\begin{align*}
+ 			M = m R_2^2 \frac{d^2 \phi}{d t^2}.
+ 		\end{align*}
  		
 	\end{enumerate}
+	\item
+	\textbf{The laws of rotation and translation are often simplified by change of variable.}
+	\begin{enumerate}
+		\item 
+		\textbf{For the equation of the motion of a rigid body [$M = \theta \ddot{\varphi}$] give the equivalent translational equation.}
+		
+		When changing between rotation and translation, we can use the following relationships:
+		\begin{itemize}
+			\label{rottrans}
+			\item $M \leftrightarrow F$
+			\item $\theta \leftrightarrow m$
+			\item $\varphi \leftrightarrow x$
+		\end{itemize}
+		Here, $F$ is force, $m$ is mass and $x$ is position.
+		This lets us translate the given equation to $F = m \ddot{x}$, which we recognize as Newton's second law.
+		\item
+		\textbf{Which equation can be found if one rewrites the equation of motion of a spring $K = -fx$ as the rotational equivalent?}
+		
+		The relationships from (\ref{rottrans}) let us transform the translational spring equation to the rotational equivalent:
+		\begin{align*}
+			K = -fx \Longrightarrow M = -f \varphi
+		\end{align*}
+		
+	\end{enumerate}
+	\item
+	\textbf{What are the main axes of an Inertia Ellipsoid?}
+
+	\begin{enumerate}
+		\item 
+		\textbf{How are the axis parts connected to the moment of Inertia?}
+		
+		Where the main axes of an Inertia Ellipsoid intersect with the body, the components of the moment of inertia reach their maxima.
+		
+		\item
+		\textbf{How many components has such an ellipsoid at most?}
+		
+		As the formula for an ellipsoid has three components, the maximal components of such an ellipsoid is also three.
+		For example, this is the case for any cuboids with distinct side lengths.
+		
+		\item
+		\textbf{Enter the number of components in the case of a sphere and cube.}
+		
+		For the sphere, 
+		
+		\item
+		\textbf{In which points the major axes intersect the body?}
+	\end{enumerate}
+	
 \end{enumerate}
