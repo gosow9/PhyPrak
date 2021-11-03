@@ -1,7 +1,6 @@
 \subsection{Questions for Physics Students}
 \begin{enumerate}
 	\item \textbf{How is the moment of inertia defined?}
-	
 	The moment of inertia $I$ of a rigid body is specified by the torque needed to accelerate it to a certain angular acceleration. This is expressed by the formula
 	\begin{align}
 		I = \int_{V} (\vec{r}_\perp)^2 \rho (\vec{r}) dV.
@@ -12,7 +11,6 @@
 	\begin{enumerate}
 		\item 
 		\textbf{Specify its value for a cylinder when the axis of rotation coincides with the cylinder axis itself.}
-		
 	 	With $R_2 > R_1$ being the radii, $L$ the length and $m$ the mass of the cylinder and assuming a constant mass distribution, formula (\ref{eq::inertia}) results in
 		\begin{align}
 			I_{cyl}{}
@@ -26,7 +24,6 @@
 	 	
  		\item
  		\textbf{What happens to the value of the torque when the cylinder is not infinitely thin, but has a finite radius?}
- 		
  		We know that torque $M$ is given as $M = \dot{L} = I \frac{d^2 \phi}{d t^2}$ with $L$ being the angular momentum.
  		
  		Inserting our result from (\ref{proof::inertia}), this results in
@@ -44,7 +41,6 @@
 	\begin{enumerate}
 		\item 
 		\textbf{For the equation of the motion of a rigid body [$M = \theta \ddot{\varphi}$] give the equivalent translational equation.}
-		
 		When changing between rotation and translation, we can use the following relationships:
 		\begin{itemize}
 			\label{rottrans}
@@ -56,7 +52,6 @@
 		This lets us translate the given equation to $F = m \ddot{x}$, which we recognize as Newton's second law.
 		\item
 		\textbf{Which equation can be found if one rewrites the equation of motion of a spring $K = -fx$ as the rotational equivalent?}
-		
 		The relationships from (\ref{rottrans}) let us transform the translational spring equation to the rotational equivalent:
 		\begin{align*}
 			K = -fx \Longrightarrow M = -f \varphi
@@ -69,22 +64,25 @@
 	\begin{enumerate}
 		\item 
 		\textbf{How are the axis parts connected to the moment of Inertia?}
+		Where the main axes of an inertia ellipsoid intersect with the body, the components of the moment of inertia reach their maxima.
 		
-		Where the main axes of an Inertia Ellipsoid intersect with the body, the components of the moment of inertia reach their maxima.
 		
 		\item
-		\textbf{How many components has such an ellipsoid at most?}
-		
-		As the formula for an ellipsoid has three components, the maximal components of such an ellipsoid is also three.
+		\textbf{How many components has such an ellipsoid at most? give the names of bodies which have a maximum number of components}
+		As an ellipsoid in three dimensions is fully described by three parameters, such an ellipsoid has three components at most.
 		For example, this is the case for any cuboids with distinct side lengths.
+		In general, the ellipsoid of inertia of bodies without any rotational symmetry have three components.
 		
 		\item
 		\textbf{Enter the number of components in the case of a sphere and cube.}
-		
-		For the sphere, 
-		
+		For both the sphere and the cube, their ellipsoid of inertia only has one component as it is a sphere in both cases.
+	
 		\item
 		\textbf{In which points the major axes intersect the body?}
+		Let $\theta_i$ be the moment of inertia with respect to a coordinate axis $x_i$. 
+		At the points where the major axes intersect the body, the moment of inertia consists only of one component $\theta_i$, while the other ones disappear.
+		
+		
 	\end{enumerate}
 	
 \end{enumerate}
