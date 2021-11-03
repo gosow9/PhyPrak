@@ -8,7 +8,11 @@ All but one measurements were done on the same measuring rail as seen in figure 
 	\label{fig::rail}
 \end{figure}
 
-Since the later described error of focusing is way bigger, the following smaller sources are included in the focusing error.
+Since determining if an projection sharpness is very hard to quantify, putting the lens in the best position for sharpness is not very accurate.
+This leads to an relative big focusing error.
+An error way bigger than the following errors so they can be included in the focusing error.
+
+
 In a setup with a \si{\milli \m} measuring rail like in figure \ref{fig::rail}, the best reading accuracy is $\pm 0.25 \si{\milli \m}$. 
 If well done the parallax error can be included in this error margin, otherwise the parallax error can be added on top.
 Depending on rail length and material a certain temperature error has to be included. 
@@ -24,15 +28,16 @@ Having an error this big justifies neglecting the other errors which are way sma
 
 Since $a$ and $b$ depend on each other, we put it on the value, on which the resulting error is bigger, which was always $a$.
 The error propagation from the measured results to each focal length $f_i$ is calculated like
-\[
+\begin{align}
   \displaystyle	\Delta f_i = \sqrt{\left(\frac{\partial f}{\partial a} \cdot \Delta a \right)^2 +\left(\frac{\partial f}{\partial b} \cdot \Delta b\right)^2 } = \sqrt{\left(\frac{b^2}{(a+b)^2}\cdot \Delta a\right)^2}
-\]
+  \label{eq::gauss}
+\end{align}
 with an assumed $\Delta b = 0$. 
 Since we made multiple measurements for one focal length the standard error of the mean is
-\[
+\begin{align}
 \displaystyle	\Delta \overline{f} =\frac{1}{n} \sqrt{\sum_{i=1}^{n}\Delta f_i^2} = \frac{1}{2}\sqrt{\Delta f_1^2 + \Delta f_2^2 }.
 \label{eq::mean}
-\]
+\end{align}
 
 With this we get the following average focal length and standard error for the lens 1 and 2 with two measurements.
 
@@ -70,11 +75,14 @@ we get the focal lengths and errors for our lenses as shown in the table below.
 \end{tabularx}
 
 \paragraph{Diverging lens}
-To measure the diverging lens we used lens number two with the bigger focal length and the method described in chapter \ref{chap::div}.
-Calculating the focal length of the diverging lens $f_{div}$ is done with the equation \ref{eq::div} and the Gaussian method. The mean is calculated as before (\ref{eq::mean}) with the lens equation.
+To measure the diverging lens we used lens number two with the bigger focal length and the method described in section \ref{chap::div}.
+Calculating the focal length of the diverging lens $f_{div}$  is done with the equation \ref{eq::div}. 
+The corresponding error is calculated with the Gaussian method resulting in
 \[
-\Delta f_{div}= \sqrt{\left(\frac{-f^2}{(f_{conv}-f)^2} \Delta f_{conv}\right)^2+  \left(\frac{f_{conv}^2}{(f_{conv}-f)^2} \Delta f \right)^2}
+\Delta f_{div}= \sqrt{\left(\frac{-f^2}{(f_{conv}-f)^2} \Delta f_{conv}\right)^2+  \left(\frac{f_{conv}^2}{(f_{conv}-f)^2} \Delta f \right)^2}.
 \] 
+The the standard error of the mean is calculated as before in equation (\ref{eq::mean}) and shown in the last row of the following table.
+
 
 
 \begin{tabularx}{\textwidth}{XM{5cm}M{5cm}}%{XXXXXX}{M{1.7cm}M{1.5cm}M{1.5cm}M{2.5cm}M{2cm}}
@@ -102,12 +110,9 @@ The corresponding error
 with a expected uncertainty of $\Delta a =\pm 10$\si{\milli \m} and no error for the dependent $\Delta b$.
 
 Calculating the grating constant $g$ according to the equation \ref{eq::grid}.
-For the corresponding error, the Gaussian method gives us 
-\[
-\Delta g= \sqrt{\left(\frac{1}{v} \cdot \Delta g'\right)^2 + \left(\frac{-g'}{v^2} \cdot \Delta v\right)^2}  
-\]
-with a assumed measuring error $\Delta g' = \pm 0.1$\si{\milli \m}.
-This resembles the scale of the sliding calliper and the accuracy using it to measure.
+For the corresponding error, the Gaussian method is used as in \ref{eq::gauss}, with a assumed measuring error $\Delta g' = \pm 0.1$\si{\milli \m}.
+This resembles the accuracy, given that we measured the projected slit of light with a sliding calliper.
+Since the projection on the wall was a little bit blurry, we assumed an error slightly bigger than the vernier gauge error.
 
 Calculating the magnification scale and grating constant from the measured values for the rough and fine net mesh, we get the following results.
 
