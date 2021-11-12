@@ -19,6 +19,7 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{pdfpages}
+\usepackage{printlen}
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
 \usepackage[free-standing-units=true]{siunitx} % for consistent handling of SI units
 \usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref} % enable links
@@ -36,17 +37,20 @@
 \date{\today }
 
 \begin{document}
-
+%\printlength\textwidth
 \maketitle
 \input{sections/abstract.tex}
 
 
 
 \tableofcontents
-
+\newpage
 \input{sections/introduction.tex}
 \input{sections/experiment.tex}
+\newpage
 \input{sections/results.tex}
+\clearpage
+
 \input{sections/analysis.tex}
 \input{sections/disscussion.tex}
 \input{sections/conclusion.tex}
