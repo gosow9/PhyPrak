@@ -1,14 +1,28 @@
 \section{Results}
 
-This paragraph is where you present the results from your
-experiment. This could be in the form of a table (if only very few
-parameters where measured) or as a figure. In the text you should
-essentially describe what can be seen in the figures, i.e. explain
-your axis and how the dependent variable changes as a function of
-the independent variable. Discuss trends of the data as well as the
-magnitude, origin and nature of the experimental uncertainties. Keep
-in mind that the measurement results are always correct! They might
-just not be the answer to the question you had in mind.
 
-Depending on the experiment the discussion of the results can
-also be a part of the data analysis section.
+To verify how good Steiner's theorem is, we compare the measured moments of inertia with the values calculated using Steiner's theorem.
+In figure \ref{fig::stein} the moments of inertia with different displacements are plotted against the displacement $d$ squared.
+The measured values are laying on the linear line displaying the values calculated using the Steiner's theorem as seen in figure \ref{fig::stein}. 
+
+\begin{figure}[ht]
+	\begin{center}
+		\input{python/steiner.pgf}
+	\end{center}
+	\caption{Plotting the measured moments of inertia against the displacement $d$ squared with the corresponding error bars, in comparison to the values calculated with Steiner's theorem presented in a continuous linear line.}\label{fig::stein}
+\end{figure}
+
+
+The results of measuring the oscillation period of a dumbbell in different axes of rotation on a plane, are plotted against the cosine squared of corresponding angle.
+This is done to determine, if there is a linear behaviour. 
+
+\begin{figure}[ht]
+	\begin{center}
+		\input{python/ellips.pgf}
+	\end{center}
+	\caption{Plotting the measured period times against the cosine squared of the angle of the weight. }\label{fig::ellips}
+\end{figure}
+
+As we can see in figure \ref{fig::ellips} a clear linear behaviour is given.
+The calculated values of an fitted linear model, are always inside the error bar of both axis.
+Implying that the moments of inertia of a body rotated in a plane indeed behave elliptical.

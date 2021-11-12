@@ -1,36 +1,164 @@
+
 \section{Data analysis}
 
-\begin{figure}
-\centering
-%\includegraphics[width=\textwidth]{test.pdf}
-\caption{In the figure caption you describe what is plotted in the
-figure. In this case: The measured data is depicted by the blue dots
-with error bars indicating the statistical error. The red line is a
-linear fit to the data.} \label{fig1}
-\end{figure}
+\paragraph{Spring Constant}
 
-In the data analysis section you describe the post processing of the
-data. How did you obtain the data that you plot in the figures? The raw data does not necessarily need
-to be presented in the report. An important part of this paragraph
-are the measurement uncertainties. You should provide the
-uncertainties of all experimental results, i.e. in the form of error
-bars. Further, you should explain the origin of these uncertainties.
+To determine the spring constant $D$, we measured the oscillation period of two different setups on the torsion axis, which is further described in paragraph \textbf{Basic setup}.
+With the measured periods and the knowledge of the characteristics of the used setups we calculate the spring constant.
 
-There are many way how you can include equations and mathematical terms in your report. The easiest is to write them inside the text like this: $\Gamma =\SI{1.5}{\micro\meter\per\square\second}$. If you need to write a long equation, it is recommended to use e.g. the align environment.
+
+The needed characteristics are the weight and geometric properties of the bodies used on the torsion axis.
+A metallic disc and two very identical beams were used.
+The measurements of the needed properties are listed in table \ref{tab::measure}, including the corresponding measurement errors.
+\begin{table}[ht]
+	\begin{tabularx}{\textwidth}{XM{1.8cm}M{2cm}M{2cm}M{2cm}M{2cm}M{2cm}}%{XXXXXX}{M{1.7cm}M{1.5cm}M{1.5cm}M{2.5cm}M{2cm}}
+		\toprule 
+		\textbf{Object}& \textbf{weight} (\si{\kg})  & \textbf{error} \qquad (\si{\kg})& \textbf{length $c$}  (\si{\m}) & \textbf{error}\qquad (\si{\m})&\textbf{heigh $b$}  (\si{\m}) & \textbf{error}\qquad (\si{\m}) \\
+		\hline
+		&&&&&&\\[-5pt]
+		Disk	& 3.431	& $\pm 0,5 \cdot 10 ^{-3}$&0,125& $\pm 0,5\cdot 10 ^{-3}$&-&-	\\[5pt]
+		
+		Beam 1	& 0.605 & $\pm 0,5 \cdot 10 ^{-3}$&0,600& $\pm 0,5\cdot 10 ^{-3}$&0.01174&$\pm 0,2\cdot 10 ^{-4}$	\\[5pt]
+		
+		Beam 2	& 0.611 & $\pm 0,5 \cdot 10 ^{-3}$&0,600& $\pm 0,5\cdot 10 ^{-3}$	&0.01174&$\pm 0,2\cdot 10 ^{-4}$\\[5pt]
+		
+		\bottomrule 
+	\end{tabularx}
+	\caption{Table with the measured weights and lengths of the used disc and beams in the experiment. (The length of the disc is the radius of the disk)}
+	\label{tab::measure}
+\end{table}
+
+Using the weight $M_s$ and the radius $R_s$ of the disc, the moment of inertia of the disc
+\[
+\theta_s = \frac{1}{2}M_s R_s^2
+\]
+is calculated.
+To calculate the torsion coefficient of the torsion axis
+\[
+D = \frac{4\pi^2 \theta_s}{T_2^2 - T_1^2}
+\]
+we use a given equation from the manual \cite{manual}.
+To calculate $D$ the measured periods $T_1$ and $T_2$ are needed.
+Both periods where measured five times using a stop watch.
+From the different measurements the sample mean
+\[
+\overline{x}= \frac{1}{n}\sum_{i=1}^{n} x_i
+\] 
+of the period times is taken. 
+
+
+For the first setup with only two beams, the time used to finish five periods was measured.
+Then the time was divided by five to get the period $T_1$ listed in table \ref{tab::period}.
+Since using a stop watch is far from an exact, we assume an reflex error of $0,2$\si{\s}, for starting and stopping the watch.
+Leading to an error of 0,08\si{\s} for one period. 
+Compared to the standard deviation (std) 
+\[
+\Delta x = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(x_i- \overline{x})^2},
+\]
+
+
+of the measured periods which is around $0.02$\si{\s}, shows that the estimation is in the same magnitude and therefore acceptable.
+
+
+The same approach, but with three periods was done with the second setup with the additional disc, resulting in a period time $T_2$ listed in table \ref{tab::period}.
+
+
+\begin{table}[ht]
+	\begin{tabularx}{\textwidth}{XM{3cm}M{3cm}M{4cm}}%{XXXXXX}{M{1.7cm}M{1.5cm}M{1.5cm}M{2.5cm}M{2cm}}
+		\toprule 
+		\textbf{Setup}& \textbf{Period} (\si{\s})  & \textbf{std} (\si{\s})& \textbf{estimated error}  (\si{\s})  \\
+		\hline
+		&&&\\[-5pt]
+		$T_1$ (Two beams)	& 6,49	& 0,02 & 0,08	\\[5pt]
+		
+		$T_2$ (Two beams and disk)	& 8,51 & 0.02& $0,1\overline{3}$	\\[5pt]
+		\bottomrule 
+	\end{tabularx}
+	\caption{Measured period times with corresponding standard deviation (std) and estimated error.}
+	\label{tab::period}
+\end{table}
+
+Now to evaluate the error propagation for the spring constant, the errors of the measured periods and the error of the calculated moment of inertia must be considered.
+Using the Gaussian method
 \begin{align}
-    \Gamma = \frac{a}{4\kappa}\times ...
+	\Delta f = \sqrt{\sum_{i}\left(\frac{\partial f}{\partial x_i}\right)^2 \Delta x_i^2}
+	\label{eq::gauss}
 \end{align}
+to derive the absolute error.
+The resulting error for the moment of inertia of the disc is given trough
+\[
+\Delta \theta_s = \sqrt{\left(\frac{1}{2}R_s^2 \Delta M_s \right)^2+\left(\frac{1}{2}M_s2R_s \Delta R_s \right)^2},
+\]
+with an $\Delta M = 0,5$\si{\g} and $\Delta R_s = 0,5$\si{\mm}.
 
-All figures or tables that are part of your report have to be
-referenced somewhere in the text, ideally in order of their
-appearance (``as shown in Fig. \ref{fig1}''). Figures have to
-have axis labels with units and a sensible scale. If more than on
-data set is plotted you need to provide a legend. This may be a sentence in the caption (``red dots denote data measured with \SI{1}{\milli\volt}, blue crosses were measured with \SI{10}{\milli\volt}'').
+Since we measured the same values multiple times, and all the errors $\Delta x_i$ are the same, we can use the error of the mean
+\begin{align}
+\Delta \overline{x} = \frac{\Delta x}{\sqrt{N}}
+\label{eq::stdmean}
+\end{align}
+were $N$ is the number of measurements taken and $\Delta x$ is the given error.
+With the same approach as above, using the Gaussian method \ref{eq::gauss} and the assumption the measurements are normally distributed, we derive the equation for the error of the mean
+\[
+\Delta\overline{D} = \sqrt{\left(\frac{4\pi^2}{T_2^2 - T_1^2 }\Delta\theta_s \right)^2 + \left(\frac{8\theta_s \pi^2T_1}{(T_2^2 - T_1^2)^2 }\Delta T_1 \right)^2 +  \left(\frac{-8\theta_s\pi^2T_2}{(T_2^2 - T_1^2)^2 }\Delta T_2 \right)^2} \cdot \frac{1}{\sqrt{N}}
+\]
+with $N=5$ the number of measurements taken.
+This gets us an resulting constant of $D = 0,035 \pm 0,001$\si{\N\m}.
 
-After you have presented the data you need to interpret it. To this
-end you want to discuss the theoretical model that describes your
-data and you will derive model parameters from your measurement data
-(i.e. by fitting it to the data). Here, you will again elaborate on
-the confidence interval of the derived values (error propagation).
-This is an important part of the report and it will be the basis for
-the next paragraph.
+\paragraph{Steiner's theorem}
+To verify the Steiner's theorem
+\[
+\theta' = \theta + d^2M
+\] 
+we followed the steps described in paragraph \textbf{Verifying Steiner's theorem}.
+The theorem gives us the new moment of inertia $\theta'$ for a given distance $d$ displaced from the centre of the old moment of inertia $\theta$ with a total mass $M$ of the body.
+
+
+First each of the six different positions where measured three times to get the period times.
+Having again an starting and stopping error of $0,1\overline{3}$ seconds per period.
+
+
+
+The formula to calculate moment of inertia of a beam 
+\[
+\theta_q = M\frac{b^2 +c^2}{12}
+\]
+is given in the manual \cite{manual}.
+Like above the Gaussian method was used to get the corresponding error.
+
+To get the moment of inertia from the measured period $T_a$ the formula
+\[
+\theta_a = \frac{DT_a^2}{8\pi^2}
+\] 
+supplied by the manual \cite{manual} was used. 
+Same error calculation as above.
+
+The calculated moment of inertia of the beam $\theta_q$ is inserted in the formula of the Steiner's theorem. 
+To see if the theorem is valid, a good way is to plot an interpolated scenario of the Steiner's theorem and look if the measured moments of inertia $\theta_a$ are matching the calculated model.
+Since the errors corresponding to the calculated values of the Steiner's theorem are in the magnitude of $10^{-5}$ they can be neglected. 
+
+To calculate the corresponding error the same method as above was used.
+First calculating the error of each moment of inertia with the Gaussian method.
+Following of a division by the square root of the sample number.
+Resulting in the error of the mean which is seen in figure \ref{fig::stein}.
+
+
+
+
+\paragraph{The ellipse of inertia}
+
+For the ellipse of inertia each time was stopped for five periods and each measurement was done three times.
+The sample mean of each period was calculated with the corresponding error of the mean.
+Furthermore an estimated reading error of 0,5 degrees was added on the angle measurement.
+
+These values then got plotted with the corresponding error bars, calculated the same as above with the Gaussian method and dividing by the square root of the number measurements taken, the plot \ref{fig::ellips} was created.
+
+In the plot we can clearly see that the measured points follow a linear trend which lays inside of the calculated errors.
+
+
+
+
+
+
+
+
+
