@@ -9,6 +9,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import leastsq, fsolve, curve_fit
 import matplotlib
+from gauss import error
 # matplotlib.use("pgf")
 # matplotlib.rcParams.update({
 #     "pgf.texsystem": "pdflatex",
@@ -80,12 +81,97 @@ plt.plot(PT3, A3/A0, ".", label="Dämpfung 3")
 plt.plot(PT3, expon3/A0, label="Model 13")
 
 
+"""
+Experiment 2 Eichung des Tachometers
+"""
+print("\n**********************************************************")
+print("Experiment 2")
+print("----------------------------------------------------------\n")
+def get_C(x):
+    return 2*np.pi*x[0]/(x[1]*x[2])
+
+N_eich = np.array([30, 30, 70, 50])
+del_N = np.zeros_like(N_eich)
+
+t_eich = np.array([66.50, 51.59, 119.52, 108.59])
+del_t = np.ones_like(t_eich)*0.2
+
+V_tacho = np.array([1.157, 1.5, 1.5, 1.179])
+del_V = np.ones_like(V_tacho)*0.0005
+
+om_eich = 2*np.pi*N_eich/t_eich
+C_eich = om_eich/V_tacho
+C = np.mean(C_eich)
+C_sx = error(get_C, np.array([N_eich, t_eich, V_tacho]), np.array([del_N, del_t, del_V]))
+del_C = np.mean(C_sx)
+print('C =', C, ' +- ', del_C, ' 1/Vs')
 
 
 
 
 
+"""
+Experiment 3 Erzwungene Schwingung (Resonanzkurven)
+"""
+print("\n**********************************************************")
+print("Experiment 3")
+print("----------------------------------------------------------\n")
 
+om_test = np.linspace(0.4, 0.7)
+
+
+get_omega = lambda V: V*C
+
+#Dämpfung 1
+V_t_1 = np.array([1.001, 1.037, 1.076, 1.111, 1.150, 1.189, 1.225, 1.265, 1.300, 1.341, 1.375, 1.412, 1.451, 1.489]) #in Volts
+A_1 = np.array([7, 9, 9, 10, 15, 22, 32, 52, 83, 32, 17, 12, 10, 9])
+om_1 = get_omega(V_t_1)
+A_1_max = max(A_1)
+
+poly_11 = np.polyfit(get_omega(np.array([1.265, 1.3])), np.array([52, 83]), 1)
+poly_12 = np.polyfit(get_omega(np.array([1.3, 1.341])), np.array([83, 32]), 1)
+z11 = (-poly_11[1]+A_1_max/np.sqrt(2))/poly_11[0]
+z12 = (-poly_12[1]+ A_1_max/np.sqrt(2))/poly_12[0]
+alpha_1=(abs(z12-z11)/2)
+
+#Dämpfung 2
+V_t_2 = np.array([1.002, 1.038, 1.075, 1.112, 1.151, 1.187, 1.225, 1.265, 1.301, 1.340, 1.375, 1.413, 1.450, 1.488])
+A_2 = np.array([7, 8, 8, 12, 14, 20, 28, 44, 49, 27, 18, 14, 10, 9])
+om_2 = get_omega(V_t_2)
+A_2_max = max(A_2)
+
+poly_21 = np.polyfit(get_omega(np.array([1.225, 1.265])), np.array([28, 44]), 1)
+poly_22 = np.polyfit(get_omega(np.array([1.301, 1.340])), np.array([49, 27]), 1)
+z21 = (-poly_21[1]+A_2_max/np.sqrt(2))/poly_21[0]
+z22 = (-poly_22[1]+ A_2_max/np.sqrt(2))/poly_22[0]
+alpha_2=(abs(z22-z21)/2)
+
+
+#Dämpfung 3
+V_t_3 = np.array([1.082, 1.130, 1.150, 1.187, 1.225, 1.263, 1.299, 1.338, 1.375, 1.413, 1.451, 1.487])
+A_3 = np.array([9, 10, 12, 16, 23, 29, 27, 21, 17, 12, 10, 9])
+om_3 = get_omega(V_t_3)
+A_3_max = max(A_3)
+
+poly_31 = np.polyfit(get_omega(np.array([1.187, 1.225])), np.array([16, 23]), 1)
+poly_32 = np.polyfit(get_omega(np.array([1.338, 1.413])), np.array([21, 12]), 1)
+z31 = (-poly_31[1]+A_3_max/np.sqrt(2))/poly_31[0]
+z32 = (-poly_32[1]+ A_3_max/np.sqrt(2))/poly_32[0]
+alpha_3=(abs(z32-z31)/2)
+
+plt.figure(figsize=(12, 8))
+plt.plot(om_1, A_1, '-x', label = 'Dämpfung 1')
+plt.plot(om_2, A_2, '-x', label = 'Dämpfung 2')
+plt.plot(om_3, A_3, '-x',label = 'Dämpfung 3')
+plt.xlabel('Kreisfrequenz $[\omega] = s^{-1}$')
+plt.ylabel('Amplitude $[A] = \deg$')
+plt.legend()
+
+print('alpha 1: ', alpha_1)
+print('alpha 2: ', alpha_2)
+print('alpha 3: ', alpha_3)
+
+plt.show()
 
 
 # T1m = T1.mean()
