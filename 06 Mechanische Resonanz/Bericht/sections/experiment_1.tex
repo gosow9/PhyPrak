@@ -1,11 +1,14 @@
 \subsection{Experiment}
+In this part of the experiment we want to use the dampened natural oscillation of our system to determine the dampening constants $\alpha_{1, 2, 3}$.
+The formula for the amplitude of this system with a given starting value $A_0$ is  as follows.
+\begin{align}
+	A(t) = A_0 e^{-\alpha t}
+	\label{eq::model}
+\end{align} 
+To determine $\alpha$, we can measure the amplitude of the system for different times $t$, and then fit the model (\ref{eq::model}) to our measurement points numerically.
 
-This section is where you describe what you actually did in the lab.
-You explain what data you measured and how. Here, you might want to
-provide a sketch of the experimental setup, if this is applicable.
-This sketch could be taken from the experiment manual. In particular,
-you want to define all parameters that you use or measure in this
-experiment.
+We always start with an amplitude $A_0$ of $110 \pm 0.5 \degree$.
+For the first dampening $\alpha_1$ with $I_1 = 0.64 \pm \SI{0.01}{\ampere}$, we measure the amplitudes $A$ at every third period, for $n_1 = 24$ periods in total.
+As a higher dampening results in a faster decay time, we measure $n_2 = 14$ periods with $I_2 = \SI{0.9}{\ampere}$, measuring every second period, and $n_3 = 8$ periods for $I_3 = \SI{1.2}{\ampere}$, measuring every single period.
+For every dampening, we also measure the total time $t_i$ of those $n_i$ periods with a stopwatch. We estimate the error of every measurement for $t$ with $\Delta t = \SI{0.4}{\second}$ because of the human reaction time.
 
-In general the information you provide in this section should be
-sufficient for the reader to reproduce your results.

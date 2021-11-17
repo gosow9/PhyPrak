@@ -122,6 +122,7 @@ om_test = np.linspace(0.4, 0.7)
 
 get_omega = lambda V: V*C
 
+
 #Dämpfung 1
 V_t_1 = np.array([1.001, 1.037, 1.076, 1.111, 1.150, 1.189, 1.225, 1.265, 1.300, 1.341, 1.375, 1.412, 1.451, 1.489]) #in Volts
 A_1 = np.array([7, 9, 9, 10, 15, 22, 32, 52, 83, 32, 17, 12, 10, 9])
@@ -159,13 +160,28 @@ z31 = (-poly_31[1]+A_3_max/np.sqrt(2))/poly_31[0]
 z32 = (-poly_32[1]+ A_3_max/np.sqrt(2))/poly_32[0]
 alpha_3=(abs(z32-z31)/2)
 
+delta_V = 0.0005
+get_del_omega = lambda C, del_C, V, del_V: np.sqrt((V*del_C)**2 + (C*del_V)**2)
+del_om_1 = get_del_omega(C, del_C, V_t_1, delta_V)
+del_om_2 = get_del_omega(C, del_C, V_t_2, delta_V)
+del_om_3 = get_del_omega(C, del_C, V_t_3, delta_V)
+
+
 plt.figure(figsize=(12, 8))
-plt.plot(om_1, A_1, '-x', label = 'Dämpfung 1')
-plt.plot(om_2, A_2, '-x', label = 'Dämpfung 2')
-plt.plot(om_3, A_3, '-x',label = 'Dämpfung 3')
-plt.xlabel('Kreisfrequenz $[\omega] = s^{-1}$')
-plt.ylabel('Amplitude $[A] = \deg$')
+plt.errorbar(om_1, A_1, np.ones_like(om_1)*2, None, '--o', label = 'Dampening 1')
+#plt.plot(np.array([z11, z12]), np.array([A_1_max, A_1_max])/np.sqrt(2), '-b')
+
+plt.errorbar(om_2, A_2, np.ones_like(om_2)*2, None, '--o', label = 'Dampening 2')
+#plt.plot(np.array([z21, z22]), np.array([A_2_max, A_2_max])/np.sqrt(2), '-g')
+
+plt.errorbar(om_3, A_3, np.ones_like(om_3)*2, None, '--o', label = 'Dampening 3')
+#plt.plot(np.array([z31, z32]), np.array([A_3_max, A_3_max])/np.sqrt(2), '-r')
+
+plt.xlabel('Angular frequency $\omega$, $[\omega] = s^{-1}$')
+plt.ylabel('Amplitude A, $[A] = \deg$')
 plt.legend()
+plt.savefig("resonance.PNG")
+
 
 print('alpha 1: ', alpha_1)
 print('alpha 2: ', alpha_2)
