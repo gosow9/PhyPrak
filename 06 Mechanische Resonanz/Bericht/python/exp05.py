@@ -136,6 +136,25 @@ z11 = (-poly_11[1]+A_1_max/np.sqrt(2))/poly_11[0]
 z12 = (-poly_12[1]+ A_1_max/np.sqrt(2))/poly_12[0]
 alpha_1=(abs(z12-z11)/2)
 
+A_1_max_low = A_1_max +2
+A_1_max_high = A_1_max -2
+
+
+poly_11_low = np.polyfit(get_omega(np.array([1.265, 1.3])), np.array([52+2, 83+2]), 1)
+poly_12_low = np.polyfit(get_omega(np.array([1.3, 1.341])), np.array([83+2, 32+2]), 1)
+z11_low = (-poly_11_low[1]+A_1_max_low/np.sqrt(2))/poly_11_low[0]
+z12_low = (-poly_12_low[1]+ A_1_max_low/np.sqrt(2))/poly_12_low[0]
+alpha_1_low =(abs(z12_low-z11_low)/2)
+
+poly_11_high = np.polyfit(get_omega(np.array([1.265, 1.3])), np.array([52-2, 83-2]), 1)
+poly_12_high = np.polyfit(get_omega(np.array([1.3, 1.341])), np.array([83-2, 32-2]), 1)
+z11_high = (-poly_11_high[1]+A_1_max_high/np.sqrt(2))/poly_11_high[0]
+z12_high = (-poly_12_high[1]+ A_1_max_high/np.sqrt(2))/poly_12_high[0]
+alpha_1_high =(abs(z12_high-z11_high)/2)
+
+del_a1_low = alpha_1_low - alpha_1
+del_a1_high = alpha_1 - alpha_1_high
+
 #Dämpfung 2
 V_t_2 = np.array([1.002, 1.038, 1.075, 1.112, 1.151, 1.187, 1.225, 1.265, 1.301, 1.340, 1.375, 1.413, 1.450, 1.488])
 A_2 = np.array([7, 8, 8, 12, 14, 20, 28, 44, 49, 27, 18, 14, 10, 9])
@@ -147,6 +166,25 @@ poly_22 = np.polyfit(get_omega(np.array([1.301, 1.340])), np.array([49, 27]), 1)
 z21 = (-poly_21[1]+A_2_max/np.sqrt(2))/poly_21[0]
 z22 = (-poly_22[1]+ A_2_max/np.sqrt(2))/poly_22[0]
 alpha_2=(abs(z22-z21)/2)
+
+A_2_max_low = A_2_max +2
+A_2_max_high = A_2_max -2
+
+
+poly_21_low = np.polyfit(get_omega(np.array([1.225, 1.265])), np.array([28+2, 44+2]), 1)
+poly_22_low = np.polyfit(get_omega(np.array([1.301, 1.340])), np.array([49+2, 27+2]), 1)
+z21_low = (-poly_21_low[1]+A_2_max_low/np.sqrt(2))/poly_21_low[0]
+z22_low = (-poly_22_low[1]+ A_2_max_low/np.sqrt(2))/poly_22_low[0]
+alpha_2_low =(abs(z22_low-z21_low)/2)
+
+poly_21_high = np.polyfit(get_omega(np.array([1.225, 1.265])), np.array([28-2, 44-2]), 1)
+poly_22_high = np.polyfit(get_omega(np.array([1.301, 1.340])), np.array([49-2, 27-2]), 1)
+z21_high = (-poly_21_high[1]+A_2_max_high/np.sqrt(2))/poly_21_high[0]
+z22_high = (-poly_22_high[1]+ A_2_max_high/np.sqrt(2))/poly_22_high[0]
+alpha_2_high =(abs(z22_high-z21_high)/2)
+
+del_a2_low = alpha_2_low - alpha_2
+del_a2_high = alpha_2 - alpha_2_high
 
 
 #Dämpfung 3
@@ -160,6 +198,25 @@ poly_32 = np.polyfit(get_omega(np.array([1.338, 1.413])), np.array([21, 12]), 1)
 z31 = (-poly_31[1]+A_3_max/np.sqrt(2))/poly_31[0]
 z32 = (-poly_32[1]+ A_3_max/np.sqrt(2))/poly_32[0]
 alpha_3=(abs(z32-z31)/2)
+
+A_3_max_low = A_3_max +2
+A_3_max_high = A_3_max -2
+
+
+poly_31_low = np.polyfit(get_omega(np.array([1.187, 1.225])), np.array([16+2, 23+2]), 1)
+poly_32_low = np.polyfit(get_omega(np.array([1.338, 1.413])), np.array([21+2, 12+2]), 1)
+z31_low = (-poly_31_low[1]+A_3_max_low/np.sqrt(2))/poly_31_low[0]
+z32_low = (-poly_32_low[1]+ A_3_max_low/np.sqrt(2))/poly_32_low[0]
+alpha_3_low =(abs(z32_low-z31_low)/2)
+
+poly_31_high = np.polyfit(get_omega(np.array([1.187, 1.225])), np.array([16-2, 23-2]), 1)
+poly_32_high = np.polyfit(get_omega(np.array([1.338, 1.413])), np.array([21-2, 12-2]), 1)
+z31_high = (-poly_31_high[1]+A_3_max_high/np.sqrt(2))/poly_31_high[0]
+z32_high = (-poly_32_high[1]+ A_3_max_high/np.sqrt(2))/poly_32_high[0]
+alpha_3_high =(abs(z32_high-z31_high)/2)
+
+del_a3_low = alpha_3_low - alpha_3
+del_a3_high = alpha_3 - alpha_3_high
 
 delta_V = 0.0005
 get_del_omega = lambda C, del_C, V, del_V: np.sqrt((V*del_C)**2 + (C*del_V)**2)
@@ -191,6 +248,53 @@ print('alpha 3: ', alpha_3)
 print('delta alpha 1: ', abs(alpha_1-alpha1))
 print('delta alpha 2: ', abs(alpha_2-alpha2))
 print('delta alpha 3: ', abs(alpha_3-alpha3))
+
+
+
+
+plt.figure(figsize=(15, 8))
+plt.errorbar(get_omega(np.array([1.265, 1.3])), np.array([52, 83]), np.array([2, 2]), None, 'o--b')
+plt.errorbar(get_omega(np.array([1.3, 1.341])), np.array([83, 32]), np.array([2, 2]), None, 'o--b')
+plt.fill_between(get_omega(np.array([1.265, 1.3])), np.array([52, 83])+2, np.array([52, 83])-2, color='b', alpha=0.1)
+plt.fill_between(get_omega(np.array([1.3, 1.341])), np.array([83, 32])+2, np.array([83, 32])-2, color='b', alpha=0.1)
+
+plt.plot(np.array([z11, z12]), np.array([A_1_max, A_1_max])/np.sqrt(2),'r', label=r'$\sigma_1 + \sigma_2$')
+plt.plot(get_omega(np.array([1.3, 1.3])), np.array([30, A_1_max]), '--m')
+plt.plot(np.array([z11_low, z12_low]), np.array([A_1_max+2, A_1_max+2])/np.sqrt(2),'g', label=r'$\sigma_{1, max} + \sigma_{2, max}$')
+plt.plot(np.array([z11_high, z12_high]), np.array([A_1_max-2, A_1_max-2])/np.sqrt(2),'black', label=r'$\sigma_{1, min} + \sigma_{2, min}$')
+plt.xlabel('Angular frequency $\omega$, $[\omega] = s^{-1}$')
+plt.ylabel('Amplitude A, $[A] = \deg$')
+plt.legend()
+plt.savefig('res_calc.PNG')
+
+
+plt.show()
+
+print(del_a1_low, del_a1_high)
+print(del_a2_low, del_a2_high)
+print(del_a3_low, del_a3_high)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 plt.show()
 
 
