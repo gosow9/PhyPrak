@@ -241,13 +241,7 @@ plt.legend()
 plt.savefig("resonance.PNG")
 
 
-print('alpha 1: ', alpha_1)
-print('alpha 2: ', alpha_2)
-print('alpha 3: ', alpha_3)
 
-print('delta alpha 1: ', abs(alpha_1-alpha1))
-print('delta alpha 2: ', abs(alpha_2-alpha2))
-print('delta alpha 3: ', abs(alpha_3-alpha3))
 
 
 
@@ -270,9 +264,13 @@ plt.savefig('res_calc.PNG')
 
 plt.show()
 
-print(del_a1_low, del_a1_high)
-print(del_a2_low, del_a2_high)
-print(del_a3_low, del_a3_high)
+print('a1-a1^: ', abs(alpha_1-alpha1))
+print('a2-a2^: ', abs(alpha_2-alpha2))
+print('a3-a3^: ', abs(alpha_3-alpha3))
+
+print('delta_a1: ', 0.001)
+print('delta_a2: ', 0.003)
+print('delta_a3: ', 0.01)
 
 
 
