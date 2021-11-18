@@ -62,10 +62,10 @@ arr_err = np.ones(A1.shape)*perr
 plt.errorbar(PT1, A1, yerr=arr_err, fmt=".", color ="red", capsize=3, label=r'Measured Times')
 plt.plot(PT1, expon1)
 
-alpha2 = curve_fit(lambda t, a: 110*np.exp(-a*t),  PT2,  A2, 0.0)
+alpha2 = curve_fit(lambda t, a: 110*np.exp(-a*t),  PT2,  A2, 0.0)[0]
 expon2 = 110*np.exp(-alpha2[0]*PT2)
 
-alpha3 = curve_fit(lambda t, a: 110*np.exp(-a*t),  PT3,  A3, 0.0)
+alpha3 = curve_fit(lambda t, a: 110*np.exp(-a*t),  PT3,  A3, 0.0)[0]
 expon3 = 110*np.exp(-alpha3[0]*PT3)
 print("alpha1=", alpha1)
 print("alpha2=", alpha2)
@@ -186,6 +186,10 @@ plt.savefig("resonance.PNG")
 print('alpha 1: ', alpha_1)
 print('alpha 2: ', alpha_2)
 print('alpha 3: ', alpha_3)
+
+print('delta alpha 1: ', abs(alpha_1-alpha1))
+print('delta alpha 2: ', abs(alpha_2-alpha2))
+print('delta alpha 3: ', abs(alpha_3-alpha3))
 
 plt.show()
 
