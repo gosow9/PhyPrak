@@ -12,3 +12,9 @@ For the first dampening $\alpha_1$ with $I_1 = 0.64 \pm \SI{0.01}{\ampere}$, we 
 As a higher dampening results in a faster decay time, we measure $n_2 = 14$ periods with $I_2 = \SI{0.9}{\ampere}$, measuring every second period, and $n_3 = 8$ periods for $I_3 = \SI{1.2}{\ampere}$, measuring every single period.
 For every dampening, we also measure the total time $t_i$ of those $n_i$ periods with a stopwatch. We estimate the error of every measurement for $t$ with $\Delta t = \SI{0.4}{\second}$ because of the human reaction time.
 
+
+The Gaussian error propagation for a function $R(A, B, \dots)$, where $A \pm \Delta A, B \pm \Delta B, \dots$ is as follows.
+\begin{align}
+	\Delta R = \sqrt{\left(\frac{\partial R}{\partial A} \Delta A\right)^2 + \left(\frac{\partial R}{\partial B} \Delta B\right)^2 + \dots}
+	\label{eq::gauss}
+\end{align}
