@@ -1,10 +1,22 @@
-\subsection{Discussion}
+\section{Discussion and Conclusion}
+The values we get for $\alpha$ using the two different methods are pretty close to each other.
+This indicates that they are also not too far off the real values.
+As the methods and setups differ from each other, it is hard to know if the real dampening constants are really exactly the same, or if for example the motor has an influence on it. 
+Nonetheless, we could improve the results of both methods quite a bit:
 
-So far you have discussed how you have obtained your data and the
-quantities you derived from it. In this section you should discuss
-the results in the context of physical laws. Depending on the
-experiment you want to compare your result and its uncertainty with
-the literature value. If you want to confirm a physical model that
-explains a certain phenomenon you want to assess if this model
-describes the data well within the confidence intervals, or whether
-a simpler model describes the data just as well.
+In general, it was quite hard to see the exact values of the amplitude on the scale.
+We could improve this by filming the experiment and then analyse the video in slow-motion.
+Another, better way to improve it would be to let a computer measure the amplitudes.
+
+In the first part the problem mostly was finding a good fit of the model to our measurements.
+We expect, that the system does not follow the model exactly, and because of that we were not able to fit it without getting quite big errors either in the beginning or in the end.
+The second problem was determining the error when using pre-written python functions.
+Here, we could probably use more sophisticated methods to do the error propagation.  
+
+In the second part we did too many measurements we later did not use at all.
+To get better results, we would try to find the important values $\A_{max}, \sigma_1$ and $\sigma_2$ as perfect as possible, so we would perform all the measurements around the expected values for those.
+This should definitely help us get closer to the correct value.
+We also experienced problems calculating the correct error, specially when doing (linear) approximations.
+If we had more measurements in the regions we look at, we could probably get a more sophisticated approximation then a linear one, as the real resonance curve is by no means linear.
+As proposed in the beginning, as soon as we had a setup where a computer reads the amplitude of the system, it would be pretty easy to write a program that changes $\omega$ of the motor by a given margin as soon as the amplitude has reached its stationary state.
+We could then leave the experiment running for a longer time, which would then give us a very detailed resonance curve.

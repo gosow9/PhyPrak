@@ -2,18 +2,19 @@
 
 To perform our experiment we need to know the exact angular frequency $\omega$ of our motor.
 As we are only able to read the output voltage of the motor, we have to calibrate it before actually performing the experiment.
-In order to do that, we measure the time $t$, that it takes the motor to do $N$ rotations at a voltage $V_{Tacho}$.
+In order to do that, we measure the time $t$ that it takes the motor to do $N$ rotations at a voltage $V_{Tacho}$.
 This gives us the period $T = t/N$.
 From that we know the angular frequency  $\omega = 2 \pi/T$  of the motor at $V_{Tacho}$.
 The relation between $V_{Tacho}$ and $\omega$ is given by $C_T = \omega/V_{Tacho}$.
 
-In our case, we did this measurement three times for three different voltages.
+In our case, we do this measurement three times for three different voltages.
 Again we use $\Delta t = \SI{0.4}{\second}$.
 As our voltmeter reads to an accuracy of $\SI{0.001}{\volt}$, we use an uncertainty for the voltage of $\Delta V_{Tacho} = \SI{0.0005}{\volt}$.
-Using Gaussian error propagation we get a final value of $C_T = 2.45 \pm \SI{0.01}{\volt^{-1}\second^{-1}}$.
-This lets us translate a voltage measurement $V$ into the angular frequency $\omega$ with the formula \begin{align}
+Using Gaussian error propagation (\ref{eq::gauss}) we get a final value of $C_T = 2.45 \pm \SI{0.01}{\volt^{-1}\second^{-1}}$.
+This lets us translate a voltage measurement $V$ into the angular frequency $\omega$ with the formula 
+\begin{align*}
 	\omega = C_T V.
 	\label{eq::calibration}
-\end{align}
+\end{align*}
 
 
