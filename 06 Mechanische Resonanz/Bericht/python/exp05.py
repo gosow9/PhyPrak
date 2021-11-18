@@ -62,6 +62,7 @@ arr_err = np.ones(A1.shape)*perr
 plt.errorbar(PT1, A1, yerr=arr_err, fmt=".", color ="red", capsize=3, label=r'Measured Times')
 plt.plot(PT1, expon1)
 
+
 alpha2 = curve_fit(lambda t, a: 110*np.exp(-a*t),  PT2,  A2, 0.0)[0]
 expon2 = 110*np.exp(-alpha2[0]*PT2)
 
@@ -73,12 +74,12 @@ print("alpha3=", alpha3)
 
 plt.figure()
 plt.yscale("log")
-plt.plot(PT1, A1/A0, ".", label="Dämpfung 1")
-plt.plot(PT1, expon1/A0, label="Model 1 ")
-plt.plot(PT2, A2/A0, ".", label="Dämpfung 2")
-plt.plot(PT2, expon2/A0, label="Model 2")
-plt.plot(PT3, A3/A0, ".", label="Dämpfung 3")
-plt.plot(PT3, expon3/A0, label="Model 13")
+plt.plot(PT1, A1, ".", label="Dämpfung 1")
+plt.plot(PT1, expon1, label="Model 1 ")
+plt.plot(PT2, A2, ".", label="Dämpfung 2")
+plt.plot(PT2, expon2, label="Model 2")
+plt.plot(PT3, A3, ".", label="Dämpfung 3")
+plt.plot(PT3, expon3, label="Model 3")
 
 
 """
@@ -190,7 +191,6 @@ print('alpha 3: ', alpha_3)
 print('delta alpha 1: ', abs(alpha_1-alpha1))
 print('delta alpha 2: ', abs(alpha_2-alpha2))
 print('delta alpha 3: ', abs(alpha_3-alpha3))
-
 plt.show()
 
 
