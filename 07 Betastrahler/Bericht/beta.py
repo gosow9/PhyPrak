@@ -97,25 +97,32 @@ print('\n------------------------------------')
 print('Experiment 4')
 print('------------------------------------')
 n = 1
-rho = 2.69 #g cm^-3
-x = np.array([0, 0.3, 0.5, 1.1, 1.6, 2.,  2.3, 2.5, 2.8, 3., 3.5, 4.])
-rho_x = rho*x
-t_3 = 90*np.ones_like(x)
+rho = 2.69 #mg cm^-3
+x = np.array([0, 0.3, 0.5, 1.1, 1.6, 2.,  2.3, 2.5, 2.8, 3., 3.5, 4.])*10 #cm
+E_verlust = 125e-3
+
+
+rho_x = rho*x #g cm^-2
+Ex = np.array([0, 0.07, 0.09, 0.15, 0.2, 0.23, 0.26, 0.28, 0.29, 0.3, 0.32, 0.34]) #abgelesen abb. 4
+E_max_1 = 0.32
+
+t_3 = 90
 N_3 = np.array([7390, 4606, 3124, 1496, 689, 308, 205, 128, 82, 67, 51, 53])
 Neff_3 = N_3 - N_bg
-aktiv = np.array([])
+aktiv_3 = Neff_3/t_3/eps
 E = np.array([])
 Neff_n = Neff_3**(1/n)
-x_max = 0.
-E_max =0.
-E_verlust = 0.
-E_max_q = 0.
+x_max = 3.5
+rho_max = rho*x_max
+
+E_max_q = E_max_1 + E_verlust
 mu =0.
 E_max_mu = 0.
 
 
 plt.figure(figsize=(6.4, 4))
 plt.plot(x, N_3)
+plt.plot(x, np.ones_like(x)*N_bg)
 plt.yscale('log')
 plt.xlabel('Thickness x of aluminium in cm')
 plt.ylabel('Number of counts in 90s')
@@ -130,7 +137,10 @@ plt.show()
 
 
 
-print('E_max: ', E_max)
+
+print('E_max abgelesen: ', E_max_1, 'MeV')
+print('E_max_quelle: ', E_max_q, 'MeV')
+
 
 
 
