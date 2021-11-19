@@ -10,13 +10,13 @@ import matplotlib.pyplot as plt
 from scipy.optimize import leastsq, fsolve, curve_fit
 import matplotlib
 from gauss import error
-# matplotlib.use("pgf")
-# matplotlib.rcParams.update({
-#     "pgf.texsystem": "pdflatex",
-#     'font.family': 'serif',
-#     'text.usetex': True,
-#     'pgf.rcfonts': False,
-# })
+matplotlib.use("pgf")
+matplotlib.rcParams.update({
+    "pgf.texsystem": "pdflatex",
+    'font.family': 'serif',
+    'text.usetex': True,
+    'pgf.rcfonts': False,
+})
 
 
 
@@ -58,45 +58,79 @@ PT2x = np.linspace(0, PT2[-1],100)
 PT3x = np.linspace(0, PT3[-1],100)
 
 alpha1, pcov1 = curve_fit(lambda t, a: 110*np.exp(-a*t),  PT1,  A1, 0.0)
+alpha1_min, pcov1_min = curve_fit(lambda t, a: 110*np.exp(-a*t),  PT1,  A1-yerr, 0.0)
+alpha1_max, pcov1_max = curve_fit(lambda t, a: 110*np.exp(-a*t),  PT1,  A1+yerr, 0.0)
 expon1 = 110*np.exp(-alpha1[0]*PT1x)
-
+expon1_min = 110*np.exp(-alpha1_min[0]*PT1x)
+expon1_max = 110*np.exp(-alpha1_max[0]*PT1x)
 
 alpha2 = curve_fit(lambda t, a: 110*np.exp(-a*t),  PT2,  A2, 0.0)[0]
+alpha2_min = curve_fit(lambda t, a: 110*np.exp(-a*t),  PT2,  A2-yerr, 0.0)[0]
+alpha2_max = curve_fit(lambda t, a: 110*np.exp(-a*t),  PT2,  A2+yerr, 0.0)[0]
 expon2 = 110*np.exp(-alpha2[0]*PT2x)
+expon2_min = 110*np.exp(-alpha2_min[0]*PT2x)
+expon2_max = 110*np.exp(-alpha2_max[0]*PT2x)
 
 alpha3 = curve_fit(lambda t, a: 110*np.exp(-a*t),  PT3,  A3, 0.0)[0]
+alpha3_min = curve_fit(lambda t, a: 110*np.exp(-a*t),  PT3,  A3-yerr, 0.0)[0]
+alpha3_max = curve_fit(lambda t, a: 110*np.exp(-a*t),  PT3,  A3+yerr, 0.0)[0]
 expon3 = 110*np.exp(-alpha3[0]*PT3x)
+expon3_min = 110*np.exp(-alpha3_min[0]*PT3x)
+expon3_max = 110*np.exp(-alpha3_max[0]*PT3x)
 
 print("alpha1=", alpha1)
 print("alpha2=", alpha2)
 print("alpha3=", alpha3)
 
 plt.figure(figsize=(6.4, 4))
-plt.ylabel(r'Amplitude A, $[A] = \deg$')
-plt.xlabel(r'Time $[s] = \sec$')
-plt.errorbar(PT1, A1, yerr=yerr, fmt=".", color ="red", capsize=3, label=r'Measured amplitudes dampening $I_1$')
-plt.plot(PT1x, expon1, "--", color="red", label=r'Modell $A_0 e^{-\alpha_1 t}$ with $\alpha_1$ '+"= {:.2}".format(alpha1[0]))
-plt.errorbar(PT2, A2, yerr=yerr, fmt=".", color ="blue", capsize=3, label=r'Measured amplitudes dampening $I_2$')
-plt.plot(PT2x, expon2, "--", color="blue", label=r'Modell $A_0 e^{-\alpha_2 t}$ with $\alpha_2$ '+"= {:.2}".format(alpha2[0]))
-plt.errorbar(PT3, A3, yerr=yerr, fmt=".", color ="green", capsize=3, label=r'Measured amplitudes dampening $I_3$')
-plt.plot(PT3x, expon3, "--", color="green", label=r'Modell $A_0 e^{-\alpha_3 t}$ with $\alpha_3$ '+"= {:.3}".format(alpha3[0]))
-plt.legend()
-plt.savefig("damp1.PNG", dpi=600)
+
+plt.ylabel(r'Amplitude $A$, $[A] =  \deg$')
+plt.xlabel(r'Time $t$, $t = \sec$')
+
+plt.fill_between(PT1x, expon1_min, expon1_max, color='red', alpha=0.1, label=(r'$\alpha_{1min}$ = '+"{:.3},  ".format(round(alpha1_min[0],3))+r'$\alpha_{1max}$ = '+"{:.3}".format(round(alpha1_max[0],3))))
+plt.errorbar(PT1, A1, yerr=yerr, fmt=".", color ="red", capsize=3,markersize=3,elinewidth=1, label=r'Measured amplitudes dampening $I_1$')
+plt.plot(PT1x, expon1, "--", color="red",linewidth=1, label=r'$A_0 e^{-\alpha_1 t}$ with $\alpha_1$ '+"= {:.2}".format(alpha1[0]))
+
+plt.fill_between(PT2x, expon2_min, expon2_max, color='blue', alpha=0.1, label=(r'$\alpha_{2min}$ = '+"{:.3},  ".format(round(alpha2_min[0],3))+r'$\alpha_{2max}$ = '+"{:.3}".format(round(alpha2_max[0],3))))
+plt.errorbar(PT2, A2, yerr=yerr, fmt=".", color ="blue", capsize=3, markersize=3,elinewidth=1, label=r'Measured amplitudes dampening $I_2$')
+plt.plot(PT2x, expon2, "--", color="blue", linewidth=1,label=r'$A_0 e^{-\alpha_2 t}$ with $\alpha_2$ '+"= {:.2}".format(alpha2[0]))
+
+plt.fill_between(PT3x, expon3_min, expon3_max, color='green', alpha=0.1, label=(r'$\alpha_{3min}$ = '+"{:.3},  ".format(round(alpha3_min[0],3))+r'$\alpha_{3max}$ = '+"{:.3}".format(round(alpha3_max[0],3))))
+plt.errorbar(PT3, A3, yerr=yerr, fmt=".", color ="green", capsize=3, markersize=3,elinewidth=1, label=r'Measured amplitudes dampening $I_3$')
+plt.plot(PT3x, expon3, "--", color="green", linewidth=1,label=r'$A_0 e^{-\alpha_3 t}$ with $\alpha_3$ '+"= {:.3}".format(alpha3[0]))
+
+plt.legend(fontsize=8)
+plt.savefig("damp1.pgf")
 
 
-err_1 = np.ones(9)*2/A0
+err_1 = yerr/A0
 
 plt.figure(figsize=(6.4, 4))
 plt.yscale("log")
-plt.plot(PT1, A1/A0, ".",color="red", label="Dämpfung 1")
-plt.errorbar(PT1, A1/A0, yerr=err_1, fmt=".", color="red", capsize=3, label=r'Measured amplitudes')
-plt.plot(PT1x, expon1/A0, label="Model 1 ")
-plt.plot(PT2, A2/A0, ".", label="Dämpfung 2")
-plt.plot(PT2x, expon2/A0, label="Model 2")
-plt.plot(PT3, A3/A0, ".", label="Dämpfung 3")
-plt.plot(PT3x, expon3/A0, label="Model 13")
+plt.ylabel(r'Dampening of amplitude $A/A_0$, $[A] =  \deg$')
+plt.xlabel(r'Time $t$, $t =\sec$')
 
+plt.fill_between(PT1x, expon1_min/A0, expon1_max/A0, color='red', alpha=0.1, label=(r'$\alpha_{1min}$ = '+"{:.3},  ".format(round(alpha1_min[0],3))+r'$\alpha_{1max}$ = '+"{:.3}".format(round(alpha1_max[0],3))))
+plt.errorbar(PT1, A1/A0, yerr=err_1, fmt=".", color="red", capsize=3,markersize=3,elinewidth=1,  label=r'Measured amplitudes dampening $I_2$')
+plt.plot(PT1x, expon1/A0,"--", color="red",linewidth=1, label=r'$A_0 e^{-\alpha_1 t}$ with $\alpha_1$ '+"= {:.2}".format(alpha1[0]))
 
+plt.fill_between(PT2x, expon2_min/A0, expon2_max/A0, color='blue', alpha=0.1, label=(r'$\alpha_{2min}$ = '+"{:.3},  ".format(round(alpha2_min[0],3))+r'$\alpha_{2max}$ = '+"{:.3}".format(round(alpha2_max[0],3))))
+plt.errorbar(PT2, A2/A0, yerr=err_1, fmt=".", color="blue", capsize=3,markersize=3,elinewidth=1, label=r'Measured amplitudes dampening $I_2$')
+plt.plot(PT2x, expon2/A0, "--", color="blue", linewidth=1,label=r'$A_0 e^{-\alpha_2 t}$ with $\alpha_2$ '+"= {:.2}".format(alpha2[0]))
+
+plt.fill_between(PT3x, expon3_min/A0, expon3_max/A0, color='green', alpha=0.1, label=(r'$\alpha_{3min}$ = '+"{:.3},  ".format(round(alpha3_min[0],3))+r'$\alpha_{3max}$ = '+"{:.3}".format(round(alpha3_max[0],3))))
+plt.errorbar(PT3, A3/A0, yerr=err_1, fmt=".", color="green", capsize=3,markersize=3,elinewidth=1, label=r'Measured amplitudes dampening $I_3$')
+plt.plot(PT3x, expon3/A0, "--", color="green",linewidth=1, label=r'$A_0 e^{-\alpha_3 t}$ with $\alpha_3$ '+"= {:.3}".format(alpha3[0]))
+
+plt.legend(fontsize=8)
+plt.savefig("log.pgf")
+
+delta1 = abs((alpha1_max-alpha1) + (alpha1 - alpha1_min))/2
+delta2 = abs((alpha2_max-alpha2) + (alpha2 - alpha2_min))/2
+delta3 = abs((alpha3_max-alpha3) + (alpha3 - alpha3_min))/2
+print("delta alpha1",delta1,abs((alpha1_max-alpha1) - (alpha1 - alpha1_min)))
+print("delta alpha2",delta2,abs((alpha2_max-alpha2) - (alpha2 - alpha2_min)))
+print("delta alpha2",delta3,abs((alpha3_max-alpha3) - (alpha3 - alpha3_min)))
 """
 Experiment 2 Eichung des Tachometers
 """
@@ -183,20 +217,20 @@ del_om_2 = get_del_omega(C, del_C, V_t_2, delta_V)
 del_om_3 = get_del_omega(C, del_C, V_t_3, delta_V)
 
 
-plt.figure(figsize=(12, 8))
-plt.errorbar(om_1, A_1, np.ones_like(om_1)*2, None, '--o', label = 'Dampening 1', capsize=3)
+plt.figure(figsize=(6.4, 4))
+plt.errorbar(om_1, A_1, np.ones_like(om_1)*2, None, '--o', label = 'Dampening 1', capsize=3,markersize=3,elinewidth=1, linewidth= 1)
 #plt.plot(np.array([z11, z12]), np.array([A_1_max, A_1_max])/np.sqrt(2), '-b')
 
-plt.errorbar(om_2, A_2, np.ones_like(om_2)*2, None, '--o', label = 'Dampening 2', capsize=3)
+plt.errorbar(om_2, A_2, np.ones_like(om_2)*2, None, '--o', label = 'Dampening 2',capsize=3,markersize=3,elinewidth=1, linewidth= 1)
 #plt.plot(np.array([z21, z22]), np.array([A_2_max, A_2_max])/np.sqrt(2), '-g')
 
-plt.errorbar(om_3, A_3, np.ones_like(om_3)*2, None, '--o', label = 'Dampening 3', capsize=3)
+plt.errorbar(om_3, A_3, np.ones_like(om_3)*2, None, '--o', label = 'Dampening 3', capsize=3,markersize=3,elinewidth=1, linewidth= 1)
 #plt.plot(np.array([z31, z32]), np.array([A_3_max, A_3_max])/np.sqrt(2), '-r')
 
 plt.xlabel('Angular frequency $\omega$, $[\omega] = s^{-1}$')
 plt.ylabel('Amplitude A, $[A] = \deg$')
 plt.legend()
-plt.savefig("resonance.PNG")
+plt.savefig("resonance.pgf")
 
 
 print('alpha 1: ', alpha_1)
@@ -207,7 +241,7 @@ print('delta alpha 1: ', abs(alpha_1-alpha1))
 print('delta alpha 2: ', abs(alpha_2-alpha2))
 print('delta alpha 3: ', abs(alpha_3-alpha3))
 
-plt.show()
+#--------------------------------------------------------------------------------------------------
 
 
 # T1m = T1.mean()
