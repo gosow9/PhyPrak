@@ -1,27 +1,30 @@
 \subsection{Data Analysis}
+For the first experiment we followed the steps described in the subsection \ref{sec::exp}.
+To determine the value $\alpha_{1}$, we taken all the measured amplitudes with the corresponding times and performed a least square fit on the expected model \ref{eq::model}.
+The least square fit for $\alpha_1$ on the measured values is shown in figure \ref{fig::dampening} as an red dashed line.
+Since this curve gets not very close to the measured values the measuring technique is probably not the most exact method used.
+We expected an error of $\pm 2\degree$ while reading the scale in motion. 
+But since the values changed very fast and the reading was done by eye an even grater uncertainty can be expected.
 
-In the data analysis section you describe the post processing of the
-data. How did you obtain the data that you plot in the figures? The raw data does not necessarily need
-to be presented in the report. An important part of this paragraph
-are the measurement uncertainties. You should provide the
-uncertainties of all experimental results, i.e. in the form of error
-bars. Further, you should explain the origin of these uncertainties.
+To calculate an error on the calculated decaying rate $\alpha_{1}$ another two fits were done.
+For the first one $\alpha_{1max}$ we used the same set of data but added the estimated errors to the original values before performing the fit.
+On the second one $\alpha_{1min}$ we subtracted the estimated error.
+Having the maximum and minimum $\alpha_{1}$ we calculate the error 
+\[
+\Delta\alpha_1 = \frac{1}{2}(\alpha_{1max} - \alpha_{1min})
+\]
+This error is shown in figure \ref{fig::dampening} and figure \ref{fig::log} as the error band.
 
-There are many way how you can include equations and mathematical terms in your report. The easiest is to write them inside the text like this: $\Gamma =\SI{1.5}{\micro\meter\per\square\second}$. If you need to write a long equation, it is recommended to use e.g. the align environment.
-\begin{align}
-    \Gamma = \frac{a}{4\kappa}\times ...
-\end{align}
+\begin{figure} [ht]
+	\input{python/damp1.pgf}
+	\caption{Measured amplitudes with an estimated error of $\Delta A = \pm2 \degree$. Shown next to the exponential decay with $\alpha_{1, 2, 3}$ as decay rates and $A_0=110  \degree$  as starting value of the measurement. To every $\alpha$ value a calculated maximum and minimum error band is shown.}
+	\label{fig::dampening}
+\end{figure}
 
-All figures or tables that are part of your report have to be
-referenced somewhere in the text, ideally in order of their
-appearance (``as shown in Fig. ''). Figures have to
-have axis labels with units and a sensible scale. If more than on
-data set is plotted you need to provide a legend. This may be a sentence in the caption (``red dots denote data measured with \SI{1}{\milli\volt}, blue crosses were measured with \SI{10}{\milli\volt}'').
-
-After you have presented the data you need to interpret it. To this
-end you want to discuss the theoretical model that describes your
-data and you will derive model parameters from your measurement data
-(i.e. by fitting it to the data). Here, you will again elaborate on
-the confidence interval of the derived values (error propagation).
-This is an important part of the report and it will be the basis for
-the next paragraph.
+The same procedure as for the value $\alpha_1$ was done for $\alpha_{2,3}$.
+resulting in the following values for $\alpha_{1, 2, 3}$:
+\begin{align*}
+&\alpha_1 = 0.057 \pm \SI{0.003}{\second^{-1}}\\
+&\alpha_2 = 0.091 \pm \SI{0.006}{\second^{-1}}\\
+&\alpha_3 = 0.141 \pm \SI{0.008}{\second^{-1}}
+\end{align*}
