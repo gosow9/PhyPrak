@@ -8,6 +8,8 @@ Created on Fri Nov 19 11:33:43 2021
 import numpy as np
 import matplotlib.pyplot as plt
 from datetime import datetime
+from gauss import error
+
 
 
 
