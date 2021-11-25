@@ -1,18 +1,29 @@
 \subsection{Experiment}
 
-
 \subsubsection{Counter Tube Characteristics}
-To perform latter measurements, we first need to know at which voltage we want to operate the counter tube.
+To perform later measurements, we first need to know at which voltage we have to operate the counter tube.
 In order to do that, we need to find the so called Geiger plateau.
-The Geiger plateau is the plateau section of the curve where the number of counts is plotted against the voltage.
-In order to do that, we start with a voltage of 
+The Geiger plateau is the plateau section of the curve where the number of counts is plotted against the voltage (Fig. \ref{fig::plateau}). 
 
-This section is where you describe what you actually did in the lab.
-You explain what data you measured and how. Here, you might want to
-provide a sketch of the experimental setup, if this is applicable.
-This sketch could be taken from the experiment manual. In particular,
-you want to define all parameters that you use or measure in this
-experiment.
+In order to do that, we measure the number of counts $N(t)$ in $t = \SI{30}{\second}$ for different voltage settings $V$.
+We start at \SI{200}{\volt} and increase the voltage by \SI{100}{\volt} for every measurement.
+As the voltage range of our counter tube only goes up to \SI{980}{\volt}, we make the last measurement there.
 
-In general the information you provide in this section should be
-sufficient for the reader to reproduce your results.
+Because the scale of the voltmeter is \SI{20}{\volt}, we have an uncertainty in $V$ of $\Delta V = \SI{10}{\volt}$.
+
+\subsubsection{Activity of the Source}
+In this part we want to determine the actual activity of our $^{90}$Sr Source.
+In order to do that we first measure the total amount of decays $N$ in $t = \SI{90}{\second}$.
+To determine the background radiation $N_{BG}$, we measure a second time, but this time with the source shielded from the counter with a \SI{9}{\milli\meter} steel plate.
+Subtracting $N_{BG}$ from $N$ gives us $N_{eff}$.
+
+Next we want to measure the acceptance $\varepsilon$ of the device.
+The formula for determining that is as follows.
+\begin{align}
+	\varepsilon = \sin^2\left(\frac{\theta}{2}\right) \cite{manual}
+	\label{eq::acceptance}
+\end{align}
+Here, $\theta$ is the half angle of the triangle given by the point of our source and the width of the aperture.
+In order to know $\theta$, we measure the radius $r$ of the aperture and the distance $d$ between the source and the detector.
+As $d = \SI{101}{\milli\meter}$ is given by the manual \cite{manual}, we assume there is an uncertainty of $\Delta d = \SI{0.5}{\milli\meter}$.
+The scale of the vernier we use to measure the radius is to \SI{0.05}{\milli\meter}, so we assume an error of $\Delta r = \SI{0.025}{\milli\meter}$.

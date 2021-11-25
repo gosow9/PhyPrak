@@ -21,16 +21,29 @@ print('------------------------------------')
 V_1 = np.array([200, 300, 400, 500, 600, 700, 800, 900, 980]) #start with 200, +100
 t_1 = np.ones_like(V_1)*30#so 1% is reached
 N_1 = np.array([0, 0, 1826, 2379, 2535, 2452, 2501, 2402, 2516])
+n_1 = N_1/t_1
+
+del_V = np.ones_like(V_1)*10
+del_t = 0
+del_N = np.sqrt(N_1)
+
+def get_steigung(x):
+    return np.polyfit(x[0,3:], x[1, 3:], 1)[0]
+
+del_pol = error(get_steigung, np.array([V_1, N_1]), np.array([del_V, del_N]))
+
 poly = np.polyfit(V_1[3:], N_1[3:], 1)
 lin = lambda V: poly[0]*V + poly[1]
 V_poly = np.linspace(500, 980)
 
 
-plt.figure(figsize=(12, 8))
-plt.plot(V_poly, lin(V_poly))
-plt.errorbar(V_1, N_1, None, 10, '-o')
+plt.figure(figsize=(6.4, 4))
+plt.plot(V_poly, lin(V_poly), label = 'Geiger plateau fit')
+plt.errorbar(V_1, N_1, del_N, del_V, '-x', label = 'Measurements')
 plt.ylabel('Number of decays, N')
-plt.xlabel('Voltage, V')
+plt.xlabel('Voltage, in Volts')
+plt.legend()
+plt.savefig('plateau.PNG')
 plt.show()
 
 i = 0
@@ -46,17 +59,34 @@ print('Experiment 2')
 print('------------------------------------')
 t_2 = 90
 N_2 = 7453
+del_N_2 = np.sqrt(N_2)
 N_bg = 50
+del_N_bg = np.sqrt(N_bg)
 Neff_2 = N_2-N_bg
+del_Neff_2 = np.sqrt(del_N_2**2 + del_N_bg**2)
 
 d = 101 #mm
 r = 18.05 #mm Radius Stahlblende #pm 0.025
-theta = (np.tan(r/2/d)) #deg Halbwinkel
+del_r = 0.5*0.025
+del_d = 0.5
 
-eps = np.sin(theta/2)**2
+get_theta = lambda x: np.arctan(x[0]/2/x[1]) #x = (r, d)
+theta = get_theta(np.array([r, d])) #deg Halbwinkel
+del_theta = error(get_theta, np.array([r, d]), np.array([del_r, del_d]))
 
-aktiv_2 = Neff_2/t_2/eps #Bq
-aktiv_tilde = aktiv_2/2*(100/45+100/90) #Bq
+
+get_eps = lambda theta: np.sin(theta/2)**2
+eps = get_eps(theta)
+del_eps = error(get_eps, np.array([theta]), np.array([del_theta]))
+
+get_aktiv = lambda x: x[0]/x[1]/x[2] #x = (N, t, eps)
+aktiv_2 = get_aktiv(np.array([Neff_2, t_2, eps]))
+del_aktiv_2 = error(get_aktiv, np.array([Neff_2, t_2, eps]), np.array([del_Neff_2, 0., del_eps[0]]))
+
+get_aktiv_tilde = lambda aktiv: aktiv/2*(1/0.45 + 1/0.9)
+
+aktiv_tilde = get_aktiv_tilde(aktiv_2) #Bq
+del_aktiv_tilde = error(get_aktiv_tilde, np.array([aktiv_2]), np.array([del_aktiv_2]))[0]
 t_half_sr = 28.8
 t_half_y = 64
 tau_sr = t_half_sr/np.log(2)
@@ -71,11 +101,13 @@ diff = diff.total_seconds()/60/60/24/365
 A0 = aktiv_tilde/np.exp(-diff/tau)
 t_10k = -tau*np.log(10e3/aktiv_tilde)
 
-
-print('Halbwinkel: ', np.degrees(theta), 'deg')
-print('Akzeptanz: ', eps)
-print('Aktivität: ', aktiv_2, 'Bq')
-print('Aktivität ohne Folie: ', aktiv_tilde, 'Bq')
+print('N = ', N_2, ' +- ', np.sqrt(N_2))
+print('N_bg = ', N_bg, ' +- ', np.sqrt(N_bg))
+print('N_eff = ', Neff_2, ' +- ', del_Neff_2)
+print('Halbwinkel: ', np.degrees(theta), '+-', np.degrees(del_theta),  'deg')
+print('Akzeptanz: ', eps, '+-', del_eps)
+print('Aktivität: ', aktiv_2, '+-', del_aktiv_2, 'Bq')
+print('Aktivität ohne Folie: ', aktiv_tilde, '+-', del_aktiv_tilde, 'Bq')
 
 
 print('\n------------------------------------')
