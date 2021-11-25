@@ -1,14 +1,16 @@
 \subsection{Results}
 
-This paragraph is where you present the results from your
-experiment. This could be in the form of a table (if only very few
-parameters where measured) or as a figure. In the text you should
-essentially describe what can be seen in the figures, i.e. explain
-your axis and how the dependent variable changes as a function of
-the independent variable. Discuss trends of the data as well as the
-magnitude, origin and nature of the experimental uncertainties. Keep
-in mind that the measurement results are always correct! They might
-just not be the answer to the question you had in mind.
+The measurements of the characteristic curve of the detector are shown in Fig. \ref{fig::plateau}, together with the fit to the Geiger plateau, which will be explained later.
+The middle of the plateau is at around \SI{740}{\volt}, so we will operate the system at this voltage for the rest of the experiment.
 
-Depending on the experiment the discussion of the results can
-also be a part of the data analysis section.
+\begin{figure} [ht]
+	\centering
+	\includegraphics[width=400pt]{python/plateau.PNG}
+	\caption{Number of counts plotted against voltage for duration of \SI{30}{\second}. Uncertainty only on voltage.}
+	\label{fig::plateau}
+\end{figure}
+
+The uncertainty of the number of counts is described by the Poisson-distribution, therefore the uncertainty on any count is $\Delta N = \sqrt{N}$ \cite{manual}.
+We measured an activity of $N = 7453 \pm  86$ decays, together with $N_{BG} = 50 \pm 7$ decays without the source.
+
+As said, the distance is given as $d = 101 \pm \SI{0.5}{\milli\meter}$, and the diameter of the aperture we measured as $2*r = 18.05 \pm \SI{0.025}{\milli\meter}$.

@@ -1,36 +1,60 @@
 \subsection{Data analysis}
+\subsubsection{Counter Tube Characteristics}
+As shown in Fig. \ref{fig::plateau}, the Geiger plateau of the characteristic curve starts at around \SI{500}{\volt} and goes up to our last measurement point at \SI{980}{\volt}. 
+This gives us a value of $V_{Ideal} = \SI{740}{\volt}$ as middle and by that operating voltage of our detector.
+To know the quality of the detector, we look at its voltage dependency, so the slope of the plateau at $V_{Ideal}$.
+We fit a linear approximation with the method of least squares to the measured points, resulting the blue line in Fig. \ref{fig::plateau}, and a slope of $9.5 \cdot 10^{-2} \si{\volt^{-1}}$.
+So for every variation of the voltage by \SI{100}{\volt}, the number of counts differs by $9.5$.
+As for high number counts this is way smaller than the uncertainty we get from the Poisson-distribution, we can ignore that additional error in further calculations.
+In general, the smaller the gradient of the plateau, the better the detector.
 
-\begin{figure}
-\centering
-%\includegraphics[width=\textwidth]{test.pdf}
-\caption{In the figure caption you describe what is plotted in the
-figure. In this case: The measured data is depicted by the blue dots
-with error bars indicating the statistical error. The red line is a
-linear fit to the data.} \label{fig1}
-\end{figure}
-
-In the data analysis section you describe the post processing of the
-data. How did you obtain the data that you plot in the figures? The raw data does not necessarily need
-to be presented in the report. An important part of this paragraph
-are the measurement uncertainties. You should provide the
-uncertainties of all experimental results, i.e. in the form of error
-bars. Further, you should explain the origin of these uncertainties.
-
-There are many way how you can include equations and mathematical terms in your report. The easiest is to write them inside the text like this: $\Gamma =\SI{1.5}{\micro\meter\per\square\second}$. If you need to write a long equation, it is recommended to use e.g. the align environment.
+\subsubsection{Activity of the Source}
+To calculate the effective number of particles $N_{eff}$ detected by the counter tube, we have to subtract $N_{BG}$ from $N$.
+The error propagation method we will use most in this report is the Gaussian one. 
+Therefore we introduce it here in a general form and reference to it later:
+For a function $R(A, B, \dots)$, where $A \pm \Delta A, B \pm \Delta B, \dots$ are measured values, it is as follows.
 \begin{align}
-    \Gamma = \frac{a}{4\kappa}\times ...
+	\Delta R = \sqrt{\left(\frac{\partial R}{\partial A} \Delta A\right)^2 + \left(\frac{\partial R}{\partial B} \Delta B\right)^2 + \dots}
+	\label{eq::gauss}
 \end{align}
 
-All figures or tables that are part of your report have to be
-referenced somewhere in the text, ideally in order of their
-appearance (``as shown in Fig. \ref{fig1}''). Figures have to
-have axis labels with units and a sensible scale. If more than on
-data set is plotted you need to provide a legend. This may be a sentence in the caption (``red dots denote data measured with \SI{1}{\milli\volt}, blue crosses were measured with \SI{10}{\milli\volt}'').
+Using this method gives us an effective decay of $N_{eff} = N - N_{BG} = 7403 \pm 87$ decays in $\SI{90}{\second}$.
 
-After you have presented the data you need to interpret it. To this
-end you want to discuss the theoretical model that describes your
-data and you will derive model parameters from your measurement data
-(i.e. by fitting it to the data). Here, you will again elaborate on
-the confidence interval of the derived values (error propagation).
-This is an important part of the report and it will be the basis for
-the next paragraph.
+As we measured the diameter but not the radius of the aperture, we have to divide the value in two.
+Using Gauss again, we get a value of $r = 9.025 \pm \SI{0.0125}{\milli\meter}$.
+To determine the acceptance $\varepsilon$ of the detector, we need to know the half angle $\theta$.
+Given our measurements, and using basic trigonometry, $\theta$ is given as $\theta (r, d) = \arctan(r/d)$.
+Once again we use Gauss to determine the error propagation, leaving us with $\theta = 5.11 \pm \SI{0.03}{\deg}$.
+Now, equation (\ref{eq::acceptance}) finally gives us $\varepsilon = 1.98 \pm 0.02 \cdot 10^{-3}$.
+The total activity of the source is now given as $A_{tot} = \frac{N_{eff}}{t \cdot \varepsilon} = 41454 \pm \SI{632}{\becquerel}$, using Gauss.
+
+As the source is surrounded by a thin layer of steel which will prevent some radiation from getting to the source.
+For $^{90}$Sr decay, that is around 55\%, for $^{90}$Y decay, that is around 10\%.
+Using the fact that in this case around half of the decays are $^{90}$Sr and the other half $^{90}$Y, we can calculate the activity of the source without the steel layer as ${\tilde{A}_{tot}} = \frac{A_{tot} (45 + 90)}{2*(100)} = 69090 \pm \SI{1011}{\becquerel}$.
+
+\subsection{Activity and Dose Calculations}
+Here we want to calculate the lifetime $\tau$ of Sr and Y. 
+If $n_0$ is the amount of atoms at the start, there are $n_0/e$ atoms are left after $\tau$.
+We can calculate $\tau$ using the half-live of Sr and Y.
+The half-live of Sr is $h_{Sr} = 28.8$y, while the half-live of Y is $h_Y = 64$h \cite{manual}.
+The number of atoms remaining is given by $n(t) = n_0 e^{-t/\tau}$.
+The formula for getting the lifetime is then $\tau = h/\log(2)$, which leaves us with $\tau_{Sr} = 42$y and $\tau_Y = 92$h.
+
+As the activity of the source is also described as $A(t) =  \tilde{A}_{tot} e^{-t/\tau}$, we can calculate, when the activity is down to $A = 10000 \si{\becquerel}$, which leads us to $t = -\tau \log(A/\tilde{A}_{tot}) = 80$y.
+So in $80$ years, the activity of our source will be around $\SI{10000}{\becquerel}$.
+
+The average radiation people in Switzerland are exposed to in a year is $S = \SI{5.5}{\milli\sievert}$. Knowing the activity of the source we can calculate how long it would take to reach that dose if someone incorporated it.
+We can describe the dose with $D = t A (d_{Sr} + d{Y})$, where $d_{Sr} = 2.80 \cdot 10^{-8} \si{\sievert \becquerel^{-1}}$ and $d_Y = 2.70 \cdot 10^{-9} \si{\sievert \becquerel^{-1}}$ are the dose coefficients for Sr and Y \cite{manual}.
+To know the time $t_{Dose}$ it would take, we can rearrange this formula to
+\begin{align*}
+	t_{Dose} = \frac{D}{A(d_{Sr} + d_Y)} = \SI{2.6}{\second}.
+\end{align*}
+After that time, the average annual dose would be reached, so it is better to not incorporate the source!
+
+
+
+
+
+
+
+
