@@ -1,3 +1,37 @@
 \subsection{Experiment}
 
-Experiment 2.
+The goal of this task is to find the maximum energy $E_{max}$ of the beta particles leafing the source.
+We know that higher energy particles can penetrate thicker layers of material.
+With this knowledge, we measure the amount of particles which successfully penetrate our testing material to get an absorption curve of the material.
+From this curve we use three methods to get our $E_{max}$.
+
+
+To get this absorption curve, we lay aluminium plates of twelve different sizes in $x$-axis in the steel slider of our testing apparatus and measure the count rate $N$ over a time of 90 seconds.
+The aluminium plates used are in a range from 0mm to 4mm in thickness.
+After placing each plate in the measuring apparatus we let the automatic counter count all electrons reaching the sensor for 90 seconds. 
+The counted electrons then get logarithmically plotted against the thickness of the plates.
+
+
+From the plotted absorption curve we then can make our calculations of $E_{max}$.
+\paragraph{Method 1} we look at the absorption curve and find the maximum thickness $x_{max}$ of the aluminium, where the radiation is starting to fail to penetrate the aluminium.
+This thickness is then used to read out the maximal energy from a given figure \cite{manual} witch shows the range of the electrons in aluminium as a function of the distance-density product $\rho x$.
+On top of this value we add the energy lost $E_{loss}$ which the electrons lose to penetrate the thin stainless steel foil placed over the source.
+These two values added describe the initial energy of source  $E_{maxsource}$.
+Like above the we get this value from a plot given in the manual \cite{manual}, which shows the energy loss of electrons for 0.1\si{\mm} stainless steel, as a function of electron energy.
+
+\paragraph{Method 2} Here we use all the measured counts with a activity above our background noise $N_{BG}$ ($x<x_{max}$), to make a fit on a giving model from the manual \cite{manual}.
+The model used is an exponential which when plotted in a logarithmic scale gives us an straight line. 
+Using the slope $\mu$ of the straight line we can calculate the $E_{max}$ from a given equation.
+
+\paragraph{Method 3} in the last method we first correct our background noise.
+Then we plot the corrected counts $N_{eff}$ against $E_{max}-E(x)$ in a double logarithmic scale.
+From this plot we calculate the slope $n$ to draw a new plot were we plot the $n$-th root of the corrected counts $N_{eff}$ against the energy $E$.
+From this we get an extrapolated intersecting line were the counts are zero giving us a new 
+$E_{max}$ value.
+
+
+
+
+
+
+  

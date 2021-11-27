@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.6.22)  9 OCT 2021 11:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.6.22)  26 NOV 2021 23:36
 entering extended mode
 **./main.tex
 (main.tex
@@ -188,13 +188,73 @@ Package bm Info: No bold for \U/msa/m/n, using \pmb.
 Package bm Info: No bold for \U/msb/m/n, using \pmb.
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 )
+(C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pdfpages\pdfpages.
+sty
+Package: pdfpages 2021/03/06 v0.5t Insert pages of external PDF documents (AM)
+
+(C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ifthen.sty
+Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count269
+\calc@Bcount=\count270
+\calc@Adimen=\dimen152
+\calc@Bdimen=\dimen153
+\calc@Askip=\skip61
+\calc@Bskip=\skip62
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count271
+\calc@Cskip=\skip63
+)
+(C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/eso-pic\eso-pic.st
+y
+Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
+\ESO@tempdima=\dimen154
+\ESO@tempdimb=\dimen155
+
+(C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\color
+.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+))
+\AM@pagewidth=\dimen156
+\AM@pageheight=\dimen157
+\AM@fboxrule=\dimen158
+
+(C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pdfpages\pppdftex.
+def
+File: pppdftex.def 2021/03/06 v0.5t Pdfpages driver for pdfTeX (AM)
+)
+\pdfpages@includegraphics@status=\count272
+\AM@pagebox=\box52
+\AM@global@opts=\toks24
+\AM@pagecnt=\count273
+\AM@toc@title=\toks25
+\c@AM@survey=\count274
+\AM@templatesizebox=\box53
+)
 (C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/siunitx\siunitx.st
 y
 Package: siunitx 2021-06-17 v3.0.14 A comprehensive (SI) units package
-\l__siunitx_angle_tmp_dim=\dimen152
-\l__siunitx_angle_marker_box=\box52
-\l__siunitx_angle_unit_box=\box53
-\l__siunitx_compound_count_int=\count269
+\l__siunitx_angle_tmp_dim=\dimen159
+\l__siunitx_angle_marker_box=\box54
+\l__siunitx_angle_unit_box=\box55
+\l__siunitx_compound_count_int=\count275
 
 (C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/translations\trans
 lations.sty
@@ -217,33 +277,23 @@ Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 ))
-\l__siunitx_number_exponent_fixed_int=\count270
-\l__siunitx_number_min_decimal_int=\count271
-\l__siunitx_number_min_integer_int=\count272
-\l__siunitx_number_round_precision_int=\count273
-\l__siunitx_number_group_minimum_int=\count274
-
-(C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\color.sty
-Package: color 2020/02/24 v1.2b Standard LaTeX Color (DPC)
-
-(C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\color
-.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package color Info: Driver file: pdftex.def on input line 149.
-)
-\l__siunitx_table_tmp_box=\box54
-\l__siunitx_table_tmp_dim=\dimen153
-\l__siunitx_table_column_width_dim=\dimen154
-\l__siunitx_table_integer_box=\box55
-\l__siunitx_table_decimal_box=\box56
-\l__siunitx_table_before_box=\box57
-\l__siunitx_table_after_box=\box58
-\l__siunitx_table_before_dim=\dimen155
-\l__siunitx_table_carry_dim=\dimen156
-\l__siunitx_unit_tmp_int=\count275
-\l__siunitx_unit_position_int=\count276
-\l__siunitx_unit_total_int=\count277
+\l__siunitx_number_exponent_fixed_int=\count276
+\l__siunitx_number_min_decimal_int=\count277
+\l__siunitx_number_min_integer_int=\count278
+\l__siunitx_number_round_precision_int=\count279
+\l__siunitx_number_group_minimum_int=\count280
+\l__siunitx_table_tmp_box=\box56
+\l__siunitx_table_tmp_dim=\dimen160
+\l__siunitx_table_column_width_dim=\dimen161
+\l__siunitx_table_integer_box=\box57
+\l__siunitx_table_decimal_box=\box58
+\l__siunitx_table_before_box=\box59
+\l__siunitx_table_after_box=\box60
+\l__siunitx_table_before_dim=\dimen162
+\l__siunitx_table_carry_dim=\dimen163
+\l__siunitx_unit_tmp_int=\count281
+\l__siunitx_unit_position_int=\count282
+\l__siunitx_unit_total_int=\count283
 
 (C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3packages/l3keys2
 e\l3keys2e.sty
@@ -253,20 +303,20 @@ Package: expl3 2021-06-18 L3 programming layer (loader)
 (C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3backend\l3backen
 d-pdftex.def
 File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count278
-\l__pdf_internal_box=\box59
+\l__color_backend_stack_int=\count284
+\l__pdf_internal_box=\box61
 ))
 Package: l3keys2e 2021-06-18 LaTeX2e option processing using LaTeX3 keys
 )
 (C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\array.sty
 Package: array 2021/04/20 v2.5e Tabular extension package (FMi)
-\col@sep=\dimen157
-\ar@mcellbox=\box60
-\extrarowheight=\dimen158
-\NC@list=\toks24
-\extratabsurround=\skip61
-\backup@length=\skip62
-\ar@cellbox=\box61
+\col@sep=\dimen164
+\ar@mcellbox=\box62
+\extrarowheight=\dimen165
+\NC@list=\toks26
+\extratabsurround=\skip64
+\backup@length=\skip65
+\ar@cellbox=\box63
 ))
 (C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\hyperref.
 sty
@@ -292,9 +342,9 @@ Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 y
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
-\@linkdim=\dimen159
-\Hy@linkcounter=\count279
-\Hy@pagecounter=\count280
+\@linkdim=\dimen166
+\Hy@linkcounter=\count285
+\Hy@pagecounter=\count286
 
 (C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\pd1enc.de
 f
@@ -315,7 +365,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 s.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count281
+\Hy@SavedSpaceFactor=\count287
 
 (C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\puenc.def
 File: puenc.def 2021-06-07 v7.00m Hyperref: PDF Unicode definition (HO)
@@ -330,13 +380,13 @@ Package hyperref Info: Plain pages OFF on input line 4207.
 Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4445.
-\c@Hy@tempcnt=\count282
+\c@Hy@tempcnt=\count288
  (C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/url\url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4804.
-\XeTeXLinkMargin=\dimen160
+\XeTeXLinkMargin=\dimen167
 
 (C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/generic/bitset\bitset.st
 y
@@ -347,9 +397,9 @@ tcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count283
-\Field@Width=\dimen161
-\Fld@charsize=\dimen162
+\Fld@menulength=\count289
+\Field@Width=\dimen168
+\Fld@charsize=\dimen169
 Package hyperref Info: Hyper figures OFF on input line 6076.
 Package hyperref Info: Link nesting OFF on input line 6081.
 Package hyperref Info: Hyper index ON on input line 6084.
@@ -365,9 +415,9 @@ sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count284
-\c@Item=\count285
-\c@Hfootnote=\count286
+\Hy@abspage=\count290
+\c@Item=\count291
+\c@Hfootnote=\count292
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
@@ -381,8 +431,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
 e
 with kernel methods
 )
-\Fld@listcount=\count287
-\c@bookmark@seq@number=\count288
+\Fld@listcount=\count293
+\c@bookmark@seq@number=\count294
 
 (C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/rerunfilecheck\rer
 unfilecheck.sty
@@ -395,46 +445,46 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 86.
 )
-\Hy@SectionHShift=\skip63
+\Hy@SectionHShift=\skip66
 )
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 24.
+h' as default language. on input line 25.
  (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
 
 (C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-p
 df.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count289
-\scratchdimen=\dimen163
-\scratchbox=\box62
-\nofMPsegments=\count290
-\nofMParguments=\count291
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count292
-\MPscratchDim=\dimen164
-\MPnumerator=\count293
-\makeMPintoPDFobject=\count294
-\everyMPtoPDFconversion=\toks26
+\scratchcounter=\count295
+\scratchdimen=\dimen170
+\scratchbox=\box64
+\nofMPsegments=\count296
+\nofMParguments=\count297
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count298
+\MPscratchDim=\dimen171
+\MPnumerator=\count299
+\makeMPintoPDFobject=\count300
+\everyMPtoPDFconversion=\toks28
 )
 (C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/epstopdf-pkg\epsto
 pdf-base.sty
@@ -446,14 +496,24 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
+(C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pdflscape\pdflscap
+e.sty
+Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
+
+(C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\lscape.st
+y
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)
 (C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/translations/dicts
 \translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 24.
-Package hyperref Info: Link coloring ON on input line 24.
+or `english'. on input line 25.
+Package hyperref Info: Link coloring ON on input line 25.
 
 (C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\nameref.s
 ty
@@ -467,64 +527,173 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count295
+\c@section@level=\count301
 )
-LaTeX Info: Redefining \ref on input line 24.
-LaTeX Info: Redefining \pageref on input line 24.
-LaTeX Info: Redefining \nameref on input line 24.
+LaTeX Info: Redefining \ref on input line 25.
+LaTeX Info: Redefining \pageref on input line 25.
+LaTeX Info: Redefining \nameref on input line 25.
  (main.out) (main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 27.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 28.
 
 
 (C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 27.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 28.
 
 
 (C:\Users\Cedric\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-(sections/abstract.tex) (main.toc)
+(sections/abstract.tex) (main.toc [1
+
+{C:/Users/Cedric/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- (sections/introduction.tex)
-(sections/experiment.tex [1
+ (sections/introduction.tex) (sections/setup.tex)
+(sections/introduction_1.tex [2]) (sections/experiment_1.tex)
+(sections/results_1.tex [3]
+<python/plateau.PNG, id=136, 461.725pt x 289.08pt>
+File: python/plateau.PNG Graphic file (type png)
+<use python/plateau.PNG>
+Package pdftex.def Info: python/plateau.PNG  used on input line 8.
+(pdftex.def)             Requested size: 400.0pt x 250.43451pt.
+) (sections/analysis_1.tex [4 <./python/plateau.PNG>] [5])
 
-{C:/Users/Cedric/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]) (sections
-/results.tex) (sections/analysis.tex [2])
-(sections/disscussion.tex) (sections/conclusion.tex) [3] (sections/dos.tex
-[4]) (sections/references.tex) [5] (main.aux)
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 43.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 43.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 43.
+
+(sections/experiment_2.tex [6]) (sections/results_2.tex
+<python/fit.PNG, id=167, 462.528pt x 289.08pt>
+File: python/fit.PNG Graphic file (type png)
+<use python/fit.PNG>
+Package pdftex.def Info: python/fit.PNG  used on input line 17.
+(pdftex.def)             Requested size: 400.0pt x 250.01105pt.
+)
+(sections/analysis_2.tex [7 <./python/fit.PNG>]
+<python/loglog.png, id=186, 462.528pt x 346.896pt>
+File: python/loglog.png Graphic file (type png)
+<use python/loglog.png>
+Package pdftex.def Info: python/loglog.png  used on input line 59.
+(pdftex.def)             Requested size: 400.0pt x 300.01326pt.
+ [8]
+<python/emax.png, id=196, 462.528pt x 346.896pt>
+File: python/emax.png Graphic file (type png)
+<use python/emax.png>
+Package pdftex.def Info: python/emax.png  used on input line 83.
+(pdftex.def)             Requested size: 400.0pt x 300.01326pt.
+) (sections/disscussion.tex
+[9 <./python/loglog.png>] [10 <./python/emax.png>]) (sections/questions.tex
+[11]) [12] (sections/references.tex)
+<scan1.pdf, id=219, 508.90125pt x 722.7pt>
+File: scan1.pdf Graphic file (type pdf)
+<use scan1.pdf>
+Package pdftex.def Info: scan1.pdf  used on input line 56.
+(pdftex.def)             Requested size: 508.90001pt x 722.69823pt.
+File: scan1.pdf Graphic file (type pdf)
+<use scan1.pdf>
+Package pdftex.def Info: scan1.pdf  used on input line 56.
+(pdftex.def)             Requested size: 508.90001pt x 722.69823pt.
+<scan1.pdf, id=222, page=1, 508.90125pt x 722.7pt>
+File: scan1.pdf Graphic file (type pdf)
+<use scan1.pdf, page 1>
+Package pdftex.def Info: scan1.pdf , page1 used on input line 56.
+(pdftex.def)             Requested size: 508.90001pt x 722.69823pt.
+File: scan1.pdf Graphic file (type pdf)
+<use scan1.pdf, page 1>
+Package pdftex.def Info: scan1.pdf , page1 used on input line 56.
+(pdftex.def)             Requested size: 595.62173pt x 845.85333pt.
+ [13]
+File: scan1.pdf Graphic file (type pdf)
+<use scan1.pdf, page 1>
+Package pdftex.def Info: scan1.pdf , page1 used on input line 56.
+(pdftex.def)             Requested size: 595.62173pt x 845.85333pt.
+File: scan1.pdf Graphic file (type pdf)
+<use scan1.pdf, page 1>
+Package pdftex.def Info: scan1.pdf , page1 used on input line 56.
+(pdftex.def)             Requested size: 595.62173pt x 845.85333pt.
+File: scan1.pdf Graphic file (type pdf)
+<use scan1.pdf, page 1>
+Package pdftex.def Info: scan1.pdf , page1 used on input line 56.
+(pdftex.def)             Requested size: 595.62173pt x 845.85333pt.
+ [14 <./scan1.pdf>]
+<scan.pdf, id=236, 513.92pt x 722.7pt>
+File: scan.pdf Graphic file (type pdf)
+<use scan.pdf>
+Package pdftex.def Info: scan.pdf  used on input line 57.
+(pdftex.def)             Requested size: 513.91873pt x 722.69823pt.
+File: scan.pdf Graphic file (type pdf)
+<use scan.pdf>
+Package pdftex.def Info: scan.pdf  used on input line 57.
+(pdftex.def)             Requested size: 513.91873pt x 722.69823pt.
+<scan.pdf, id=239, page=1, 513.92pt x 722.7pt>
+File: scan.pdf Graphic file (type pdf)
+<use scan.pdf, page 1>
+Package pdftex.def Info: scan.pdf , page1 used on input line 57.
+(pdftex.def)             Requested size: 513.91873pt x 722.69823pt.
+File: scan.pdf Graphic file (type pdf)
+<use scan.pdf, page 1>
+Package pdftex.def Info: scan.pdf , page1 used on input line 57.
+(pdftex.def)             Requested size: 598.57071pt x 841.74008pt.
+File: scan.pdf Graphic file (type pdf)
+<use scan.pdf, page 1>
+Package pdftex.def Info: scan.pdf , page1 used on input line 57.
+(pdftex.def)             Requested size: 598.57071pt x 841.74008pt.
+File: scan.pdf Graphic file (type pdf)
+<use scan.pdf, page 1>
+Package pdftex.def Info: scan.pdf , page1 used on input line 57.
+(pdftex.def)             Requested size: 598.57071pt x 841.74008pt.
+File: scan.pdf Graphic file (type pdf)
+<use scan.pdf, page 1>
+Package pdftex.def Info: scan.pdf , page1 used on input line 57.
+(pdftex.def)             Requested size: 598.57071pt x 841.74008pt.
+ [15 <./scan.pdf>]
+(main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C541B1EB859758002379F7C3FC6418FE;690.
+(rerunfilecheck)             Checksum: 1539F70061A4E32F16000AD92F3E35A9;2890.
  ) 
 Here is how much of TeX's memory you used:
- 13521 strings out of 478804
- 251192 string characters out of 2844006
- 533034 words of memory out of 3000000
- 31259 multiletter control sequences out of 15000+600000
- 418731 words of font info for 82 fonts, out of 8000000 for 9000
+ 14858 strings out of 478804
+ 271515 string characters out of 2844006
+ 563629 words of memory out of 3000000
+ 32513 multiletter control sequences out of 15000+600000
+ 421944 words of font info for 95 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,8n,92p,682b,812s stack positions out of 5000i,500n,10000p,200000b,80000s
- <C:\Users\Cedric\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600
-\tcrm1200.pk><C:/Users/Cedric/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmbx10.pfb><C:/Users/Cedric/AppData/Local/Programs/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Cedric/AppData/Local/Program
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Cedric/AppData
-/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/C
-edric/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pf
-b><C:/Users/Cedric/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmr17.pfb><C:/Users/Cedric/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmr8.pfb><C:/Users/Cedric/AppData/Local/Programs/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Cedric/AppData/Local/Program
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on main.pdf (5 pages, 130296 bytes).
+ 73i,17n,81p,529b,884s stack positions out of 5000i,500n,10000p,200000b,80000s
+{C:/Users/Cedric/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/cm-super/c
+m-super-ts1.enc}<C:/Users/Cedric/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmbx10.pfb><C:/Users/Cedric/AppData/Local/Programs/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Cedric/AppData/Local/Prog
+rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Cedric/AppD
+ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Use
+rs/Cedric/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi
+12.pfb><C:/Users/Cedric/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmmi6.pfb><C:/Users/Cedric/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Cedric/AppData/Local/Programs/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Cedric/AppData/Local/Pr
+ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Cedric/App
+Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Use
+rs/Cedric/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8
+.pfb><C:/Users/Cedric/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmsy10.pfb><C:/Users/Cedric/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Cedric/AppData/Local/Programs/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/Cedric/AppData/Local/Pr
+ograms/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on main.pdf (15 pages, 2268188 bytes).
 PDF statistics:
- 127 PDF objects out of 1000 (max. 8388607)
- 19 named destinations out of 1000 (max. 500000)
- 57 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 322 PDF objects out of 1000 (max. 8388607)
+ 54 named destinations out of 1000 (max. 500000)
+ 221 words of extra memory for PDF output out of 10000 (max. 10000000)
 
