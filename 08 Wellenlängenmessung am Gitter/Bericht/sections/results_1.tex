@@ -1,22 +1,24 @@
 \subsection{Results}
 
-\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm}|  }
-	\hline
-	\multicolumn{4}{|c|}{Country List} \\
-	\hline
-	Colour& Wavelength [nm] & Literature [nm] &\\
-	\hline
-	Purple  &$380 \pm 4$	& $382$ &\\
-	Blue	&$441 \pm 4$	& $447$ &\\
-	Turquoise &$457 \pm 4$	& $471$ &\\
-	Green   &$487 \pm 4$ & $492$ &\\
-	Green	& $494 \pm 4$  & $501$ &\\
-	Yellow& $574 \pm 4$  &  $587$&\\
-	Red& $656 \pm 4$  & $656$&\\
-	Red& $695 \pm 4$  & $706$&\\
-	\hline
-\end{tabular}
-
+\begin{table}[ht]
+	\begin{tabularx}{\textwidth}{XM{4cm}M{4cm}M{4cm}}%{XXXXXX}{M{1.7cm}M{1.5cm}M{1.5cm}M{2.5cm}M{2cm}}
+		\toprule 
+		\textbf{Colour}& \textbf{Observed $\lambda$ order 1}  [\si{\nano\m}]    & \textbf{$\lambda$-Lit. order 2} [\si{\nano\m}] & \textbf{Deviation}   \\
+		\hline
+		&&&\\[-5pt]
+		Purple  	& $380 \pm 4$	& $382$ &  \\[5pt]
+		Blue		& $441 \pm 4$	& $447$ &  \\[5pt]
+		Turquoise 	& $457 \pm 4$	& $471$ &  \\[5pt]
+		Green   	& $487 \pm 4$ 	& $492$ &  \\[5pt]
+		Green		& $494 \pm 4$  	& $501$ &  \\[5pt]
+		Yellow		& $574 \pm 4$  	& $587$	&  \\[5pt]
+		Red			& $656 \pm 4$  	& $656$	&  \\[5pt]
+		Red			& $695 \pm 4$  	& $706$	&  \\[5pt]
+		\bottomrule 
+	\end{tabularx}
+	\caption{Measured period times with corresponding standard deviation (std) and estimated error.}
+	\label{tab::period}
+\end{table}
 
 This paragraph is where you present the results from your
 experiment. This could be in the form of a table (if only very few
