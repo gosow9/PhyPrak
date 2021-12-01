@@ -18,6 +18,8 @@ g = 1/15000*25.4 #1/mm
 b = np.array([230, 270, 280, 300, 305, 360, 420, 450])
 del_b = np.ones_like(b)*2.5
 
+ref1 = np.array([382, 447, 471, 492, 501, 587, 656, 706])
+
 a = np.ones_like(b)*1000 #mm
 del_a = np.ones_like(b)*5
 
