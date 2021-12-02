@@ -1,8 +1,10 @@
 \subsection{Data analysis}
 
+Given $a$ and $b$ as explained before, we can use trigonometry to determine that the angle $\varphi$ is given as $\varphi = \arctan(b/a)$.
+
 The error propagation method we will use most in this report
 is the Gaussian one. Therefore we introduce it here in a general form and reference to it
-later: For a function $R(A,B, . . . )$, where$ A \pm \Delta A,B \pm \Delta B, . . .$ are measured values, it is
+later: For a function $R(A,B, . . . )$, where $ A \pm \Delta A,B \pm \Delta B, . . .$ are measured values, it is
 as follows.
 
 \begin{align}
@@ -10,3 +12,30 @@ as follows.
 \label{eq::gauss}
 \end{align}
 
+With this method we calculate the error $\Delta \varphi$.
+Next we will use formula \ref{eq::wavelength} to determine the actual wavelengths $\lambda$.
+To calculate the uncertainty we use the Gaussian method (\ref{eq::gauss}) again. 
+This leads us to the results shown in table \ref{tab::He}.
+We compare those results to the literature values \cite{nist}.
+As this list is very precise and lists much more wavelength than we were able to measure, we try to identify the ones we detected with the relative intensities given on the list.
+So if multiple values are possible matches for our measurement, we try to pick the one with the highest relative intensity, as this is the one we are probably able to see in our experiment.
+
+\begin{table}[ht]
+	\begin{tabularx}{\textwidth}{XM{4cm}M{4cm}M{4cm}}%{XXXXXX}{M{1.7cm}M{1.5cm}M{1.5cm}M{2.5cm}M{2cm}}
+		\toprule 
+		\textbf{Colour}& \textbf{$\varphi$ [\si{\deg}]} & \textbf{Observed $\lambda$}  [\si{\nano\m}]    & \textbf{$\lambda$-Lit.} [\si{\nano\m}]   \\
+		\hline
+		&&&\\[-5pt]
+		Purple  	&$13.0 \pm 0.1$ & $380 \pm 12$	& $388$   \\[5pt]
+		Blue		&$15.1 \pm 0.2$& $441 \pm 12$	& $447$   \\[5pt]
+		Turquoise 	&$15.6 \pm 0.2$& $457 \pm 12$	& $471$   \\[5pt]
+		Green   	&$16.7 \pm 0.2$& $487 \pm 11$ 	& $492$   \\[5pt]
+		Green		&$17.0 \pm 0.2$& $494 \pm 11$  	& $501$   \\[5pt]
+		Yellow		&$19.8 \pm 0.2$& $574 \pm 11$  	& $587$	  \\[5pt]
+		Red			&$22.8 \pm 0.2$& $656 \pm 10$  	& $667$	  \\[5pt]
+		Red			&$24.2 \pm 0.2$& $695 \pm 10$  	& $706$	  \\[5pt]
+		\bottomrule 
+	\end{tabularx}
+	\caption{Measured wavelengths .}
+	\label{tab::He}
+\end{table}
